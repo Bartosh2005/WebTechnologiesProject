@@ -1,0 +1,76 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #111;
+    color: #eee;
+}
+
+header {
+    display: flex;
+    gap: 2rem;
+    padding: 1rem;
+    background: #000;
+    color: white;
+    justify-content: center;
+}
+
+header a {
+    text-decoration: none;
+    color: #eee;
+    transition: color 0.2s ease;
+}
+
+header a:hover {
+    color: #ff5555;
+}
+
+.article-container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.article-hero {
+    position: relative;
+    height: 50vh;
+    background-size: cover;
+    background-position: center;
+}
+
+.article-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 2rem;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+    color: white;
+}
+
+.article-overlay h1 {
+    margin: 0;
+    font-size: 3rem;
+}
+
+.article-overlay p {
+    margin: 0.5rem 0 0;
+    font-size: 1.2rem;
+}
+
+.article-content {
+    padding: 2rem;
+    line-height: 1.7;
+}
+
+.article-content h2 {
+    margin-top: 2rem;
+    font-size: 1.8rem;
+    color: #ff5555;
+}
+
+.article-content blockquote {
+    border-left: 4px solid #ff5555;
+    margin: 2rem 0;
+    padding-left: 1rem;
+    font-style: italic;
+    color: #ccc;
+}
