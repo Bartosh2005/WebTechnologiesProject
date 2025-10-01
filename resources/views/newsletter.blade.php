@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Game Vault</title>
-    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/newsletter.css') }}">
 </head>
 <body>
      <header>
@@ -13,12 +13,13 @@
         <a href="{{ url('/collection') }}"><h1>MyCollection</h1></a>
     </header>
 
-    <main>
-        <section style="text-align: center; margin-top: 50px;">
-            
-            
-        </section>
-    </main>
+        <div class="hero-image">
+                <div class="hero-text">
+                <h1>After 6 long years</h1>
+                <p>Silksong is finally out</p>
+            </div>
+        </div>
+    
 
     <footer>
         <p>&copy; 2025 Game Library</p>
