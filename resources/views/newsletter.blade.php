@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 </head>
 <body>
-    <header>
+     <header>
         <a href="{{ url('/welcome') }}"><h1>LOGO</h1></a>
         <a href="{{ url('/library') }}"><h1>MyGamebrowser</h1></a>
         <a href="{{ url('/newsletter') }}"><h1>MyNewsletter</h1></a>
@@ -14,10 +14,10 @@
     </header>
 
     <main>
-    <section style="text-align: center; margin-top: 50px;">
-    <h2>hey</h2>
+        <section style="text-align: center; margin-top: 50px;">
             
-    </section>
+            
+        </section>
     </main>
 
     <footer>
