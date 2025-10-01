@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Game Vault</title>
-    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/library.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/libraryl.css') }}">
     <link rel="shortcut icon" type="image/x-icon" href="{{ asset('betterfavicon.ico') }}?v={{ time() }}">
 </head>
 
@@ -24,40 +25,45 @@
         
         <div class="game-library">
 
-            <div class="valid-games">
-                <div class="overlay">
-                    <p>description</p>
+            
+            <h2>Game List</h2>
+
+            <div class="grid-container">
+                <a href="{{ url('/library/clash-of-clans') }}">
+                <div class="featured-article" style="background-image: url('/image/coc.jpg')">
+                    <div class="overlay">
+                        <h2>bla bla bla</h2>
+                        <p>bla bla bla</p>
+                </a>
+                    </div>
+                </div>
+
+  
+                <div class="sub-article" style="background-image: url('/image/coc.jpg')">
+                    <div class="overlay">
+                        <p>bla bla bla</p>
+                    </div>
+                </div>
+
+                <div class="sub-article" style="background-image: url('/image/coc.jpg')">
+                    <div class="overlay">
+                        <p>bla bla bla</p>
+                    </div>
+                </div>
+
+                <div class="sub-article" style="background-image: url('/image/coc.jpg')">
+                    <div class="overlay">
+                        <p>bla bla bla</p>
+                    </div>
+                </div>
+
+                <div class="sub-article" style="background-image: url('/image/coc.jpg')">
+                    <div class="overlay">
+                        <p>bla bla bla</p>
+                    </div>
                 </div>
             </div>
-            <h2>Game List</h2>
-            <div class="game-list" id="game-list">
-                <div id="game-card" class="game-card">
-                    <h3>The Legend of Zelda</h3>
-                    <p><strong>Genre:</strong> Action-adventure</p>
-                    <p><strong>Release Year:</strong> 1986</p>
-                    <p><strong>Company:</strong> Nintendo</p>
-                    <p>An epic fantasy game featuring Link on a quest to rescue Princess Zelda and defeat Ganon.</p>
-                    <button class="delete-btn">Remove</button>
-            </div>
 
-            <div id="game-card" class="game-card">
-                    <h3>Super Mario Bros.</h3>
-                    <p><strong>Genre:</strong> Platformer</p>
-                    <p><strong>Release Year:</strong> 1985</p>
-                    <p><strong>Company:</strong> Nintendo</p>
-                    <p>Join Mario on his adventure to rescue Princess Peach from Bowser.</p>
-                    <button class="delete-btn">Remove</button>
-            </div>
-
-                <article id="game-card" class="game-card">
-                    <h3>Halo: Combat Evolved</h3>
-                    <p><strong>Genre:</strong> First-person shooter</p>
-                    <p><strong>Release Year:</strong> 2001</p>
-                    <p><strong>Company:</strong> Bungie</p>
-                    <p>Master Chief fights to save humanity against the Covenant in this sci-fi shooter.</p>
-                    <button class="delete-btn">Remove</button>
-                </article>
-            </div>
         </section>
     </main>
 
