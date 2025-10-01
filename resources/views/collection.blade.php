@@ -6,10 +6,11 @@
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 </head>
 <body>
-    <header>
-        <a href="{{ url('library') }}"><h1>MyGamebrowser</h1></a>
-        <a href="{{ url('newsletter') }}"><h1>MyNewsletter</h1></a>
-        <a href="{{ url('collection') }}"><h1>MyCollection</h1></a>
+     <header>
+        <a href="{{ url('/welcome') }}"><h1>LOGO</h1></a>
+        <a href="{{ url('/library') }}"><h1>MyGamebrowser</h1></a>
+        <a href="{{ url('/newsletter') }}"><h1>MyNewsletter</h1></a>
+        <a href="{{ url('/collection') }}"><h1>MyCollection</h1></a>
     </header>
 
     

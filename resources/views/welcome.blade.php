@@ -7,16 +7,17 @@
 </head>
 <body>
     <header>
-        <a href="{{ url('library') }}"><h1>MyGamebrowser</h1></a>
-        <a href="{{ url('newsletter') }}"><h1>MyNewsletter</h1></a>
-        <a href="{{ url('welcome') }}"><h1>MyCollection</h1></a>
+        <a href="{{ url('/welcome') }}"><h1>LOGO</h1></a>
+        <a href="{{ url('/library') }}"><h1>MyGamebrowser</h1></a>
+        <a href="{{ url('/newsletter') }}"><h1>MyNewsletter</h1></a>
+        <a href="{{ url('/collection') }}"><h1>MyCollection</h1></a>
     </header>
 
     <main>
-        <section style="text-align: center; margin-top: 50px;">
+    <section style="text-align: center; margin-top: 50px;">
+    <h2>hey</h2>
             
-            
-        </section>
+    </section>
     </main>
 
     <footer>
