@@ -16,40 +16,40 @@
     </header>
 
     <main>
+        <center>
+        <h2>Browse the full library of GameVault and add games to MyCollection!</h2>
+        <input id="search-bar" type="text" placeholder="Search..">
+        </center>
         <section>
-            <h2>Add a Game</h2>
-            <form id="add-game-form">
-                <input type="text" name="title" placeholder="Game Title" required>
-                <input type="text" name="genre" placeholder="Genre" required>
-                <input type="number" name="year" placeholder="Release Year" required>
-                <input type="text" name="company" placeholder="Company" required>
-                <textarea name="description" placeholder="Description" required></textarea>
-                <button type="submit">Add Game</button>
-            </form>
-        </section>
+        
+        <div class="game-library">
 
-        <section>
+            <div class="valid-games">
+                <div class="overlay">
+                    <p>description</p>
+                </div>
+            </div>
             <h2>Game List</h2>
             <div class="game-list" id="game-list">
-                <article class="game-card">
+                <div id="game-card" class="game-card">
                     <h3>The Legend of Zelda</h3>
                     <p><strong>Genre:</strong> Action-adventure</p>
                     <p><strong>Release Year:</strong> 1986</p>
                     <p><strong>Company:</strong> Nintendo</p>
                     <p>An epic fantasy game featuring Link on a quest to rescue Princess Zelda and defeat Ganon.</p>
                     <button class="delete-btn">Remove</button>
-                </article>
+            </div>
 
-                <article class="game-card">
+            <div id="game-card" class="game-card">
                     <h3>Super Mario Bros.</h3>
                     <p><strong>Genre:</strong> Platformer</p>
                     <p><strong>Release Year:</strong> 1985</p>
                     <p><strong>Company:</strong> Nintendo</p>
                     <p>Join Mario on his adventure to rescue Princess Peach from Bowser.</p>
                     <button class="delete-btn">Remove</button>
-                </article>
+            </div>
 
-                <article class="game-card">
+                <article id="game-card" class="game-card">
                     <h3>Halo: Combat Evolved</h3>
                     <p><strong>Genre:</strong> First-person shooter</p>
                     <p><strong>Release Year:</strong> 2001</p>
