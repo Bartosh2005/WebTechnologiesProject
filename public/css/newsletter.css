@@ -160,4 +160,59 @@ form button:hover {
     background-color: #c82333;
 }
 
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 10px;
+  padding: 10px;
+}
+
+/* Featured article spans all columns */
+.featured-article {
+  grid-column: span 3;
+  background-image: url('/images/silksong.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 400px;
+  position: relative;
+  color: white;
+}
+
+.sub-article {
+  height: 180px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  color: white;
+}
+
+/* Overlay text styling */
+.overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 15px;
+  width: 100%;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+}
+
+.overlay h2 {
+  margin: 0 0 10px;
+  font-size: 24px;
+}
+
+.overlay p {
+  margin: 0;
+  font-size: 16px;
+}
+
 
