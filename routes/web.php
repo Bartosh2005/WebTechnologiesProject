@@ -7,21 +7,29 @@ Route::get('/', function () {
 });
 
 Route::get('/library', function () {
-    $games=[];
+    $games = [];
+
     return view('library', compact('games'));
 });
 
 Route::get('/collection', function () {
-    $games=[];
+    $games = [];
+
     return view('collection', compact('games'));
 });
 
 Route::get('/newsletter', function () {
-    $games=[];
+    $games = [];
+
     return view('newsletter', compact('games'));
 });
 
 Route::get('/welcome', function () {
-    $games=[];
+    $games = [];
+
     return view('welcome', compact('games'));
+});
+
+Route::get('/articles/silksong', function () {
+    return view('articles.silksong');
 });
