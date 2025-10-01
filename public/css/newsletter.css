@@ -8,51 +8,6 @@ html {
     height: 100%;
 }
 
-
-.hero-image {
-    background-image: url('/images/silksong.jpg');
-    height: 50%;
-     width: 80%; 
-    margin: 0 auto; 
-
-
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    position: relative;
-}
-
-.hero-text {
-    text-align: center;
-    position: absolute;
-    bottom: -10%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: rgb(235, 222, 222);
-}
-
-.terminus-image {
-    background-image: url('/images/ReTerminus.png');
-    height: 30%;
-    width: 30%;
-    margin: 5 auto;
-
-    background-position: left;
-    background-repeat: no-repeat;
-    background-size: cover;
-    position: relative;
-}
-
-.terminus-text{
-
-    text-align: center;
-    position: absolute;
-    bottom: -10%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: rgb(154, 0, 0);
-
-}
 .primary-btn {
     background-color: #000911;
     color: white;
@@ -86,12 +41,12 @@ header, footer {
 }
 
 header a {
-  text-decoration: none; /* Removes underline */
-  color: inherit; /* Uses the parent's color */
+  text-decoration: none; 
+  color: inherit; 
 }
 
 header a:hover {
-  opacity: 0.8; /* Optional: adds a hover effect */
+  opacity: 0.8; 
 }
 
 h1, h2 {
@@ -171,31 +126,35 @@ body {
 
 .grid-container {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 10px;
-  padding: 10px;
+  grid-template-columns: repeat(auto-fit, minmax(1fr, 2fr));
+  grid-gap: 2%;
+  padding: 1%;
 }
 
 /* Featured article spans all columns */
 .featured-article {
   grid-column: span 3;
   background-image: url('/images/silksong.jpg');
-  background-size: cover;
+  background-size: contain;
   background-position: center;
-  height: 400px;
+  background-repeat: no-repeat;
+  background-color: black;
+  height: 30vw;
+  width: auto;
   position: relative;
   color: white;
 }
 
 .sub-article {
-  height: 180px;
-  background-size: cover;
+  height: 30vw;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-color: black;
   background-position: center;
   position: relative;
   color: white;
 }
 
-/* Overlay text styling */
 .overlay {
   position: absolute;
   bottom: 0;
@@ -207,12 +166,17 @@ body {
 
 .overlay h2 {
   margin: 0 0 10px;
-  font-size: 24px;
+  font-size: 3vw;
+  text-align: center;
+  font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
 }
 
 .overlay p {
   margin: 0;
-  font-size: 16px;
+  font-size: 2vw;
+  color: white;
+  text-align: center;
+  font-family: 'Times New Roman', Times, serif;
 }
 
 
