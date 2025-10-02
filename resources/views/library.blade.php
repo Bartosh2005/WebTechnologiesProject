@@ -10,6 +10,7 @@
     <script src="{{ asset('js/library.js') }}"></script>
     <script src="{{ asset('js/cookies.js') }}"></script>
     <script src="{{ asset('js/gameslist.js') }}"></script>
+    <script src="{{ asset('js/app.js') }}"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.5/dist/js.cookie.min.js"></script>
 
@@ -35,12 +36,20 @@
 
             <div class="grid-container" id="girdlibrary">
                 
-                <div class="featured-article" style="background-image: url('/imgs/coc.jpg')">
+                <div class="featured-article gamepop" style="background-image: url('/imgs/coc.jpg')" onclick="openPopup('featured-popup')">
                     <button class="add-button" onclick="saveToMyCollection('Clash of Clans')"> Add to MyCollection </button>
                     <a href="{{ url('/library/clash-of-clans') }}">
                     <div class="overlay">
                         <h2>bla bla bla</h2>
                         <p>bla bla bla</p><br></a>
+                    </div>
+                    <div class="popup" id="featured-popup">
+                        <img src="/imgs/coc.jpg">
+                        <!-- The event.stopPropagation() is a prebuilt function that stops the parent's function from retriggering -->
+                        <button type="button" onclick="event.stopPropagation(); closePopup('featured-popup')">X</button>
+                        <div class="overlay">     
+                            <h2>this is a popped-up version</h2>          
+                        </div>
                     </div>
                 </div>
 <!--
@@ -69,7 +78,7 @@
                 </div>
 -->
             </div>
-        <br><br>
+        <br><br><br><br><br><br><br>
         </section>
     </main>
 
@@ -77,6 +86,5 @@
         <p>&copy; 2025 Game Library</p>
     </footer>
 
-    <script src="{{ asset('js/app.js') }}"></script>
 </body>
 </html>
