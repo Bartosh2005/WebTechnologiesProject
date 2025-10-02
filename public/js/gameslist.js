@@ -1,11 +1,12 @@
-const gamesNew = [
+const gamesLibrary = [
     {
         title: "The Witcher 3",
         genre: "RPG",
         year: 2015,
         company: "CD Projekt",
         description: "An open-world fantasy RPG about a monster hunter.",
-        img:""
+        img:"",
+        tags:[]
     },
     {
         title: "Hollow Knight",
@@ -13,7 +14,8 @@ const gamesNew = [
         year: 2017,
         company: "Team Cherry",
         description: "A 2D action-adventure set in a bug-infested kingdom.",
-        img:""
+        img:"",
+        tags:[]
     },
     {
         title: "Portal 2",
@@ -21,7 +23,8 @@ const gamesNew = [
         year: 2011,
         company: "Valve",
         description: "A first-person puzzle game with portals and sarcasm.",
-        img:""
+        img:"",
+        tags:[]
     },
     {
         title: "Fortnite",
@@ -29,7 +32,8 @@ const gamesNew = [
         year: 0,
         company: "Epic Games",
         description: "Fortnite is the 3rd person shooter developed by Epic Games",
-        img:"fort.png"
+        img:"fort.png",
+        tags:["v-bucks","vbucks"]
     },
     {
         title: "Apex Legends",
@@ -37,7 +41,8 @@ const gamesNew = [
         year: 0,
         company: "Electronics Arts",
         description: "Apex is bla bla bla bla",
-        img:"apex.jpg"
+        img:"apex.jpg",
+        tags:[]
     },
     {
         title: "Apex Favorites",
@@ -45,7 +50,8 @@ const gamesNew = [
         year: 0,
         company: "Electronics Arts",
         description: "Apex is bla bla bla bla",
-        img:"apex.jpg"
+        img:"apex.jpg",
+        tags:[]
     },
     {
         title: "CS:GO 2",
@@ -53,29 +59,16 @@ const gamesNew = [
         year: 0,
         company: "Valve",
         description: "CS:GO 2 is the first person shooter developed by Valve",
-        img:"csgo.jpg"
+        img:"csgo.jpg",
+        tags:["terrorists","counterterrorists"]
+    },
+    {
+        title: "Clash of Clans",
+        genre: "",
+        year: 0,
+        company: "Supercell",
+        description: "",
+        img:"coc.jpg",
+        tags:["Coc"]
     }
 ];
-function addGame(item){
-    var collection = document.getElementById("gamesCollection");
-    collection.innerHTML+=`
-        <div class="game">
-            <img src="imgs/${item.img}" style="max-width:50%; float: left; border-radius:15px;"/>
-            <div>
-                <h3 style="float:rigth;">${item.title}</h3>
-                <small style="vertical-align: text-top;">${item.company}</small>
-                <p style="float:rigth;">${item.description}</p>
-            </div>
-        </div>`;
-    console.log(`Added ${item.title}`);
-}
-function clearGames(){
-    var collection = document.getElementById("gamesCollection");
-    collection.innerHTML="";
-}
-
-function addGames(collection = gamesNew) {
-    // var collection = document.getElementById("gamesCollection");
-    collection.forEach(addGame);
-}
-

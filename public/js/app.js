@@ -1,10 +1,10 @@
 
 const searchInput = document.getElementById("search-bar"); 
-const games = document.querySelectorAll(".grid-container > *"); 
+const gamesCont = document.querySelectorAll(".grid-container > *"); 
 
 searchInput.addEventListener("input", () => {
     const query = searchInput.value.toLowerCase();
-    games.forEach(game => {
+    gamesCont.forEach(game => {
         const nameElement = game.querySelector("p");
         if (!nameElement) return; 
         const name = nameElement.textContent.toLowerCase();
