@@ -29,11 +29,11 @@
             <h2>Game List</h2>
 
             <div class="grid-container">
+                
                 <a href="{{ url('/library/clash-of-clans') }}">
                 <div class="featured-article" style="background-image: url('/image/coc.jpg')">
                     <div class="overlay">
-                        <h2>bla bla bla</h2>
-                        <p>bla bla bla</p>
+                        <p class ="game">Hades</p>
                 </a>
                     </div>
                 </div>
@@ -41,25 +41,25 @@
   
                 <div class="sub-article" style="background-image: url('/image/coc.jpg')">
                     <div class="overlay">
-                        <p>bla bla bla</p>
+                        <p class ="game">Clash of Clans</p>
                     </div>
                 </div>
 
                 <div class="sub-article" style="background-image: url('/image/coc.jpg')">
                     <div class="overlay">
-                        <p>bla bla bla</p>
+                        <p class ="game">Clash Royale</p>
                     </div>
                 </div>
 
                 <div class="sub-article" style="background-image: url('/image/coc.jpg')">
                     <div class="overlay">
-                        <p>bla bla bla</p>
+                        <p class ="game">Silksong</p>
                     </div>
                 </div>
 
                 <div class="sub-article" style="background-image: url('/image/coc.jpg')">
                     <div class="overlay">
-                        <p>bla bla bla</p>
+                        <p class ="game">Witcher</p>
                     </div>
                 </div>
             </div>
