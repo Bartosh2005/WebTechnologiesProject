@@ -25,3 +25,7 @@ Route::get('/welcome', function () {
     $games=[];
     return view('welcome', compact('games'));
 });
+Route::get('/account', function () {
+    $games=[];
+    return view('account', compact('games'));
+});

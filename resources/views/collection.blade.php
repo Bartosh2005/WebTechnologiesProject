@@ -29,6 +29,7 @@
             color:gray;
         }
     */</style>
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('betterfavicon.ico') }}?v={{ time() }}">
 </head>
 <body onload="addGames()">
      <header>
