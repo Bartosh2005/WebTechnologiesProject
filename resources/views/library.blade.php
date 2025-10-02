@@ -11,11 +11,11 @@
 
 <body>
     <header>
-        <a href="{{ url('/welcome') }}"><h1>LOGO</h1></a>
+        <a href="{{ url('/welcome') }}"><img src="{{ asset('image/Logo.png') }}" alt="Logo" style="width: 150px;"></a>
         <a href="{{ url('/library') }}"><h1>MyGamebrowser</h1></a>
         <a href="{{ url('/newsletter') }}"><h1>MyNewsletter</h1></a>
         <a href="{{ url('/collection') }}"><h1>MyCollection</h1></a>
-         <a href="{{ url('/welcome') }}"><button>MyAccount</button></a>
+         <a href="{{ url('/account') }}"><button class="MyAccount-button">MyAccount</button></a>
     </header>
 
     <main>
@@ -30,10 +30,10 @@
             <div class="grid-container">
                 <a href="{{ url('/library/clash-of-clans') }}">
                 <div class="featured-article" style="background-image: url('/image/coc.jpg')">
+                    <button class="add-button"> Add to MyCollection </button>
                     <div class="overlay">
                         <h2>bla bla bla</h2>
-                        <p>bla bla bla</p>
-                </a>
+                        <p>bla bla bla</p><br></a>
                     </div>
                 </div>
 
