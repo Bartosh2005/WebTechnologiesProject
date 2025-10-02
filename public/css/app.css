@@ -3,11 +3,12 @@
 @tailwind utilities;
 
 header {
-    text-align: center;
-    align-items: center;
     display: flex;
-    gap: 100px;
-    }
+    gap: 2rem;
+    padding: 1rem;
+    color: white;
+    justify-content: center;
+}
     
 .primary-btn {
     background-color: #000911;
