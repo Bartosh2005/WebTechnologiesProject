@@ -5,6 +5,7 @@
     <title>Game Vault</title>
     <link rel="stylesheet" href="{{ asset('css/library.css') }}">
     <link rel="stylesheet" href="{{ asset('css/libraryl.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <link rel="shortcut icon" type="image/x-icon" href="{{ asset('betterfavicon.ico') }}?v={{ time() }}">
 </head>
 
@@ -14,26 +15,24 @@
         <a href="{{ url('/library') }}"><h1>MyGamebrowser</h1></a>
         <a href="{{ url('/newsletter') }}"><h1>MyNewsletter</h1></a>
         <a href="{{ url('/collection') }}"><h1>MyCollection</h1></a>
+         <a href="{{ url('/welcome') }}"><button>MyAccount</button></a>
     </header>
 
     <main>
-        <center>
-        <h2>Browse the full library of GameVault and add games to MyCollection!</h2>
-        <input id="search-bar" type="text" placeholder="Search..">
-        </center>
-        <section>
-        
+        <section>    
         <div class="game-library">
-
-            
-            <h2>Game List</h2>
+            <center>
+                <p><br><br></p>
+                <h2 class="title-size">Browse the full library of GameVault and add games to MyCollection!</h2><br>
+                <input id="search-bar" type="text" placeholder="Search any game in MyGameBrowser to add to MyCollection..">
+            </center>
 
             <div class="grid-container">
-                
                 <a href="{{ url('/library/clash-of-clans') }}">
                 <div class="featured-article" style="background-image: url('/image/coc.jpg')">
                     <div class="overlay">
-                        <p class ="game">Hades</p>
+                        <h2>bla bla bla</h2>
+                        <p>bla bla bla</p>
                 </a>
                     </div>
                 </div>
@@ -63,7 +62,7 @@
                     </div>
                 </div>
             </div>
-
+        <br><br>
         </section>
     </main>
 

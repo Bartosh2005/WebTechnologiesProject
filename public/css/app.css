@@ -2,7 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
-
+header {
+    display: flex;
+    gap: 2rem;
+    padding: 1rem;
+    color: white;
+    justify-content: center;
+}
+    
 .primary-btn {
     background-color: #000911;
     color: white;

@@ -94,6 +94,14 @@ header a:hover {
   opacity: 0.8; /* Optional: adds a hover effect */
 }
 
+main a {
+  text-decoration: none; /* Removes underline */
+  color: inherit; /* Uses the parent's color */
+}
+main a:hover {
+  opacity: 0.8;
+}
+
 h1, h2 {
     margin: 0 0 10px;
 }
@@ -213,4 +221,18 @@ body {
 .overlay p {
   margin: 0;
   font-size: 16px;
+}
+
+.hover {
+  opacity: 0.8;
+}
+.add-button {
+  background-color: #B23535;
+  color: white;
+  border: none;
+  padding: 1% 2%;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  text-align: right;
 }
