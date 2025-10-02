@@ -2,7 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
-
+header {
+    text-align: center;
+    align-items: center;
+    display: flex;
+    gap: 100px;
+    }
+    
 .primary-btn {
     background-color: #000911;
     color: white;
