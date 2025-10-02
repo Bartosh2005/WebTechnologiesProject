@@ -17,24 +17,23 @@
     </header>
 
     <main>
-        <center>
-        <h2>Browse the full library of GameVault and add games to MyCollection!</h2>
-        <input id="search-bar" type="text" placeholder="Search..">
-        </center>
-        <section>
-        
+        <section>    
         <div class="game-library">
+            <center>
+                <p><br><br></p>
+                <h2 class="title-size">Browse the full library of GameVault and add games to MyCollection!</h2><br>
+                <input id="search-bar" type="text" placeholder="Search any game in MyGameBrowser to add to MyCollection..">
+            </center>
 
-            
-            <h2>Game List</h2>
-
-            <div class="grid-container">
+            <div class="grid-container" class="hover">
                 <a href="{{ url('/library/clash-of-clans') }}">
                 <div class="featured-article" style="background-image: url('/image/coc.jpg')">
                     <div class="overlay">
                         <h2>bla bla bla</h2>
-                        <p>bla bla bla</p>
-                </a>
+                        <p>bla bla bla</p></a><br>
+                            <a>
+                                <button class="add-button">Add to MyCollection</button>
+                            </a>
                     </div>
                 </div>
 
@@ -63,7 +62,7 @@
                     </div>
                 </div>
             </div>
-
+        <br><br>
         </section>
     </main>
 

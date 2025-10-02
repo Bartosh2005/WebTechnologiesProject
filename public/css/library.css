@@ -23,8 +23,9 @@
 
 #search-bar {
     border: 1px solid #0d0d0d;  
-    width: 30%;
-    height: 10%;
+    width: 45%;
+    padding: 10px;
+    font-size: large;
     
 }
 #game-card {
@@ -117,6 +118,9 @@ form button:hover {
 
 .delete-btn:hover {
     background-color: #c82333;
+}
+.title-size {
+    font-size: xx-large;
 }
 
 
