@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <title>Game Vault</title>
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <script src="{{ asset('js/gameslibrary.js') }}"></script>
     <script src="https://kit.fontawesome.com/56dbcf3753.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <style>
         .games {
         display: grid;
@@ -28,7 +30,7 @@
         }
     */</style>
 </head>
-<body>
+<body onload="addGames()">
      <header>
         <a href="{{ url('/welcome') }}"><h1>LOGO</h1></a>
         <a href="{{ url('/library') }}"><h1>MyGamebrowser</h1></a>
@@ -43,31 +45,7 @@
             <div class="searchicon"><i class="fa-solid fa-sort" style=""></i></div>
             <div class="searchicon"><i class="fa-solid fa-filter" style=""></i></div>
         </div>
-        <div class="games">
-            <div class="game">
-                <img src="imgs/apex.jpg" style="max-width:50%; float: left; border-radius:15px;"/>
-                <div>
-                    <h3 style="float:rigth;">APEX Legends</h3>
-                    <small style="vertical-align: text-top;">Electronics Arts</small>
-                    <p style="float:rigth;">Apex is bla bla bla bla</p>
-                </div>
-            </div>
-            <div class="game">
-                <img src="imgs/fort.png" style="max-width:50%; float: left; border-radius:15px;"/>
-                <div>
-                    <h3 style="float:rigth;">Fortnite</h3>
-                    <small style="vertical-align: text-top;">Epic games</small>
-                    <p style="float:rigth;">Fortnite is the 3rd person shooter developed by Epic Games</p>
-                </div>
-            </div>
-            <div class="game">
-                <img src="imgs/csgo.jpg" style="max-width:50%; float: left; border-radius:15px;"/>
-                <div>
-                    <h3 style="float:rigth;">CS:GO 2</h3>
-                    <small style="vertical-align: text-top;">Valve</small>
-                    <p style="float:rigth;">CS:GO 2 is the first person shooter developed by Valve</p>
-                </div>
-            </div>
+        <div class="games" id="gamesCollection">
         </div>
     </main>
 
@@ -76,4 +54,38 @@
         <p>&copy; 2025 Game Library</p>
     </footer>
 </body>
+
+<script>
+	 
+
+    $("#searchbar").keyup(function() {
+        var val = $.trim(this.value);
+        console.log(val);
+        if (val == ""){
+            clearGames();
+            addGames();
+        }else {
+            clearGames();
+            var games = gamesNew.filter(x => x.title.includes(val) || x.description.includes(val) || x.company.includes(val) || x.genre.includes(val));// ||  x.description === val);
+            addGames(games);
+            //console.log(games);
+        }
+    });
+
+    $("#searchbar").keyup(function() {//change first letter to uppercase
+        var myElement = document.getElementById("searchbar");
+        var query = myElement.value;
+        
+        let arr = query.split(" ");
+
+        for (let i = 0; i < arr.length; i++) {
+            arr[i] = arr[i].charAt(0).toUpperCase() + arr[i].slice(1);
+        }
+        query = arr.join(" ");
+        
+        myElement.value = query;
+
+    });
+</script>
+
 </html>
