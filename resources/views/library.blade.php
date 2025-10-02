@@ -7,9 +7,15 @@
     <link rel="stylesheet" href="{{ asset('css/libraryl.css') }}">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <link rel="shortcut icon" type="image/x-icon" href="{{ asset('betterfavicon.ico') }}?v={{ time() }}">
+    <script src="{{ asset('js/library.js') }}"></script>
+    <script src="{{ asset('js/cookies.js') }}"></script>
+    <script src="{{ asset('js/gameslist.js') }}"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.5/dist/js.cookie.min.js"></script>
+
 </head>
 
-<body>
+<body onload="addGames()">
     <header>
         <a href="{{ url('/welcome') }}"><img src="{{ asset('image/Logo.png') }}" alt="Logo" style="width: 150px;"></a>
         <a href="{{ url('/library') }}"><h1>MyGamebrowser</h1></a>
@@ -27,17 +33,17 @@
                 <input id="search-bar" type="text" placeholder="Search any game in MyGameBrowser to add to MyCollection..">
             </center>
 
-            <div class="grid-container">
-                <a href="{{ url('/library/clash-of-clans') }}">
-                <div class="featured-article" style="background-image: url('/image/coc.jpg')">
-                    <button class="add-button"> Add to MyCollection </button>
+            <div class="grid-container" id="girdlibrary">
+                
+                <div class="featured-article" style="background-image: url('/imgs/coc.jpg')">
+                    <button class="add-button" onclick="saveToMyCollection('Clash of Clans')"> Add to MyCollection </button>
+                    <a href="{{ url('/library/clash-of-clans') }}">
                     <div class="overlay">
                         <h2>bla bla bla</h2>
                         <p>bla bla bla</p><br></a>
                     </div>
                 </div>
-
-  
+<!--
                 <div class="sub-article" style="background-image: url('/image/coc.jpg')">
                     <div class="overlay">
                         <p class ="game">Clash of Clans</p>
@@ -61,6 +67,7 @@
                         <p class ="game">Witcher</p>
                     </div>
                 </div>
+-->
             </div>
         <br><br>
         </section>
