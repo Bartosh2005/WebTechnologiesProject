@@ -2,14 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-header {
-    display: flex;
-    gap: 2rem;
-    padding: 1rem;
-    color: white;
-    justify-content: center;
-}
-    
+
 .primary-btn {
     background-color: #000911;
     color: white;
@@ -21,8 +14,23 @@ header {
     transition: background-color 0.3s ease;
 }
 
+.container {
+    grid-template-columns: auto auto auto;
+}
+
 .primary-btn:hover {
     background-color: #135ba3;
+}
+
+#search-bar {
+    border: 1px solid #0d0d0d;  
+    width: 45%;
+    padding: 10px;
+    font-size: large;
+    
+}
+#game-card {
+    width: 30%;
 }
 
 body {
@@ -49,10 +57,6 @@ header a {
 
 header a:hover {
   opacity: 0.8; /* Optional: adds a hover effect */
-}
-
-h1, h2 {
-    margin: 0 0 10px;
 }
 
 form {
@@ -116,16 +120,9 @@ form button:hover {
 .delete-btn:hover {
     background-color: #c82333;
 }
-
-.MyAccount-button {
-  background-color: #B23535;
-  color: white;
-  border: none;
-  padding: 18px 18px;
-  margin: 0.5% 0.5%;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-  text-align: right;
+.title-size {
+    font-size: xx-large;
 }
+
+
 

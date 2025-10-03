@@ -4,8 +4,38 @@
     <meta charset="UTF-8">
     <title>Game Vault</title>
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('betterfavicon.ico') }}?v={{ time() }}">
+    <script src="{{ asset('js/collection.js') }}"></script>
+    <script src="{{ asset('js/gameslist.js') }}"></script>
+    <script src="{{ asset('js/cookies.js') }}"></script>
+    <script src="https://kit.fontawesome.com/56dbcf3753.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.5/dist/js.cookie.min.js"></script>
+    <style>
+        .games {
+        display: grid;
+        grid-template-columns: auto auto auto;
+        /* background-color: dodgerblue; */
+        padding: 1%;
+        text-align: center;
+        }
+        .game{
+            border: 1px solid black;
+            border-radius: 1.5rem;
+            padding:2%;
+            margin:2%;
+        }
+        .searchicon{
+            align-content: center;
+            margin:0.5rem;
+        }
+        .searchicon:hover{
+            color:gray;
+        }
+    */</style>
+    
 </head>
-<body>
+<body onload="loadSavedGames()">
      <header>
         <a href="{{ url('/welcome') }}"><h1>LOGO</h1></a>
         <a href="{{ url('/library') }}"><h1>MyGamebrowser</h1></a>
@@ -13,9 +43,55 @@
         <a href="{{ url('/collection') }}"><h1>MyCollection</h1></a>
     </header>
 
-    
+    <main>
+        <div class="search" style="display:grid;grid-template-columns: 2% auto 2% 2%;padding:1%;">
+            <div class="searchicon"><i class="fa-solid fa-magnifying-glass"></i></div>
+            <input id="searchbar" type="text" style="border-radius:1rem;margin:0.5rem;height:30px;font-size:2rem;" autocapitalize="words" autofocus/>
+            <div class="searchicon"><i class="fa-solid fa-sort" style=""></i></div>
+            <div class="searchicon"><i class="fa-solid fa-filter" style=""></i></div>
+        </div>
+        <div class="games" id="gamesCollection">
+        </div>
+    </main>
+
+
     <footer>
         <p>&copy; 2025 Game Library</p>
     </footer>
 </body>
+
+<script>
+	 
+
+    $("#searchbar").keyup(function() {
+        var val = $.trim(this.value);
+        console.log(val);
+        if (val == ""){
+            clearGames();
+            addGames();
+        }else {
+            clearGames();
+            //TODO: make it not case sensitive
+            var gamessearched = games.filter(x => x.title.includes(val) || x.description.includes(val) || x.company.includes(val) || x.genre.includes(val) || x.tags.find(a =>a.includes(val)));
+            addGames(gamessearched);
+            //console.log(games);
+        }
+    });
+
+    $("#searchbar").keyup(function() {//change first letter to uppercase
+        var myElement = document.getElementById("searchbar");
+        var query = myElement.value;
+        
+        let arr = query.split(" ");
+
+        for (let i = 0; i < arr.length; i++) {
+            arr[i] = arr[i].charAt(0).toUpperCase() + arr[i].slice(1);
+        }
+        query = arr.join(" ");
+        
+        myElement.value = query;
+
+    });
+</script>
+
 </html>
