@@ -51,12 +51,12 @@ header, footer {
 }
 
 header a {
-  text-decoration: none; /* Removes underline */
-  color: inherit; /* Uses the parent's color */
+  text-decoration: none; 
+  color: inherit; 
 }
 
 header a:hover {
-  opacity: 0.8; /* Optional: adds a hover effect */
+  opacity: 0.8; 
 }
 
 form {
