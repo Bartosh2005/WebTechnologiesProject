@@ -47,17 +47,19 @@ footer {
 
 .grid-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 32px;
   padding: 32px;
-  max-width: 1200px;
+  max-width: 70vw;
   margin: 0 auto;
 }
 
 .featured-article {
   grid-column: span 3;
-  height: 400px;
-  background-size: cover;
+  height: 40vw;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-color:black;
   background-position: center;
   border-radius: 10px;
   position: relative;
@@ -66,8 +68,10 @@ footer {
 }
 
 .sub-article {
-  height: 250px;
-  background-size: cover;
+  height: 30vw;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-color:black;
   background-position: center;
   border-radius: 10px;
   position: relative;
@@ -90,7 +94,7 @@ footer {
 
 .overlay h2 {
   margin: 0;
-  font-size: 40px;
+  font-size: 2.5vw;
   color: #fff;
   font-weight: bold;
   text-align: center;
@@ -98,7 +102,7 @@ footer {
 
 .overlay p {
   margin-top: 8px;
-  font-size: 20px;
+  font-size: 1.5vw;
   color: #dfd7d7;
   text-align: center;
 }

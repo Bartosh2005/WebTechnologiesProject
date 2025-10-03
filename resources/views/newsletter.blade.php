@@ -32,13 +32,13 @@
     </div>
   </a>
 
-  <a href="{{ url('/articles/ret') }}" class="sub-article" style="background-image: url('/images/ReTerminus.png')">
+  <a href="{{ url('/articles/terminus') }}" class="sub-article" style="background-image: url('/images/ReTerminus.png')">
     <div class="overlay">
       <p>MarTek, the famous game company is rumored to be working on a new game</p>
     </div>
   </a>
 
-  <a href="{{ url('/articles/borderlands4') }}" class="sub-article" style="background-image: url('/images/BorderLands2.png')">
+  <a href="{{ url('/articles/bd4') }}" class="sub-article" style="background-image: url('/images/BorderLands2.png')">
     <div class="overlay">
       <p>BorderLands IV - Performance Issues, CEO says 'Get a better PC'</p>
     </div>
