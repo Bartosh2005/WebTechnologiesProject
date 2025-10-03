@@ -3,60 +3,73 @@
 <head>
     <meta charset="UTF-8">
     <title>Game Vault</title>
+    <link rel="stylesheet" href="{{ asset('css/library.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/libraryl.css') }}">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('betterfavicon.ico') }}?v={{ time() }}">
+    <script src="{{ asset('js/library.js') }}"></script>
+    <script src="{{ asset('js/cookies.js') }}"></script>
+    <script src="{{ asset('js/gameslist.js') }}"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.5/dist/js.cookie.min.js"></script>
+
 </head>
 
-<body>
+<body onload="addGames()">
     <header>
-        <a href="{{ url('/welcome') }}"><h1>LOGO</h1></a>
+        <a href="{{ url('/welcome') }}"><img src="{{ asset('image/Logo.png') }}" alt="Logo" style="width: 150px;"></a>
         <a href="{{ url('/library') }}"><h1>MyGamebrowser</h1></a>
         <a href="{{ url('/newsletter') }}"><h1>MyNewsletter</h1></a>
         <a href="{{ url('/collection') }}"><h1>MyCollection</h1></a>
+         <a href="{{ url('/account') }}"><button class="MyAccount-button">MyAccount</button></a>
     </header>
 
     <main>
-        <section>
-            <h2>Add a Game</h2>
-            <form id="add-game-form">
-                <input type="text" name="title" placeholder="Game Title" required>
-                <input type="text" name="genre" placeholder="Genre" required>
-                <input type="number" name="year" placeholder="Release Year" required>
-                <input type="text" name="company" placeholder="Company" required>
-                <textarea name="description" placeholder="Description" required></textarea>
-                <button type="submit">Add Game</button>
-            </form>
-        </section>
+        <section>    
+        <div class="game-library">
+            <center>
+                <p><br><br></p>
+                <h2 class="title-size">Browse the full library of GameVault and add games to MyCollection!</h2><br>
+                <input id="search-bar" type="text" placeholder="Search any game in MyGameBrowser to add to MyCollection..">
+            </center>
 
-        <section>
-            <h2>Game List</h2>
-            <div class="game-list" id="game-list">
-                <article class="game-card">
-                    <h3>The Legend of Zelda</h3>
-                    <p><strong>Genre:</strong> Action-adventure</p>
-                    <p><strong>Release Year:</strong> 1986</p>
-                    <p><strong>Company:</strong> Nintendo</p>
-                    <p>An epic fantasy game featuring Link on a quest to rescue Princess Zelda and defeat Ganon.</p>
-                    <button class="delete-btn">Remove</button>
-                </article>
+            <div class="grid-container" id="girdlibrary">
+                
+                <div class="featured-article" style="background-image: url('/imgs/coc.jpg')">
+                    <button class="add-button" onclick="saveToMyCollection('Clash of Clans')"> Add to MyCollection </button>
+                    <a href="{{ url('/library/clash-of-clans') }}">
+                    <div class="overlay">
+                        <h2>bla bla bla</h2>
+                        <p>bla bla bla</p><br></a>
+                    </div>
+                </div>
+<!--
+                <div class="sub-article" style="background-image: url('/image/coc.jpg')">
+                    <div class="overlay">
+                        <p class ="game">Clash of Clans</p>
+                    </div>
+                </div>
 
-                <article class="game-card">
-                    <h3>Super Mario Bros.</h3>
-                    <p><strong>Genre:</strong> Platformer</p>
-                    <p><strong>Release Year:</strong> 1985</p>
-                    <p><strong>Company:</strong> Nintendo</p>
-                    <p>Join Mario on his adventure to rescue Princess Peach from Bowser.</p>
-                    <button class="delete-btn">Remove</button>
-                </article>
+                <div class="sub-article" style="background-image: url('/image/coc.jpg')">
+                    <div class="overlay">
+                        <p class ="game">Clash Royale</p>
+                    </div>
+                </div>
 
-                <article class="game-card">
-                    <h3>Halo: Combat Evolved</h3>
-                    <p><strong>Genre:</strong> First-person shooter</p>
-                    <p><strong>Release Year:</strong> 2001</p>
-                    <p><strong>Company:</strong> Bungie</p>
-                    <p>Master Chief fights to save humanity against the Covenant in this sci-fi shooter.</p>
-                    <button class="delete-btn">Remove</button>
-                </article>
+                <div class="sub-article" style="background-image: url('/image/coc.jpg')">
+                    <div class="overlay">
+                        <p class ="game">Silksong</p>
+                    </div>
+                </div>
+
+                <div class="sub-article" style="background-image: url('/image/coc.jpg')">
+                    <div class="overlay">
+                        <p class ="game">Witcher</p>
+                    </div>
+                </div>
+-->
             </div>
+        <br><br>
         </section>
     </main>
 

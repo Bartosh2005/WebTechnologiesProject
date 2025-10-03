@@ -29,6 +29,10 @@ Route::get('/welcome', function () {
 
     return view('welcome', compact('games'));
 });
+Route::get('/account', function () {
+    $games=[];
+    return view('account', compact('games'));
+});
 
 Route::get('/articles/silksong', function () {
     return view('articles.silksong');
