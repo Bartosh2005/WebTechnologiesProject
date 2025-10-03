@@ -50,3 +50,15 @@ Route::get('/articles/ssg', function () {
 Route::get('/articles/goy', function () {
     return view('articles.goy');
 });
+
+Route::get('/articles/terminus', function () {
+    return view('articles.terminus');
+});
+
+Route::get('/articles/bd4', function () {
+    return view('articles.bd4');
+});
+
+Route::get('/articles/ananta', function () {
+    return view('articles.ananta');
+});
