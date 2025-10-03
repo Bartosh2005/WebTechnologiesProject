@@ -30,10 +30,23 @@ Route::get('/welcome', function () {
     return view('welcome', compact('games'));
 });
 Route::get('/account', function () {
-    $games=[];
+    $games = [];
+
     return view('account', compact('games'));
 });
 
 Route::get('/articles/silksong', function () {
     return view('articles.silksong');
+});
+
+Route::get('/articles/hades2', function () {
+    return view('articles.hades2');
+});
+
+Route::get('/articles/ssg', function () {
+    return view('articles.ssg');
+});
+
+Route::get('/articles/goy', function () {
+    return view('articles.goy');
 });

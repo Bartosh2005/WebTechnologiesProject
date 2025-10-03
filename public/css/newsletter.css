@@ -2,182 +2,103 @@
 @tailwind components;
 @tailwind utilities;
 
-
-body,
-html {
-    height: 100%;
-}
-
-.primary-btn {
-    background-color: #000911;
-    color: white;
-    border: none;
-    padding: 12px 20px;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.primary-btn:hover {
-    background-color: #135ba3;
-}
-
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    padding: 20px;
-    margin: 0;
-}
-
-header, footer {
-    color: #3D3636;
-    padding: 10px;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    text-align: center;
-    align-items: center;
-    display: flex;
-    gap: 100px;
-}
-
-header a {
-  text-decoration: none; 
-  color: inherit; 
-}
-
-header a:hover {
-  opacity: 0.8; 
-}
-
-h1, h2 {
-    margin: 0 0 10px;
-}
-
-form {
-    background: white;
-    padding: 15px;
-    border-radius: 5px;
-    margin-bottom: 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-form input, form textarea {
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 14px;
-}
-
-form button {
-    background-color: #007bff;
-    color: white;
-    border: none;
-    padding: 10px;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-form button:hover {
-    background-color: #0056b3;
-}
-
-.game-list {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-.game-card {
-    background: white;
-    padding: 15px;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
-
-.game-card h3 {
-    margin-top: 0;
-}
-
-.delete-btn {
-    margin-top: 10px;
-    background-color: #dc3545;
-    color: white;
-    border: none;
-    padding: 8px;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-.delete-btn:hover {
-    background-color: #c82333;
-}
-
 * {
   box-sizing: border-box;
 }
 
-body {
+body,
+html {
+  height: 100%;
   margin: 0;
-  font-family: 'Arial', sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #111;
+  color: #eee;
+}
+
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+  padding: 12px;
+  background-color: #000;
+  color: white;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+header a {
+  text-decoration: none;
+  color: #eee;
+  transition: color 0.2s ease;
+}
+
+header a:hover {
+  color: #ff5555;
+}
+
+footer {
+  text-align: center;
+  padding: 32px;
+  background-color: #000;
+  color: #eee5e5;
+  font-size: 14px;
 }
 
 .grid-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(1fr, 2fr));
-  grid-gap: 2%;
-  padding: 1%;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 32px;
+  padding: 32px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
-
-
 
 .featured-article {
   grid-column: span 3;
-  background-image: url('/images/silksong.jpg');
-  background-size: contain;
+  height: 400px;
+  background-size: cover;
   background-position: center;
-  background-repeat: no-repeat;
-  background-color: black;
-  height: 30vw;
-  width: auto;
+  border-radius: 10px;
   position: relative;
-  color: white;
+  overflow: hidden;
+  background-image: url('/images/silksong.jpg');
 }
 
 .sub-article {
-  height: 30vw;
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-color: black;
+  height: 250px;
+  background-size: cover;
   background-position: center;
+  border-radius: 10px;
   position: relative;
-  color: white;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.sub-article:hover {
+  transform: scale(1.03);
 }
 
 .overlay {
   position: absolute;
   bottom: 0;
   left: 0;
-  padding: 15px;
+  padding: 24px;
   width: 100%;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
 }
 
 .overlay h2 {
-  margin: 0 0 10px;
-  font-size: 3vw;
+  margin: 0;
+  font-size: 40px;
+  color: #fff;
+  font-weight: bold;
   text-align: center;
-  font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
 }
 
 .overlay p {
-  margin: 0;
-  font-size: 2vw;
-  color: white;
+  margin-top: 8px;
+  font-size: 20px;
+  color: #dfd7d7;
   text-align: center;
-  font-family: 'Times New Roman', Times, serif;
 }
-
-
