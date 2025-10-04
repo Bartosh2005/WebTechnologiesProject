@@ -8,7 +8,8 @@
 }
 
 #search-bar {
-    border: 1px solid #0d0d0d;
+    border: 2px solid #0d0d0d;
+    border-radius: 1.5rem;
     width: 45%;
     padding: 10px;
     font-size: large;
@@ -21,6 +22,38 @@ body {
     background-color: #111;
     padding: 20px;
     margin: 0;
+}
+
+form {
+    background: rgb(75, 70, 70);
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+form input,
+form textarea {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+form button {
+    background-color: #7e868c;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+form button:hover {
+    background-color: #c83f3f;
 }
 
 header,
@@ -47,3 +80,4 @@ header a:hover {
 .title-size {
     font-size: xx-large;
 }
+

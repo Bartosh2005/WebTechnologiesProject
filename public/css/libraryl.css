@@ -58,6 +58,7 @@ main a:hover {
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 5%;
   padding: 5%;
+  margin-bottom: 300px;
 }
 
 /* Featured article spans all columns */

@@ -53,13 +53,15 @@
                     </div>
                 </div>
             </div>
-        <br><br><br><br><br><br><br>
         </section>
+
+        <footer>
+        <p>&copy; 2025 Game Library</p>
+        </footer>
+        
     </main>
 
-    <footer>
-        <p>&copy; 2025 Game Library</p>
-    </footer>
+    
 
 </body>
 </html>
