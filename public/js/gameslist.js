@@ -4,7 +4,7 @@ const gamesLibrary = [
         genre: "RPG",
         year: 2015,
         company: "CD Projekt",
-        description: "An open-world fantasy RPG about Geralt of Rivia, a monster hunter known as a Witcher. Explore a vast, richly detailed world filled with complex characters, moral choices, and branching storylines. Engage in deep combat, craft potions, hunt legendary beasts, and unravel political intrigue as you search for your adopted daughter, Ciri, while facing the threat of the Wild Hunt.",
+        description: "Play as Geralt of Rivia, a monster hunter in an open-world fantasy RPG. Explore a rich world, battle beasts, make moral choices, and search for your adopted daughter Ciri while facing the deadly Wild Hunt.",
         img: "witcher3.jpg",
         tags: []
     },

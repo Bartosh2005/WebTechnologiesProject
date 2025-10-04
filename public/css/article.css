@@ -31,7 +31,7 @@ header a:hover {
 
 .article-container {
     height: 80vh;
-    width: 50vw;
+    width: 65vw;
     overflow-x: hidden;
     overflow-y: auto;
     margin: auto;
