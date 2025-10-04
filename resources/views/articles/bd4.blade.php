@@ -22,26 +22,24 @@
     </div>
 
     <article class="article-content">
-      <h2>Truth or Rumor?</h2>
+      <h2>Technical Disaster</h2>
       <p>
-        The public's opinion is split when it comes to the reliablitiy of said rumors,
-        mainly due to the one behind them. J4n, a notorius leaker, posted on his Y account that
-        he's found some files indicative of a new game, as well as the cover art that was publicly shared.
-        While some count it as fabricated, others tend to point to their past leaks and how most of them
-        turned out to be true.
+      BorderLands IV, the highly anticipated installment of the popular franchise, launched with massive hype and even bigger problems.
+    Players report stuttering, frame drops, and crashes even on high-end systems. Despite multiple patches,
+    the optimization issues persist, making the game nearly unplayable for some.
       </p>
 
-      <h2>What Should We Expect?</h2>
+       <h2>Community Reactions</h2>
       <p>
-        While we have little information, the cover art for the rumored game is enough to make some
-        assumptions. Given the company's past approach to their projects, we could guess that it will be an 
-        open world game -probably set in an apocaliptic scenario where the world froze over. Furthermore, the futuristic
-        looking object encased in ice hints at possible sci-fi elements added to the game. Last but not least, 
-        the lonely character clad in black could be the game's protagonist.
+        Social media platforms and gaming forums are flooded with complaints. Many loyal fans of the series express
+        their disappointment, stating that the release feels rushed. The hashtag <strong>#FixBorderlandsIV</strong> even
+        trended globally on launch day.
       </p>
 
+      <h2>What’s Next?</h2>
       <p>
-        It's too early to say much, but we look forward to the future development of this situation. Stay tuned for more.
+        Developers have acknowledged the issues and promised urgent fixes. However, with the damage already done to its
+        reputation, only time will tell if BorderLands IV can recover and deliver the experience fans were hoping for.
       </p>
     </article>
   </main>

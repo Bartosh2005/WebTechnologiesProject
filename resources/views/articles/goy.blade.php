@@ -38,9 +38,6 @@
           <li><strong>Cinematic Modes:</strong> New visual filters like “Miike Mode” and “Watanabe Mode” accompany the return of Kurosawa Mode, giving players stylized cinematic experiences.</li>
           <li><strong>Combat & Narrative:</strong> Tightly balanced gameplay blending stealth, swordplay, and exploration, with a somber story that echoes themes of loss and redemption.</li>
         </ul>
-        <p>
-          According to <a href="https://www.theguardian.com/games/2025/oct/02/ghost-of-yotei-review-deliciously-brutal-and-stunningly-beautiful-revenge-quest" target="_blank">The Guardian</a>, “Yōtei feels like a painful, beautiful fever dream.”
-        </p>
       </section>
 
       <section>
@@ -50,15 +47,6 @@
           <li><strong>Visual Trade-offs:</strong> Kurosawa Mode, while gorgeous, can hinder visibility during stealth sequences or low-light areas.</li>
           <li><strong>Historical Accuracy:</strong> The name “Yōtei” is anachronistic, sparking debate among scholars about intentional symbolism vs oversight.</li>
         </ul>
-        <p>
-          As noted by <a href="https://www.gamesradar.com/games/open-world/ghost-of-yoteis-title-features-a-historical-inaccuracy-so-clever-that-one-japanese-scholar-believes-it-has-to-be-intentional/" target="_blank">GamesRadar</a>, “It’s either a clever twist, or a curious misstep.”
-        </p>
-      </section>
-
-      <section class="quote-block">
-        <blockquote>
-          “Ghost of Yōtei is not about invention — it's about refinement. It’s poetry carved in snow and blood.”  
-        </blockquote>
       </section>
 
       <section>
