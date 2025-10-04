@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Game Vault</title>
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('betterfavicon.ico') }}?v={{ time() }}">
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('Logo.ico') }}?v={{ time() }}">
     <script src="{{ asset('js/collection.js') }}"></script>
     <script src="{{ asset('js/gameslist.js') }}"></script>
     <script src="{{ asset('js/cookies.js') }}"></script>

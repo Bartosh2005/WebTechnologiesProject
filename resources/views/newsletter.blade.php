@@ -3,10 +3,10 @@
   <head>
     <meta charset="UTF-8">
     <title>Game Vault</title>
-    <link rel="stylesheet" href="{{ asset('css/newsletter.css') }}">
-    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('betterfavicon.ico') }}?v={{ time() }}">
-  </head>
-  <body>
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('Logo.ico') }}?v={{ time() }}">
+</head>
+<body>
     <header>
       <a href="{{ url('/welcome') }}"><img src="{{ asset('image/Logo.png') }}" alt="Logo" style="width: 150px;"></a>
       <a href="{{ url('/library') }}"><h1>MyGamebrowser</h1></a>
