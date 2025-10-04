@@ -3,45 +3,29 @@
 @tailwind utilities;
 
 
-.primary-btn {
-    background-color: #000911;
-    color: white;
-    border: none;
-    padding: 12px 20px;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
 .container {
     grid-template-columns: auto auto auto;
 }
 
-.primary-btn:hover {
-    background-color: #135ba3;
-}
-
 #search-bar {
-    border: 1px solid #0d0d0d;  
+    border: 1px solid #0d0d0d;
     width: 45%;
     padding: 10px;
     font-size: large;
-    
+
 }
-#game-card {
-    width: 30%;
-}
+
 
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    background-color: #111;
     padding: 20px;
     margin: 0;
 }
 
-header, footer {
-    color: #3D3636;
+header,
+footer {
+    color: #f4eaea;
     padding: 10px;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     text-align: center;
@@ -51,78 +35,15 @@ header, footer {
 }
 
 header a {
-  text-decoration: none; 
-  color: inherit; 
+    text-decoration: none;
+    color: inherit;
 }
 
 header a:hover {
-  opacity: 0.8; 
+    opacity: 0.8;
+    color: #ff5555;
 }
 
-form {
-    background: white;
-    padding: 15px;
-    border-radius: 5px;
-    margin-bottom: 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-form input, form textarea {
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 14px;
-}
-
-form button {
-    background-color: #007bff;
-    color: white;
-    border: none;
-    padding: 10px;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-form button:hover {
-    background-color: #0056b3;
-}
-
-.game-list {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-.game-card {
-    background: white;
-    padding: 15px;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
-
-.game-card h3 {
-    margin-top: 0;
-}
-
-.delete-btn {
-    margin-top: 10px;
-    background-color: #dc3545;
-    color: white;
-    border: none;
-    padding: 8px;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-.delete-btn:hover {
-    background-color: #c82333;
-}
 .title-size {
     font-size: xx-large;
 }
-
-
-

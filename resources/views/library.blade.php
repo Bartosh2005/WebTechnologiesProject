@@ -45,38 +45,12 @@
                     </div>
                     <div class="popup" id="featured-popup">
                         <img src="/imgs/coc.jpg">
-                        <!-- The event.stopPropagation() is a prebuilt function that stops the parent's function from retriggering -->
                         <button type="button" onclick="event.stopPropagation(); closePopup('featured-popup')">X</button>
                         <div class="overlay">     
                             <h2>this is a popped-up version</h2>          
                         </div>
                     </div>
                 </div>
-<!--
-                <div class="sub-article" style="background-image: url('/image/coc.jpg')">
-                    <div class="overlay">
-                        <p class ="game">Clash of Clans</p>
-                    </div>
-                </div>
-
-                <div class="sub-article" style="background-image: url('/image/coc.jpg')">
-                    <div class="overlay">
-                        <p class ="game">Clash Royale</p>
-                    </div>
-                </div>
-
-                <div class="sub-article" style="background-image: url('/image/coc.jpg')">
-                    <div class="overlay">
-                        <p class ="game">Silksong</p>
-                    </div>
-                </div>
-
-                <div class="sub-article" style="background-image: url('/image/coc.jpg')">
-                    <div class="overlay">
-                        <p class ="game">Witcher</p>
-                    </div>
-                </div>
--->
             </div>
         <br><br><br><br><br><br><br>
         </section>

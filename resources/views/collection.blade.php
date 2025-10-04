@@ -20,10 +20,18 @@
         text-align: center;
         }
         .game{
-            border: 1px solid black;
+            border: 2px solid #edeae9ff; /* Custom border color */
             border-radius: 1.5rem;
             padding:2%;
             margin:2%;
+            color: #ebe5e5ff;
+            background: #181818;
+        }
+        .game-text {
+            background: #222;
+            color: #fff;
+            padding: 1rem;
+            border-radius: 0 0 1.5rem 1.5rem;
         }
         .searchicon{
             align-content: center;

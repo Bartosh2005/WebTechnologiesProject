@@ -6,7 +6,7 @@ function addGame(item) {
     collection.innerHTML += `
         <div class="game">
             <img src="imgs/${item.img}" style="max-width:50%; float: left; border-radius:15px; margin-right:1rem;"/>
-            <div style="overflow:hidden;">
+            <div class="game-text" style="overflow:hidden;">
                 <i class="fa-solid fa-trash" onclick="removeFromMyCollection('${item.title}')" style="color:red;float:right;"></i>
                 <h3 style="margin-bottom:0.5rem;">${item.title}</h3>
                 <p><strong>Genre:</strong> ${item.genre || "N/A"}</p>
