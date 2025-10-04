@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="{{ asset('css/library.css') }}">
     <link rel="stylesheet" href="{{ asset('css/libraryl.css') }}">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('betterfavicon.ico') }}?v={{ time() }}">
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('Logo.ico') }}?v={{ time() }}">
 </head>
 
 <body>
