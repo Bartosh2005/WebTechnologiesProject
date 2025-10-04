@@ -4,7 +4,7 @@ const gamesLibrary = [
         genre: "RPG",
         year: 2015,
         company: "CD Projekt",
-        description: "An open-world fantasy RPG about a monster hunter.",
+        description: "An open-world fantasy RPG about Geralt of Rivia, a monster hunter known as a Witcher. Explore a vast, richly detailed world filled with complex characters, moral choices, and branching storylines. Engage in deep combat, craft potions, hunt legendary beasts, and unravel political intrigue as you search for your adopted daughter, Ciri, while facing the threat of the Wild Hunt.",
         img: "witcher3.jpg",
         tags: []
     },
@@ -38,19 +38,20 @@ const gamesLibrary = [
     {
         title: "Apex Legends",
         genre: "Shooter",
-        year: 0,
-        company: "Electronics Arts",
-        description: "Apex is bla bla bla bla",
+        year: 2019,
+        company: "Electronic Arts",
+        description: "A fast-paced battle royale game where squads of unique characters fight for survival in a futuristic arena. Strategic teamwork and hero abilities are key to victory.",
         img: "apex.jpg",
         tags: []
     },
+
     {
-        title: "Apex Favorites",
-        genre: "Shooter",
-        year: 0,
-        company: "Electronics Arts",
-        description: "Apex is bla bla bla bla",
-        img: "apex.jpg",
+        title: "Hades 2",
+        genre: "RPG",
+        year: 2025,
+        company: "Supergiant Games",
+        description: "A rogue-like dungeon crawler where you battle through the Underworld as Melinoë, the Princess of the Underworld, using powerful weapons and magic to defeat mythological foes.",
+        img: "hades2.jpg",
         tags: []
     },
     {
@@ -64,10 +65,10 @@ const gamesLibrary = [
     },
     {
         title: "Clash of Clans",
-        genre: "",
-        year: 0,
+        genre: "Strategy",
+        year: 2012,
         company: "Supercell",
-        description: "",
+        description: "Build your village, train your troops, and battle millions of players worldwide. Join a clan, participate in wars, and strategize to become the ultimate chief.",
         img: "coc.jpg",
         tags: ["Coc"]
     },
@@ -90,21 +91,21 @@ const gamesLibrary = [
         tags: []
     },
     {
+        title: "Assassins Creed IV: Black Flag",
+        genre: "RPG, Action",
+        year: 2013,
+        company: "Ubisoft",
+        description: "Play as pirate-turned-assassin Edward Kenway, exploring the Caribbean while battling enemies on land and at sea. Open-world naval combat, treasure hunting, and stealth missions drive the adventure.",
+        img: "blackflag.jpg",
+        tags: []
+    },
+    {
         title: "Grand Theft Auto San Andreas",
         genre: "RPG, Action",
         year: 2004,
         company: "Rockstar Games",
         description: "Play as CJ, returning home to reclaim his neighborhood while climbing the criminal ladder. Open-world chaos, missions, and freedom to explore city life drive the action.",
         img: "gtasa.jpg",
-        tags: []
-    },
-    {
-        title: "Assassin's Creed Black Flag",
-        genre: "RPG, Action",
-        year: 2013,
-        company: "Ubisoft",
-        description: "Play as pirate-turned-assassin Edward Kenway, exploring the Caribbean while battling enemies on land and at sea. Open-world naval combat, treasure hunting, and stealth missions drive the adventure.",
-        img: "blackflag.jpg",
         tags: []
     },
 ];
