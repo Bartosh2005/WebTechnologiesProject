@@ -72,7 +72,7 @@
 <script>
 	 
 
-    $("#searchbar").keyup(function() {
+    $("#search-bar").keyup(function() {
         var val = $.trim(this.value);
         console.log(val);
         if (val == ""){
@@ -87,8 +87,8 @@
         }
     });
 
-    $("#searchbar").keyup(function() {//change first letter to uppercase
-        var myElement = document.getElementById("searchbar");
+    $("#search-bar").keyup(function() {//change first letter to uppercase
+        var myElement = document.getElementById("search-bar");
         var query = myElement.value;
         
         let arr = query.split(" ");
