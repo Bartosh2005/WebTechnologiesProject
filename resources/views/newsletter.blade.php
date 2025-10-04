@@ -5,7 +5,7 @@
     <title>Game Vault</title>
     <link rel="stylesheet" href="{{ asset('css/newsletter.css') }}">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('Logo.ico') }}?v={{ time() }}">
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('LogoJustIcon.ico') }}?v={{ time() }}">
 </head>
 <body>
     <header>
