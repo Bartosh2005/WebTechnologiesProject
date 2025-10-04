@@ -55,7 +55,7 @@
     <main>
         <div class="search" style="display:grid;grid-template-columns: 2% auto 2% 2%;padding:1%;">
             <div class="searchicon"><i class="fa-solid fa-magnifying-glass"></i></div>
-            <input id="searchbar" type="text" style="border-radius:1rem;margin:0.5rem;height:30px;font-size:2rem;" autocapitalize="words" autofocus/>
+            <input id="search-bar" type="text" style="border-radius:1rem;margin:0.5rem;height:30px;font-size:2rem;" autocapitalize="sentences" autofocus/>
             <div class="searchicon"><i class="fa-solid fa-sort" style=""></i></div>
             <div class="searchicon"><i class="fa-solid fa-filter" style=""></i></div>
         </div>

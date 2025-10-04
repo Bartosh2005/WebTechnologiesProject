@@ -62,3 +62,7 @@ Route::get('/articles/bd4', function () {
 Route::get('/articles/ananta', function () {
     return view('articles.ananta');
 });
+
+Route::get('/articles/doomTDA', function () {
+    return view('articles.doomTDA');
+});

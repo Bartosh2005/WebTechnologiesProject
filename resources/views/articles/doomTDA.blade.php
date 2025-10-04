@@ -16,37 +16,41 @@
   <main class="article-container">
     <div class="article-hero" style="background-image: url('/images/doomTDA.jpg')">
       <div class="article-overlay">
-        <h1>Hades 2 – Finally Out of Early Access</h1>
-        <p>The underworld opens once again, with more power and polish</p>
+        <h1>DOOM: The Dark Ages – A New Era of Brutality</h1>
+        <p>The gates of Hell open once more, this time on a medieval battlefield</p>
       </div>
     </div>
 
     <article class="article-content">
       <h2>Overview</h2>
       <p>
-        Supergiant Games has officially launched Hades 2 out of Early Access, and it’s better than ever. 
-        Players step into the shoes of Melinoë, sister of Zagreus, battling her way through a deeper, 
-        darker mythological world.
+        id Software has officially unveiled DOOM: The Dark Ages, delivering a raw and unforgiving 
+        new vision of the legendary franchise. This time, players step into the boots of the Slayer 
+        in a medieval age where steel, armor, and demonic sorcery collide in a blood-soaked war 
+        against the legions of Hell.
       </p>
 
       <h2>Gameplay</h2>
       <p>
-        The core loop remains addictively fast and fluid, now enhanced with new weapons, 
-        more boons, and smarter enemies. Hades 2 rewards skill and experimentation, with 
-        countless build possibilities.
+        The core of DOOM’s gameplay remains fast, aggressive, and merciless, now enriched with a new 
+        layer of medieval carnage. Players wield both iconic firearms and brutal melee weapons such as 
+        swords, shields, and colossal siege engines. The blend of ranged destruction and close-quarters 
+        combat creates an intensity like never before, while new enemy types demand relentless adaptation 
+        and strategy.
       </p>
 
       <blockquote>
-        “It’s not just a sequel—it’s a statement. Supergiant has done it again.”
+        “It doesn’t just feel like another entry—it feels like a legend forged in blood and steel.”
       </blockquote>
 
       <blockquote>
-        “Another contender for game of the year.”
+        “A masterpiece of brutality—an heir worthy of the DOOM legacy.”
       </blockquote>
 
       <p>
-        Whether you're a roguelike veteran or new to the genre, Hades 2 is a must-play with 
-        its perfect blend of storytelling, gameplay, and style.
+        Whether you are a longtime DOOM veteran or new to the series, DOOM: The Dark Ages delivers 
+        uncompromising action wrapped in a dark, epic atmosphere. This is a game that shows why DOOM 
+        continues to define the genre like no other.
       </p>
     </article>
   </main>
