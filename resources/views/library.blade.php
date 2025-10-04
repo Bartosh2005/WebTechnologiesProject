@@ -36,19 +36,19 @@
 
             <div class="grid-container" id="girdlibrary">
                 
-                <div class="featured-article gamepop" style="background-image: url('/imgs/coc.jpg')" onclick="openPopup('featured-popup')">
-                    <button class="add-button" onclick="saveToMyCollection('Clash of Clans')"> Add to MyCollection </button>
+                <div class="featured-article gamepop" style="background-image: url('/imgs/clashroyale.jpg')" onclick="openPopup('featured-popup')">
+                    <button class="add-button" onclick="saveToMyCollection('Clash Royale')"> Add to MyCollection </button>
                     <a href="{{ url('/library/clash-of-clans') }}">
                     <div class="overlay">
-                        <h2>bla bla bla</h2>
-                        <p>bla bla bla</p><br></a>
+                        <h2>HE HE HE HA</h2>
+                        <p>Spam emotes and places your troops exclusively in the center!</p><br></a>
                     </div>
                     <div class="popup" id="featured-popup">
-                        <img src="/imgs/coc.jpg">
+                        <img src="/imgs/clashroyale.jpg">
                         <!-- The event.stopPropagation() is a prebuilt function that stops the parent's function from retriggering -->
                         <button type="button" onclick="event.stopPropagation(); closePopup('featured-popup')">X</button>
                         <div class="overlay">     
-                            <h2>this is a popped-up version</h2>          
+                            <h2>Download Clash Royale today!</h2>          
                         </div>
                     </div>
                 </div>
