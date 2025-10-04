@@ -108,40 +108,31 @@ const gamesLibrary = [
         img: "gtasa.jpg",
         tags: []
     },
-    {             
-         title: "Clash Royale",
-         genre: "",
-         year: 2016,
-         company: "Supercell",
-         description: "",
-         img:"clashroyale.jpg",
-         tags:["CR"]
-     },
-     {
-         title: "DOOM",
-         genre: "FPS",
-         year: 2016,
-         company: "ID Software",
-         description: "Rip and tear, until it is done...",
-         img:"doom.jpg",
-         tags:[]
-     },
-     {
-         title: "Castlevania: Rondo of Blood",
-         genre: "Metroidvania",
-         year: 1993,
-         company: "Konami",
-         description: "Fight off the dark forces of Dracula in this 2D action-adventure.",
-         img:"castlevania.jpg",
-         tags:[]
-     },
-     {
-         title: "Resident Evil 7: Biohazard",
-         genre: "Horror",
-         year: 2017,
-         company: "Valve",
-         description: "Survive as you uncover the dark secrets of the Baker's mansion.",
-         img:"residentevil.jpg",
-         tags:[]
-     }
+    {
+        title: "Clash Royale",
+        genre: "",
+        year: 2016,
+        company: "Supercell",
+        description: "",
+        img: "clashroyale.jpg",
+        tags: ["CR"]
+    },
+    {
+        title: "DOOM",
+        genre: "FPS",
+        year: 2016,
+        company: "ID Software",
+        description: "Rip and tear, until it is done...",
+        img: "doom.jpg",
+        tags: []
+    },
+    {
+        title: "Resident Evil 7: Biohazard",
+        genre: "Horror",
+        year: 2017,
+        company: "Valve",
+        description: "Survive as you uncover the dark secrets of the Baker's mansion.",
+        img: "residentevil.jpg",
+        tags: []
+    }
 ];

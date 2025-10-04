@@ -15,12 +15,11 @@
         .games {
         display: grid;
         grid-template-columns: auto auto auto;
-        /* background-color: dodgerblue; */
         padding: 1%;
         text-align: center;
         }
         .game{
-            border: 2px solid #edeae9ff; /* Custom border color */
+            border: 2px solid #edeae9ff; 
             border-radius: 1.5rem;
             padding:2%;
             margin:2%;
@@ -36,6 +35,7 @@
         .searchicon{
             align-content: center;
             margin:0.5rem;
+            color: #efe6e6ff;
         }
         .searchicon:hover{
             color:gray;
