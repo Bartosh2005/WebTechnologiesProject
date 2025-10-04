@@ -40,7 +40,7 @@
                     <button class="add-button" onclick="saveToMyCollection('Clash Royale')"> Add to MyCollection </button>
                     <a href="{{ url('/library/clash-of-clans') }}">
                     <div class="overlay">
-                        <h2>HE HE HE HA</h2>
+                        <h2>Clash Royale</h2>
                         <p>Spam emotes and places your troops exclusively in the center!</p><br></a>
                     </div>
                     <div class="popup" id="featured-popup">

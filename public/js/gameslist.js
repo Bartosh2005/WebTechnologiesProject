@@ -110,7 +110,7 @@ const gamesLibrary = [
     },
     {
         title: "Clash Royale",
-        genre: "",
+        genre: "Strategy",
         year: 2016,
         company: "Supercell",
         description: "",
