@@ -16,8 +16,15 @@
     </header>
 
           
-
   <div class="grid-container">
+
+  <a href="{{ url('/articles/doomTDA') }}" class="featured-article" style="background-image: url('/images/doomTDA.jpg')">
+    <div class="overlay">
+      <h2>DOOM: The Dark Ages officially declared Game Of The DECADE??</h2>
+      <p>Not that it hadn't been obvious anyways, still this important decision being set in stone this early comes quite as a shock to many...</p>
+    </div>
+  </a>
+
   <a href="{{ url('/articles/silksong') }}" class="featured-article">
     <div class="overlay">
       <h2>After 6 years - HollowKnight:SilkSong is finally here</h2>
