@@ -6,7 +6,6 @@
   box-sizing: border-box;
 }
 
-body,
 html {
   height: 100%;
   margin: 0;
@@ -105,16 +104,4 @@ footer {
   font-size: 1.5vw;
   color: #dfd7d7;
   text-align: center;
-}
-
-.MyAccount-button {
-  background-color: #B23535;
-  color: white;
-  border: none;
-  padding: 18px 18px;
-  margin: 0.5% 0.5%;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-  text-align: right;
 }

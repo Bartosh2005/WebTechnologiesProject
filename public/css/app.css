@@ -34,17 +34,14 @@ footer {
 
 header a {
   text-decoration: none;
-  /* Removes underline */
   color: inherit;
-  /* Uses the parent's color */
 }
 
-header a:hover {
+header a:hover h1 {
   opacity: 0.8;
   color: #ff5555;
 }
 
-h1,
 h2 {
   color: #ffffff;
   margin: 0 0 10px;
