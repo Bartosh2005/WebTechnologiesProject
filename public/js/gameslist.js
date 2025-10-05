@@ -129,7 +129,7 @@ const gamesLibrary = [
         title: "Resident Evil 7: Biohazard",
         genre: "Horror",
         year: 2017,
-        company: "Valve",
+        company: "Capcom",
         description: "Survive as you uncover the dark secrets of the Baker's mansion.",
         img: "residentevil.jpg",
         tags: []

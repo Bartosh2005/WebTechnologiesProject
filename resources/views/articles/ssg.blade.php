@@ -17,7 +17,7 @@
   <main class="article-container">
     <div class="article-hero" style="background-image: url('/images/SSG.jpeg')">
       <div class="article-overlay">
-        <h1>Silksong: How to Git Gud</h1>
+  <h1>Silksong: How to Git Gud</h1>
         <p>Master Hornet’s world with style, precision, and skill</p>
       </div>
     </div>

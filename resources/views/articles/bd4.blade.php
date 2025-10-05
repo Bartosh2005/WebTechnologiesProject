@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Hades 2 – Finally Out of Early Access - Game Vault</title>
+  <title>BorderLands IV - Big Time Complaints - Game Vault</title>
   <link rel="stylesheet" href="{{ asset('css/article.css') }}">
 </head>
 <body>
@@ -17,7 +17,7 @@
   <main class="article-container">
     <div class="article-hero" style="background-image: url('/images/BorderLands2.png')">
       <div class="article-overlay">
-        <h1>BorderLands IV - Big Time Complaints</h1>
+  <h1>BorderLands IV - Big Time Complaints</h1>
         <p>Gamers all around the world shout in unison about the game's unoptimised state</p>
       </div>
     </div>

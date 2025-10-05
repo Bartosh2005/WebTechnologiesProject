@@ -17,7 +17,7 @@
   <main class="article-container">
     <div class="article-hero" style="background-image: url('/images/doomTDA.jpg')">
       <div class="article-overlay">
-        <h1>DOOM: The Dark Ages – A New Era of Brutality</h1>
+  <h1>DOOM: The Dark Ages – A New Era of Brutality</h1>
         <p>The gates of Hell open once more, this time on a medieval battlefield</p>
       </div>
     </div>
