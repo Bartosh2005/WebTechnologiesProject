@@ -13,6 +13,7 @@ function addGame(item) {
                 <p><strong>Release Year:</strong> ${item.year && item.year !== 0 ? item.year : "N/A"}</p>
                 <p><strong>Company:</strong> ${item.company || "N/A"}</p>
                 <p><strong>Description:</strong> ${item.description || "No description available."}</p>
+                <button class="MyAccount-button" style="float:right;margin-top:0.5rem;" onclick="playGame('${item.title}')">Play</button>
             </div>
         </div>`;
     console.log(`Added ${item.title}`);

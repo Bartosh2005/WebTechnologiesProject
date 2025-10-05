@@ -4,9 +4,8 @@ const gamesLibrary = [
         genre: "RPG",
         year: 2015,
         company: "CD Projekt",
-        description: "Play as Geralt of Rivia, a monster hunter in an open-world fantasy RPG. Explore a rich world, battle beasts, make moral choices, and search for your adopted daughter Ciri while facing the deadly Wild Hunt.",
+        description: "A fantasy RPG where you hunt monsters and search for your missing daughter.",
         img: "witcher3.jpg",
-        tags: []
     },
     {
         title: "Hollow Knight",
@@ -22,16 +21,16 @@ const gamesLibrary = [
         genre: "Puzzle",
         year: 2011,
         company: "Valve",
-        description: "A first-person puzzle game with portals and sarcasm.",
+        description: "A first-person puzzle game with portals and dark humour.",
         img: "portal2.jpg",
         tags: []
     },
     {
         title: "Fortnite",
         genre: "Shooter",
-        year: 0,
+        year: 2017,
         company: "Epic Games",
-        description: "Fortnite is the 3rd person shooter developed by Epic Games",
+        description: "A fast-paced shooter with building mechanics and battle royale action.",
         img: "fort.png",
         tags: ["v-bucks", "vbucks"]
     },
@@ -40,7 +39,7 @@ const gamesLibrary = [
         genre: "Shooter",
         year: 2019,
         company: "Electronic Arts",
-        description: "A fast-paced battle royale game where squads of unique characters fight for survival in a futuristic arena. Strategic teamwork and hero abilities are key to victory.",
+        description: "A fast-paced battle royale game with unique heroes and fast gunplay.",
         img: "apex.jpg",
         tags: []
     },
@@ -50,7 +49,7 @@ const gamesLibrary = [
         genre: "RPG",
         year: 2025,
         company: "Supergiant Games",
-        description: "A rogue-like dungeon crawler where you battle through the Underworld as Melinoë, the Princess of the Underworld, using powerful weapons and magic to defeat mythological foes.",
+        description: "Battle through the Underworld in a myth-filled rogue-like adventure.",
         img: "hades2.jpg",
         tags: []
     },
@@ -59,7 +58,7 @@ const gamesLibrary = [
         genre: "Shooter",
         year: 0,
         company: "Valve",
-        description: "CS:GO 2 is the first person shooter developed by Valve",
+        description: "Tactical team-based shooter with bomb defusal and hostage rescue modes.",
         img: "csgo.jpg",
         tags: ["terrorists", "counterterrorists"]
     },
@@ -68,7 +67,7 @@ const gamesLibrary = [
         genre: "Strategy",
         year: 2012,
         company: "Supercell",
-        description: "Build your village, train your troops, and battle millions of players worldwide. Join a clan, participate in wars, and strategize to become the ultimate chief.",
+        description: "Build and defend your village in this online strategy war game.",
         img: "coc.jpg",
         tags: ["Coc"]
     },
@@ -77,7 +76,7 @@ const gamesLibrary = [
         genre: "RPG",
         year: 2025,
         company: "Warhorse Studios",
-        description: "A historically grounded RPG where you navigate medieval Bohemia, making choices that shape your story. Combat, politics, and survival challenge you in an immersive world.",
+        description: "A realistic medieval RPG with historical story-driven gameplay.",
         img: "kcd2.jpg",
         tags: []
     },
@@ -86,7 +85,7 @@ const gamesLibrary = [
         genre: "RPG",
         year: 2016,
         company: "Rockstar Games",
-        description: "Follow Arthur Morgan, an outlaw, as he struggles with loyalty, survival, and morality in a dying Wild West. Open-world exploration, story-driven missions, and dynamic encounters define the experience.",
+        description: "Follow Arthur Morgan, an outlaw, as he struggles with loyalty, survival, and morality in a dying Wild West. ",
         img: "rdr2.jpg",
         tags: []
     },
@@ -95,7 +94,7 @@ const gamesLibrary = [
         genre: "RPG, Action",
         year: 2013,
         company: "Ubisoft",
-        description: "Play as pirate-turned-assassin Edward Kenway, exploring the Caribbean while battling enemies on land and at sea. Open-world naval combat, treasure hunting, and stealth missions drive the adventure.",
+        description: "Play as pirate-turned-assassin Edward Kenway, exploring the Caribbean while battling enemies on land and at sea.",
         img: "blackflag.jpg",
         tags: []
     },
@@ -104,7 +103,7 @@ const gamesLibrary = [
         genre: "RPG, Action",
         year: 2004,
         company: "Rockstar Games",
-        description: "Play as CJ, returning home to reclaim his neighborhood while climbing the criminal ladder. Open-world chaos, missions, and freedom to explore city life drive the action.",
+        description: "Play as CJ, returning home to reclaim his neighborhood while climbing the criminal ladder.",
         img: "gtasa.jpg",
         tags: []
     },
@@ -113,7 +112,7 @@ const gamesLibrary = [
         genre: "Strategy",
         year: 2016,
         company: "Supercell",
-        description: "",
+        description: "Real-time card battles with your favorite Clash characters.",
         img: "clashroyale.jpg",
         tags: ["CR"]
     },

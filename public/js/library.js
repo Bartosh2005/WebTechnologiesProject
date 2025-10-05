@@ -19,7 +19,8 @@ function addGame(item) {
             <img src="/imgs/${item.img}" alt="${item.title}">
             <button type="button" onclick="event.stopPropagation(); closePopup('${safeId}')">X</button>
             <div class="overlay">     
-                <h2>this is a popped-up version</h2>          
+                <h2>${item.title}</h2>
+                <p>${item.description}</p>         
             </div>
         </div>`;
     // console.log(`Added ${item.title}`);
