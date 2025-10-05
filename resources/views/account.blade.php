@@ -53,7 +53,6 @@
     <footer>
         <p>&copy; 2025 Game Library</p>
     </footer>
-
-    <script src="{{ asset('js/app.js') }}"></script>
+    </main>
 </body>
 </html>

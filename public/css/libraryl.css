@@ -73,6 +73,8 @@ main a:hover {
 .overlay p {
   margin: 0;
   font-size: 16px;
+  color: white;
+  font-weight: bold;
 }
 
 .hover {
