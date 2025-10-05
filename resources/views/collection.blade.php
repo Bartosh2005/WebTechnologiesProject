@@ -80,14 +80,12 @@
             addGames();
         }else {
             clearGames();
-            //TODO: make it not case sensitive
             var gamessearched = games.filter(x => x.title.includes(val) || x.description.includes(val) || x.company.includes(val) || x.genre.includes(val) || x.tags.find(a =>a.includes(val)));
             addGames(gamessearched);
-            //console.log(games);
         }
     });
 
-    $("#search-bar").keyup(function() {//change first letter to uppercase
+    $("#search-bar").keyup(function() {
         var myElement = document.getElementById("search-bar");
         var query = myElement.value;
         

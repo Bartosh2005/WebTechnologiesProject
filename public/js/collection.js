@@ -24,7 +24,6 @@ function clearGames() {
 }
 
 function addGames(collection = games) {
-    // var collection = document.getElementById("gamesCollection");
     collection.forEach(addGame);
 }
 
@@ -38,7 +37,6 @@ function loadSavedGames() {
 
 function removeFromMyCollection(title) {
     removeFromCookieList("MyCollection2", title);
-    //TODO: make so that reload is unneccesary
     location.reload();
 
 }

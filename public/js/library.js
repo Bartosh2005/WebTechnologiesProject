@@ -5,8 +5,7 @@ function saveToMyCollection(title) {
 }
 
 function addGame(item) {
-    var collection = document.getElementById("girdlibrary");
-    // create the IDs for the popup before 
+    var collection = document.getElementById("girdlibrary"); 
     let safeId = "popup-" + item.title.replace(/\s+/g, '-');
     collection.innerHTML += `
         <div class="sub-article" style="background-image: url('/imgs/${item.img}')" onclick="openPopup('${safeId}')">
@@ -23,7 +22,6 @@ function addGame(item) {
                 <p>${item.description}</p>         
             </div>
         </div>`;
-    // console.log(`Added ${item.title}`);
 }
 
 
@@ -41,7 +39,6 @@ function clearGames() {
 }
 
 function addGames(collection = gamesLibrary) {
-    // var collection = document.getElementById("gamesCollection");
     collection.forEach(addGame);
 }
 
