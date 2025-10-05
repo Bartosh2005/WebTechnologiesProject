@@ -31,7 +31,7 @@
     
     <script>
         document.getElementById('loginForm').addEventListener('submit', function(event) {
-            event.preventDefault(); // Prevent the form from submitting the traditional way
+            event.preventDefault(); 
     
             const username = document.getElementById('username').value;
             const password = document.getElementById('password').value;
@@ -41,10 +41,8 @@
             const correctPassword = "JokingLegend1";
     
             if (username === correctUsername && password === correctPassword) {
-                // Redirect to the next page after successful login
-                window.location.href = "collection"; // Redirect to programs.html
+                window.location.href = "collection"; 
             } else {
-                // Show an error message
                 document.getElementById('error-message').style.display = "block";
             }
         });

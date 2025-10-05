@@ -45,7 +45,6 @@
                     </div>
                     <div class="popup" id="featured-popup">
                         <img src="/imgs/clashroyale.jpg">
-                        <!-- The event.stopPropagation() is a prebuilt function that stops the parent's function from retriggering -->
                         <button type="button" onclick="event.stopPropagation(); closePopup('featured-popup')">X</button>
                         <div class="overlay">     
                             <h2>Download Clash Royale today!</h2>          
