@@ -17,7 +17,7 @@
   <main class="article-container">
     <div class="article-hero" style="background-image: url('/images/GOY.jpg')">
       <div class="article-overlay">
-        <h1>Ghost of Yotei</h1>
+  <h1>Ghost of Yotei</h1>
         <p>Masterpiece or Reused Content?</p>
       </div>
     </div>

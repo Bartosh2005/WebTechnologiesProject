@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Hades 2 – Finally Out of Early Access - Game Vault</title>
+  <title>Re-Birth: Terminus - MarTek's Mysterious Game - Game Vault</title>
   <link rel="stylesheet" href="{{ asset('css/article.css') }}">
 </head>
 <body>
@@ -17,7 +17,7 @@
   <main class="article-container">
     <div class="article-hero" style="background-image: url('/images/ReTerminus.png')">
       <div class="article-overlay">
-        <h1>Re-Birth: Terminus - MarTek's Mysterious Game</h1>
+  <h1>Re-Birth: Terminus - MarTek's Mysterious Game</h1>
         <p>Rumor has it that the renewed gaming company is working on a new project</p>
       </div>
     </div>

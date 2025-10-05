@@ -17,7 +17,7 @@
   <main class="article-container">
     <div class="article-hero" style="background-image: url('/images/silksong.jpg')">
       <div class="article-overlay">
-        <h1>Hollow Knight: Silksong</h1>
+  <h1>Hollow Knight: Silksong</h1>
         <p>The long-awaited sequel has finally arrived</p>
       </div>
     </div>

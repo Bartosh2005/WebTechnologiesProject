@@ -17,7 +17,7 @@
   <main class="article-container">
     <div class="article-hero" style="background-image: url('/images/hades2.jpg')">
       <div class="article-overlay">
-        <h1>Hades 2 – Finally Out of Early Access</h1>
+  <h1>Hades 2 – Finally Out of Early Access</h1>
         <p>The underworld opens once again, with more power and polish</p>
       </div>
     </div>

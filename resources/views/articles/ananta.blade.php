@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Hades 2 – Finally Out of Early Access - Game Vault</title>
+  <title>Ananta: GTA but Make It Anime - Game Vault</title>
   <link rel="stylesheet" href="{{ asset('css/article.css') }}">
 </head>
 <body>
@@ -17,7 +17,7 @@
   <main class="article-container">
     <div class="article-hero" style="background-image: url('/images/Ananta.png')">
       <div class="article-overlay">
-        <h1>GTA but Make It Anime</h1>
+  <h1>Ananta: GTA but Make It Anime</h1>
         <p>This new game is a perfect mix of genres, targeting multiple communities at once</p>
       </div>
     </div>
