@@ -1,180 +1,26 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
 
-
-body,
 html {
-    height: 100%;
-}
-
-
-.hero-image {
-    background-image: url('/images/silksong.jpg');
-    height: 50%;
-     width: 80%; 
-    margin: 0 auto; 
-
-
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    position: relative;
-}
-
-.hero-text {
-    text-align: center;
-    position: absolute;
-    bottom: -10%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: rgb(235, 222, 222);
-}
-
-.terminus-image {
-    background-image: url('/images/ReTerminus.png');
-    height: 30%;
-    width: 30%;
-    margin: 5 auto;
-
-    background-position: left;
-    background-repeat: no-repeat;
-    background-size: cover;
-    position: relative;
-}
-
-.terminus-text{
-
-    text-align: center;
-    position: absolute;
-    bottom: -10%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: rgb(154, 0, 0);
-
-}
-.primary-btn {
-    background-color: #000911;
-    color: white;
-    border: none;
-    padding: 12px 20px;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.primary-btn:hover {
-    background-color: #135ba3;
+  height: 100%;
 }
 
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    padding: 20px;
-    margin: 0;
-}
-
-header, footer {
-    color: #3D3636;
-    padding: 10px;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    text-align: center;
-    align-items: center;
-    display: flex;
-    gap: 100px;
-}
-
-header a {
-  text-decoration: none; /* Removes underline */
-  color: inherit; /* Uses the parent's color */
-}
-
-header a:hover {
-  opacity: 0.8; /* Optional: adds a hover effect */
+  font-family: Arial, sans-serif;
+  background-color: #111;
+  padding: 20px;
+  margin: 0;
 }
 
 main a {
-  text-decoration: none; /* Removes underline */
-  color: inherit; /* Uses the parent's color */
+  text-decoration: none;
+  color: inherit;
 }
+
 main a:hover {
   opacity: 0.8;
 }
 
-h1, h2 {
-    margin: 0 0 10px;
-}
-
-form {
-    background: white;
-    padding: 15px;
-    border-radius: 5px;
-    margin-bottom: 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-form input, form textarea {
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 14px;
-}
-
-form button {
-    background-color: #007bff;
-    color: white;
-    border: none;
-    padding: 10px;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-form button:hover {
-    background-color: #0056b3;
-}
-
-.game-list {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-.game-card {
-    background: white;
-    padding: 15px;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
-
-.game-card h3 {
-    margin-top: 0;
-}
-
-.delete-btn {
-    margin-top: 10px;
-    background-color: #dc3545;
-    color: white;
-    border: none;
-    padding: 8px;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-.delete-btn:hover {
-    background-color: #c82333;
-}
-
 * {
   box-sizing: border-box;
-}
-
-body {
-  margin: 0;
-  font-family: 'Arial', sans-serif;
 }
 
 .grid-container {
@@ -182,9 +28,9 @@ body {
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 5%;
   padding: 5%;
+  margin-bottom: 300px;
 }
 
-/* Featured article spans all columns */
 .featured-article {
   grid-column: span 3;
   background-image: url('/images/silksong.jpg');
@@ -198,12 +44,13 @@ body {
 .sub-article {
   height: 180px;
   background-size: cover;
+  object-fit: cover;
   background-position: center;
   position: relative;
   color: white;
 }
 
-/* Overlay text styling */
+
 .overlay {
   position: absolute;
   bottom: 0;
@@ -221,11 +68,14 @@ body {
 .overlay p {
   margin: 0;
   font-size: 16px;
+  color: white;
+  font-weight: bold;
 }
 
 .hover {
   opacity: 0.8;
 }
+
 .add-button {
   background-color: #B23535;
   color: white;
@@ -237,4 +87,52 @@ body {
   transition: background-color 0.3s;
   text-align: right;
   float: right;
+}
+
+.popup {
+  width: 400px;
+  height: 290px;
+  border-radius: 5px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.1);
+  background: white;
+  visibility: hidden;
+  z-index: 9999;
+  transition: transform 0.4s, top 0.4s;
+}
+
+.open-popup {
+  visibility: visible;
+  top: 50%;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.popup img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.popup button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: #B23535;
+  color: white;
+  border: none;
+  margin-top: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  text-align: top;
+  float: top;
+}
+
+.popup button:hover {
+  background-color: #922d2d;
 }
