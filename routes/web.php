@@ -7,25 +7,62 @@ Route::get('/', function () {
 });
 
 Route::get('/library', function () {
-    $games=[];
+    $games = [];
+
     return view('library', compact('games'));
 });
 
 Route::get('/collection', function () {
-    $games=[];
+    $games = [];
+
     return view('collection', compact('games'));
 });
 
 Route::get('/newsletter', function () {
-    $games=[];
+    $games = [];
+
     return view('newsletter', compact('games'));
 });
 
 Route::get('/welcome', function () {
-    $games=[];
+    $games = [];
+
     return view('welcome', compact('games'));
 });
 Route::get('/account', function () {
-    $games=[];
+    $games = [];
+
     return view('account', compact('games'));
+});
+
+Route::get('/articles/silksong', function () {
+    return view('articles.silksong');
+});
+
+Route::get('/articles/hades2', function () {
+    return view('articles.hades2');
+});
+
+Route::get('/articles/ssg', function () {
+    return view('articles.ssg');
+});
+
+Route::get('/articles/goy', function () {
+    return view('articles.goy');
+});
+
+Route::get('/articles/terminus', function () {
+    return view('articles.terminus');
+});
+
+Route::get('/articles/bd4', function () {
+    return view('articles.bd4');
+});
+
+Route::get('/articles/ananta', function () {
+    return view('articles.ananta');
+});
+
+Route::get('/articles/doomTDA', function () {
+    return view('articles.doomTDA');
 });

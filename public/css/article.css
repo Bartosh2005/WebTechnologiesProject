@@ -1,0 +1,107 @@
+
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #111;
+    color: #eee;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+    padding: 12px;
+    background-color: #000;
+    color: white;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+header a {
+    text-decoration: none;
+    color: #eee;
+    transition: color 0.2s ease;
+}
+
+header a:hover {
+    color: #ff5555;
+}
+
+.article-container {
+    height: 80vh;
+    width: 65vw;
+    overflow-x: hidden;
+    overflow-y: auto;
+    margin: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+
+
+
+}
+
+::-webkit-scrollbar {
+    width: 0px;
+}
+
+.article-hero {
+    position: relative;
+    height: 30vh;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-color: black;
+    background-size: contain;
+    background-position: center;
+}
+
+.article-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 2%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+    color: white;
+}
+
+.article-overlay h1 {
+    margin: 0;
+    font-size: 48px;
+}
+
+.article-overlay p {
+    margin: 8px 0 0;
+    font-size: 24px;
+}
+
+.article-content {
+    padding: 32px;
+    line-height: 1.7;
+    font-size: 20px;
+}
+
+.article-content h2 {
+    margin-top: 30px;
+    font-size: 25px;
+    color: #ff5555;
+}
+
+.article-content blockquote {
+    border-left: 4px solid #ff5555;
+    margin: 32px 0;
+    padding-left: 16px;
+    font-style: italic;
+    color: #ccc;
+}
+
+.MyAccount-button {
+  background-color: #B23535;
+  color: white;
+  border: none;
+  padding: 18px 18px;
+  margin: 0.5% 0.5%;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  text-align: right;
+}

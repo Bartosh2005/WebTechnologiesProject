@@ -6,10 +6,11 @@
     <link rel="stylesheet" href="{{ asset('css/library.css') }}">
     <link rel="stylesheet" href="{{ asset('css/libraryl.css') }}">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('betterfavicon.ico') }}?v={{ time() }}">
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('LogoJustIcon.ico') }}?v={{ time() }}">
     <script src="{{ asset('js/library.js') }}"></script>
     <script src="{{ asset('js/cookies.js') }}"></script>
     <script src="{{ asset('js/gameslist.js') }}"></script>
+    <script src="{{ asset('js/gamebrowser.js') }}"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.5/dist/js.cookie.min.js"></script>
 
@@ -35,48 +36,32 @@
 
             <div class="grid-container" id="girdlibrary">
                 
-                <div class="featured-article" style="background-image: url('/imgs/coc.jpg')">
-                    <button class="add-button" onclick="saveToMyCollection('Clash of Clans')"> Add to MyCollection </button>
+                <div class="featured-article gamepop" style="background-image: url('/imgs/clashroyale.jpg')" onclick="openPopup('featured-popup')">
+                    <button class="add-button" onclick="saveToMyCollection('Clash Royale')"> Add to MyCollection </button>
                     <a href="{{ url('/library/clash-of-clans') }}">
                     <div class="overlay">
-                        <h2>bla bla bla</h2>
-                        <p>bla bla bla</p><br></a>
+                        <h2>Clash Royale</h2>
+                        <p>Spam emotes and places your troops exclusively in the center!</p><br></a>
+                    </div>
+                    <div class="popup" id="featured-popup">
+                        <img src="/imgs/clashroyale.jpg">
+                        <button type="button" onclick="event.stopPropagation(); closePopup('featured-popup')">X</button>
+                        <div class="overlay">     
+                            <h2>Download Clash Royale today!</h2>          
+                        </div>
                     </div>
                 </div>
-<!--
-                <div class="sub-article" style="background-image: url('/image/coc.jpg')">
-                    <div class="overlay">
-                        <p class ="game">Clash of Clans</p>
-                    </div>
-                </div>
-
-                <div class="sub-article" style="background-image: url('/image/coc.jpg')">
-                    <div class="overlay">
-                        <p class ="game">Clash Royale</p>
-                    </div>
-                </div>
-
-                <div class="sub-article" style="background-image: url('/image/coc.jpg')">
-                    <div class="overlay">
-                        <p class ="game">Silksong</p>
-                    </div>
-                </div>
-
-                <div class="sub-article" style="background-image: url('/image/coc.jpg')">
-                    <div class="overlay">
-                        <p class ="game">Witcher</p>
-                    </div>
-                </div>
--->
             </div>
-        <br><br>
+        </div>
         </section>
+
+        <footer>
+        <p>&copy; 2025 Game Library</p>
+        </footer>
+        
     </main>
 
-    <footer>
-        <p>&copy; 2025 Game Library</p>
-    </footer>
+    
 
-    <script src="{{ asset('js/app.js') }}"></script>
 </body>
 </html>

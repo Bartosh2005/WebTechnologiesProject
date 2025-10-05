@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Game Vault</title>
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('betterfavicon.ico') }}?v={{ time() }}">
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('LogoJustIcon.ico') }}?v={{ time() }}">
     <script src="{{ asset('js/collection.js') }}"></script>
     <script src="{{ asset('js/gameslist.js') }}"></script>
     <script src="{{ asset('js/cookies.js') }}"></script>
@@ -15,19 +15,27 @@
         .games {
         display: grid;
         grid-template-columns: auto auto auto;
-        /* background-color: dodgerblue; */
         padding: 1%;
         text-align: center;
         }
         .game{
-            border: 1px solid black;
+            border: 2px solid #edeae9ff; 
             border-radius: 1.5rem;
             padding:2%;
             margin:2%;
+            color: #ebe5e5ff;
+            background: #181818;
+        }
+        .game-text {
+            background: #222;
+            color: #fff;
+            padding: 1rem;
+            border-radius: 0 0 1.5rem 1.5rem;
         }
         .searchicon{
             align-content: center;
             margin:0.5rem;
+            color: #efe6e6ff;
         }
         .searchicon:hover{
             color:gray;
@@ -37,16 +45,17 @@
 </head>
 <body onload="loadSavedGames()">
      <header>
-        <a href="{{ url('/welcome') }}"><h1>LOGO</h1></a>
+        <a href="{{ url('/welcome') }}"><img src="{{ asset('image/Logo.png') }}" alt="Logo" style="width: 150px;"></a>
         <a href="{{ url('/library') }}"><h1>MyGamebrowser</h1></a>
         <a href="{{ url('/newsletter') }}"><h1>MyNewsletter</h1></a>
         <a href="{{ url('/collection') }}"><h1>MyCollection</h1></a>
+         <a href="{{ url('/account') }}"><button class="MyAccount-button">MyAccount</button></a>
     </header>
 
     <main>
         <div class="search" style="display:grid;grid-template-columns: 2% auto 2% 2%;padding:1%;">
             <div class="searchicon"><i class="fa-solid fa-magnifying-glass"></i></div>
-            <input id="searchbar" type="text" style="border-radius:1rem;margin:0.5rem;height:30px;font-size:2rem;" autocapitalize="words" autofocus/>
+            <input id="search-bar" type="text" style="border-radius:1rem;margin:0.5rem;height:30px;font-size:2rem;" autocapitalize="sentences" autofocus/>
             <div class="searchicon"><i class="fa-solid fa-sort" style=""></i></div>
             <div class="searchicon"><i class="fa-solid fa-filter" style=""></i></div>
         </div>
@@ -63,7 +72,7 @@
 <script>
 	 
 
-    $("#searchbar").keyup(function() {
+    $("#search-bar").keyup(function() {
         var val = $.trim(this.value);
         console.log(val);
         if (val == ""){
@@ -71,15 +80,13 @@
             addGames();
         }else {
             clearGames();
-            //TODO: make it not case sensitive
             var gamessearched = games.filter(x => x.title.includes(val) || x.description.includes(val) || x.company.includes(val) || x.genre.includes(val) || x.tags.find(a =>a.includes(val)));
             addGames(gamessearched);
-            //console.log(games);
         }
     });
 
-    $("#searchbar").keyup(function() {//change first letter to uppercase
-        var myElement = document.getElementById("searchbar");
+    $("#search-bar").keyup(function() {
+        var myElement = document.getElementById("search-bar");
         var query = myElement.value;
         
         let arr = query.split(" ");
