@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Game Vault</title>
     <link rel="stylesheet" href="{{ asset('css/library.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/account.css') }}">
     <link rel="stylesheet" href="{{ asset('css/libraryl.css') }}">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <link rel="shortcut icon" type="image/x-icon" href="{{ asset('LogoJustIcon.ico') }}?v={{ time() }}">
@@ -19,34 +20,14 @@
     </header>
 
    <main>
-    <div class="login-container" class="lessmargin">
-        <h2>Login</h2>
+    <center><div class="login" class="login-container" class="lessmargin">
+        <h2>Login to your GameVault Design</h2>
         <form id="loginForm">
             <input type="text" id="username" placeholder="Username" required>
             <input type="password" id="password" placeholder="Password" required>
             <button type="submit">Login</button>
         </form>
-        <p id="error-message" style="color: rgb(248, 126, 126); display: none;">Invalid username or password!</p>
-    </div>
-    
-    <script>
-        document.getElementById('loginForm').addEventListener('submit', function(event) {
-            event.preventDefault(); 
-    
-            const username = document.getElementById('username').value;
-            const password = document.getElementById('password').value;
-    
-            // Hardcoded username and password for demo purposes
-            const correctUsername = "Bartosz";
-            const correctPassword = "JokingLegend1";
-    
-            if (username === correctUsername && password === correctPassword) {
-                window.location.href = "collection"; 
-            } else {
-                document.getElementById('error-message').style.display = "block";
-            }
-        });
-    </script>
+    </div><center>
 
     <footer>
         <p>&copy; 2025 Game Library</p>
