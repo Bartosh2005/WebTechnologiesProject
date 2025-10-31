@@ -66,3 +66,19 @@ Route::get('/articles/ananta', function () {
 Route::get('/articles/doomTDA', function () {
     return view('articles.doomTDA');
 });
+
+use App\Http\Controllers\RegisterController;
+
+Route::get('/register', function () {
+    return view('account');
+})->name('register');
+
+Route::get('/login', function () {
+    return view('login');
+})->name('login');
+
+Route::post('/register', [RegisterController::class, 'register']);
+
+Route::post('/login', [App\Http\Controllers\LoginController::class, 'login'])->name('login');
+
+Route::post('/logout', [App\Http\Controllers\LoginController::class, 'logout'])->name('logout');
