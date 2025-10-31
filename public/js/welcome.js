@@ -121,7 +121,7 @@ class SlidingGallery {
             vanishCard.remove();
         }
 
-        // Update existing cards
+        // update all three of the existing games (gamecards)
         if (this.cards.exit) {
             this.cards.exit.classList.remove('exit');
             this.cards.exit.classList.add('vanish');
