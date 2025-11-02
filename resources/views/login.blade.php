@@ -11,22 +11,8 @@
 </head>
 
 <body>
-    <header>
-        <a href="{{ url('/welcome') }}"><img src="{{ asset('image/Logo.png') }}" alt="Logo" style="width: 150px;"></a>
-        <a href="{{ url('/library') }}"><h1>MyGamebrowser</h1></a>
-        <a href="{{ url('/newsletter') }}"><h1>MyNewsletter</h1></a>
-        <a href="{{ url('/collection') }}"><h1>MyCollection</h1></a>
-            @guest
-                <a href="{{ route('register') }}"><button class="MyAccount-button">Register</button></a>
-                <a href="{{ route('login') }}"><button class="MyAccount-button">Login</button></a>
-            @else
-                <form method="POST" action="{{ route('logout') }}" style="display:inline;">
-                     @csrf
-                     <button type="submit" class="MyAccount-button">Logout</button>
-                </form>
-            @endguest
-    </header>
-
+    @include('layouts.header')
+    
    <main>
     <center><div class="login" class="login-container" class="lessmargin">
         <h2>Login to GameVault</h2>

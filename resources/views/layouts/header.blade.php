@@ -3,5 +3,13 @@
     <a href="{{ url('/library') }}"><h1>MyGamebrowser</h1></a>
     <a href="{{ url('/newsletter') }}"><h1>MyNewsletter</h1></a>
     <a href="{{ url('/collection') }}"><h1>MyCollection</h1></a>
-    <a href="{{ url('/account') }}"><button class="MyAccount-button">MyAccount</button></a>
+    @guest
+        <a href="{{ route('register') }}"><button class="MyAccount-button">Register</button></a>
+        <a href="{{ route('login') }}"><button class="MyAccount-button">Login</button></a>
+    @else
+        <form method="POST" action="{{ route('logout') }}" style="display:inline;">
+            @csrf
+            <button type="submit" class="MyAccount-button">Logout</button>
+        </form>
+    @endguest
 </header>
