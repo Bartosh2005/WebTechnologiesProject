@@ -5,7 +5,7 @@
     <a href="{{ url('/collection') }}"><h1>MyCollection</h1></a>
     @guest
         <a href="{{ route('register') }}"><button class="MyAccount-button">Register</button></a>
-        <a href="{{ route('login') }}"><button class="MyAccount-button">Login</button></a>
+        <a href="{{ route('login', ['redirect' => url()->current()])}}"><button class="MyAccount-button">Login</button></a>
     @else
         <form method="POST" action="{{ route('logout') }}" style="display:inline;">
             @csrf
