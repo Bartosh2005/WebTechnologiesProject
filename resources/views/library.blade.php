@@ -22,14 +22,14 @@
     <main>
         <section>    
         <div class="game-library">
-            @auth
+            
                 @if (session('role') === 'admin')
                     <center>
                         <button class="add-button-admin" >Add game to library</button>
                         <p><br><br></p>
                     </center>
                 @endif
-            @endauth
+            
 
             <center>
                 <p><br><br></p>
