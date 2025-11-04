@@ -22,10 +22,19 @@
     <main>
         <section>    
         <div class="game-library">
+            @auth
+                @if (session('role') === 'admin')
+                    <center>
+                        <button class="add-button-admin" >Add game to library</button>
+                        <p><br><br></p>
+                    </center>
+                @endif
+            @endauth
+
             <center>
                 <p><br><br></p>
                 <h2 class="title-size">Browse the full library of GameVault and add games to MyCollection!</h2><br>
-                <input id="search-bar" type="text" placeholder="Search any game in MyGameBrowser to add to MyCollection..">
+                <input id="search-bar" type="text" placeholder="Search any game in MyGameBrowser to add to MyCollection.."><br>
             </center>
 
             <div class="grid-container" id="girdlibrary">
