@@ -89,6 +89,19 @@ main a:hover {
   float: right;
 }
 
+.add-button-admin {
+  background-color: #B23535;
+  color: white;
+  border: dashed yellow;
+  padding: 1% 2%;
+  margin: 0.5% 0.5%;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  text-align: right;
+  float: right;
+}
+
 .popup {
   width: 400px;
   height: 290px;
