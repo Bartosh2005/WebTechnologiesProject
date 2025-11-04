@@ -54,6 +54,9 @@
         "serve": [
             "php artisan serve --port=7999"
         ],
+        "serveIP": [
+            "php artisan serve --host=192.168.100.1 --port=7999"
+        ],
         "test": [
             "@php artisan config:clear --ansi",
             "@php artisan test"
