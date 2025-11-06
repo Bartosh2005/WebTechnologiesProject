@@ -5,11 +5,15 @@ function saveToMyCollection(title) {
 }
 
 function addGame(item) {
-    var collection = document.getElementById("girdlibrary"); 
+    var collection = document.getElementById("girdlibrary");
     let safeId = "popup-" + item.title.replace(/\s+/g, '-');
+    let addButton = '';
+    if (typeof isAuthenticated !== 'undefined' && isAuthenticated) {
+        addButton = `<button class="add-button" onclick="saveToMyCollection('${item.title}')"> Add to MyCollection </button>`;
+    }
     collection.innerHTML += `
         <div class="sub-article" style="background-image: url('/imgs/${item.img}')" onclick="openPopup('${safeId}')">
-            <button class="add-button" onclick="saveToMyCollection('${item.title}')"> Add to MyCollection </button>
+        ${addButton}
             <div class="overlay">
                 <p class ="game">${item.title}</p>
             </div>
@@ -27,10 +31,14 @@ function addGame(item) {
 
 function clearGames() {
     var collection = document.getElementById("girdlibrary");
+    let addButton = '';
+    if (typeof isAuthenticated !== 'undefined' && isAuthenticated) {
+        addButton = `<button class="add-button" onclick="saveToMyCollection('Clash of Clans')"> Add to MyCollection </button>`;
+    }
     collection.innerHTML = `
     <div class="featured-article" style="background-image: url('/imgs/coc.jpg')">
-        <button class="add-button" onclick="saveToMyCollection("Clash of Clans")"> Add to MyCollection </button>
-        <a href="{{ url('/library/clash-of-clans') }}">
+        ${addButton}
+        <a href="/library/clash-of-clans">
         <div class="overlay">
             <h2>bla bla bla</h2>
             <p>bla bla bla</p><br></a>

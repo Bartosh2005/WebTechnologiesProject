@@ -7,6 +7,9 @@
     <link rel="stylesheet" href="{{ asset('css/libraryl.css') }}">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <link rel="shortcut icon" type="image/x-icon" href="{{ asset('LogoJustIcon.ico') }}?v={{ time() }}">
+    <script>
+        var isAuthenticated = {{ Auth::check() ? 'true' : 'false' }};
+    </script>
     <script src="{{ asset('js/library.js') }}"></script>
     <script src="{{ asset('js/cookies.js') }}"></script>
     <script src="{{ asset('js/gameslist.js') }}"></script>
@@ -40,7 +43,9 @@
             <div class="grid-container" id="girdlibrary">
                 
                 <div class="featured-article gamepop" style="background-image: url('/imgs/clashroyale.jpg')" onclick="openPopup('featured-popup')">
+                    @auth
                     <button class="add-button" onclick="saveToMyCollection('Clash Royale')"> Add to MyCollection </button>
+                    @endauth
                     <a href="{{ url('/library/clash-of-clans') }}">
                     <div class="overlay">
                         <h2>Clash Royale</h2>
