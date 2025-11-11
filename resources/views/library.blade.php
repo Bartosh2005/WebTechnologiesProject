@@ -9,6 +9,7 @@
     <link rel="shortcut icon" type="image/x-icon" href="{{ asset('LogoJustIcon.ico') }}?v={{ time() }}">
     <script>
         var isAuthenticated = {{ Auth::check() ? 'true' : 'false' }};
+        var userId = {{ Auth::check() ? Auth::user()->id : 'null' }};
     </script>
     <script src="{{ asset('js/library.js') }}"></script>
     <script src="{{ asset('js/cookies.js') }}"></script>

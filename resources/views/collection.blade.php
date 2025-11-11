@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script>
+        var userId = {{ Auth::check() ? Auth::user()->id : 'null' }};
+    </script>
     <meta charset="UTF-8">
     <title>Game Vault</title>
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">

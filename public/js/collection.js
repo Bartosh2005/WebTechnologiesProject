@@ -28,15 +28,17 @@ function addGames(collection = games) {
 }
 
 
+
 function loadSavedGames() {
-    var gamesTitlesSaved = getCookieList("MyCollection2");
+    let collectionCookieName = "MyCollection2_" + userId;
+    var gamesTitlesSaved = getCookieList(collectionCookieName);
     console.log(gamesTitlesSaved);
     games = gamesLibrary.filter(x => gamesTitlesSaved.includes(x.title));
     addGames();
 }
 
 function removeFromMyCollection(title) {
-    removeFromCookieList("MyCollection2", title);
+    let collectionCookieName = "MyCollection2_" + userId;
+    removeFromCookieList(collectionCookieName, title);
     location.reload();
-
 }
