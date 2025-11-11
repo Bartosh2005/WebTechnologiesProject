@@ -1,6 +1,7 @@
 function saveToMyCollection(title) {
-    addToCookieList("MyCollection2", title);
-    var cookie = getCookieList("MyCollection2");
+    let collectionCookieName = "MyCollection2_" + userId;
+    addToCookieList(collectionCookieName, title);
+    var cookie = getCookieList(collectionCookieName);
     console.log("Stored Cookies:" + cookie)
 }
 
