@@ -7,6 +7,10 @@
     <link rel="stylesheet" href="{{ asset('css/libraryl.css') }}">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <link rel="shortcut icon" type="image/x-icon" href="{{ asset('LogoJustIcon.ico') }}?v={{ time() }}">
+    <script>
+        var isAuthenticated = {{ Auth::check() ? 'true' : 'false' }};
+        var userId = {{ Auth::check() ? Auth::user()->id : 'null' }};
+    </script>
     <script src="{{ asset('js/library.js') }}"></script>
     <script src="{{ asset('js/cookies.js') }}"></script>
     <script src="{{ asset('js/gameslist.js') }}"></script>
@@ -17,27 +21,32 @@
 </head>
 
 <body onload="addGames()">
-    <header>
-        <a href="{{ url('/welcome') }}"><img src="{{ asset('image/Logo.png') }}" alt="Logo" style="width: 150px;"></a>
-        <a href="{{ url('/library') }}"><h1>MyGamebrowser</h1></a>
-        <a href="{{ url('/newsletter') }}"><h1>MyNewsletter</h1></a>
-        <a href="{{ url('/collection') }}"><h1>MyCollection</h1></a>
-         <a href="{{ url('/account') }}"><button class="MyAccount-button">MyAccount</button></a>
-    </header>
+    @include('layouts.header')
 
     <main>
         <section>    
         <div class="game-library">
+            
+                @if (session('role') === 'admin')
+                    <center>
+                        <button class="add-button-admin" >Add game to library</button>
+                        <p><br><br></p>
+                    </center>
+                @endif
+            
+
             <center>
                 <p><br><br></p>
                 <h2 class="title-size">Browse the full library of GameVault and add games to MyCollection!</h2><br>
-                <input id="search-bar" type="text" placeholder="Search any game in MyGameBrowser to add to MyCollection..">
+                <input id="search-bar" type="text" placeholder="Search any game in MyGameBrowser to add to MyCollection.."><br>
             </center>
 
             <div class="grid-container" id="girdlibrary">
                 
                 <div class="featured-article gamepop" style="background-image: url('/imgs/clashroyale.jpg')" onclick="openPopup('featured-popup')">
+                    @auth
                     <button class="add-button" onclick="saveToMyCollection('Clash Royale')"> Add to MyCollection </button>
+                    @endauth
                     <a href="{{ url('/library/clash-of-clans') }}">
                     <div class="overlay">
                         <h2>Clash Royale</h2>
