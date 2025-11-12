@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script>
+        var userId = {{ Auth::check() ? Auth::user()->id : 'null' }};
+    </script>
     <meta charset="UTF-8">
     <title>Game Vault</title>
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
@@ -44,13 +47,7 @@
     
 </head>
 <body onload="loadSavedGames()">
-     <header>
-        <a href="{{ url('/welcome') }}"><img src="{{ asset('image/Logo.png') }}" alt="Logo" style="width: 150px;"></a>
-        <a href="{{ url('/library') }}"><h1>MyGamebrowser</h1></a>
-        <a href="{{ url('/newsletter') }}"><h1>MyNewsletter</h1></a>
-        <a href="{{ url('/collection') }}"><h1>MyCollection</h1></a>
-         <a href="{{ url('/account') }}"><button class="MyAccount-button">MyAccount</button></a>
-    </header>
+    @include('layouts.header')
 
     <main>
         <div class="search" style="display:grid;grid-template-columns: 2% auto 2% 2%;padding:1%;">

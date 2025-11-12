@@ -12,10 +12,13 @@
 
 <body>
     @include('layouts.header')
-
+    
    <main>
-    <center><div class="register" class="register-container" class="lessmargin">
-        <h2>Register for GameVault</h2>
+    <center><div class="login" class="login-container" class="lessmargin">
+        <h2>Login to GameVault</h2>
+        @if(session('success'))
+            <div style="color: green;">{{ session('success') }}</div>
+        @endif
         @if ($errors->any())
             <div style="color: red;">
                 <ul>
@@ -25,12 +28,12 @@
                 </ul>
             </div>
         @endif
-        <form method="POST" action="{{ route('register') }}">
+        <form method="POST" action="{{ route('login') }}">
             @csrf
-            <input type="text" name="name" placeholder="Name" value="{{ old('name') }}" required><br>
+            <input type="hidden" name="redirect" value="{{ request('redirect') }}">
             <input type="email" name="email" placeholder="Email" value="{{ old('email') }}" required><br>
             <input type="password" name="password" placeholder="Password" required><br>
-            <button type="submit">Register</button>
+            <button type="submit">Login</button>
         </form>
     </div></center>
 
