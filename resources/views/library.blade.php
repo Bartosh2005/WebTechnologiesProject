@@ -20,7 +20,7 @@
 
 </head>
 
-<body onload="addGames()">
+<body>
     @include('layouts.header')
 
     <main>
@@ -43,23 +43,63 @@
 
             <div class="grid-container" id="girdlibrary">
                 
-                <div class="featured-article gamepop" style="background-image: url('/imgs/clashroyale.jpg')" onclick="openPopup('featured-popup')">
+                <div class="featured-article gamepop" 
+                    style="background-image: url('/imgs/{{ $featuredgame->img }}')" 
+                    onclick="openPopup('popup-{{ $featuredgame->id }}')">
+
                     @auth
-                    <button class="add-button" onclick="saveToMyCollection('Clash Royale')"> Add to MyCollection </button>
+                    <button class="add-button" 
+                            onclick="event.stopPropagation(); saveToMyCollection('{{ $featuredgame->title }}')">
+                        Add to MyCollection
+                    </button>
                     @endauth
-                    <a href="{{ url('/library/clash-of-clans') }}">
-                    <div class="overlay">
-                        <h2>Clash Royale</h2>
-                        <p>Spam emotes and places your troops exclusively in the center!</p><br></a>
-                    </div>
-                    <div class="popup" id="featured-popup">
-                        <img src="/imgs/clashroyale.jpg">
-                        <button type="button" onclick="event.stopPropagation(); closePopup('featured-popup')">X</button>
-                        <div class="overlay">     
-                            <h2>Download Clash Royale today!</h2>          
+
+                    <a href="{{ url('/library/' . Str::slug($featuredgame->title)) }}">
+                        <div class="overlay">
+                            <h2>{{ $featuredgame->title }}</h2>
+                            <p>{{ $featuredgame->description }}</p>
+                        </div>
+                    </a>
+
+                    <div class="popup" id="popup-{{ $featuredgame->id }}">
+                        <img src="/imgs/{{ $featuredgame->img }}">
+                        <button type="button" onclick="event.stopPropagation(); closePopup('popup-{{ $featuredgame->id }}')">X</button>
+                        <div class="overlay">
+                            <h2>Download {{ $featuredgame->title }} today!</h2>
                         </div>
                     </div>
                 </div>
+                
+                @foreach ($games->skip(1) as $game)
+                    @php
+                        $safeId = 'popup-' . $game->id;
+                    @endphp
+
+                    <div class="sub-article"
+                        style="background-image: url('{{ asset('imgs/' . $game->img) }}')"
+                        onclick="openPopup('{{ $safeId }}')">
+
+                        @auth
+                            <button class="add-button"
+                                    onclick="event.stopPropagation(); saveToMyCollection('{{ addslashes($game->title) }}')">
+                                Add to MyCollection
+                            </button>
+                        @endauth
+
+                        <div class="overlay">
+                            <p class="game">{{ $game->title }}</p>
+                        </div>
+                    </div>
+
+                    <div class="popup" id="{{ $safeId }}">
+                        <img src="{{ asset('imgs/' . $game->img) }}" alt="{{ $game->title }}">
+                        <button type="button" onclick="event.stopPropagation(); closePopup('{{ $safeId }}')">X</button>
+                        <div class="overlay">
+                            <h2>{{ $game->title }}</h2>
+                            <p>{{ $game->description }}</p>
+                        </div>
+                    </div>
+                @endforeach
             </div>
         </div>
         </section>
