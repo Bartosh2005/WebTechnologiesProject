@@ -24,11 +24,10 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->string('genre');
-            $table->year('year')->nullable();
             $table->string('company');
             $table->text('description');
             $table->string('img')->nullable();
-            $table->json('tags')->nullable(); // <-- store tags as JSON
+            $table->timestamps();
         });
     }
 
