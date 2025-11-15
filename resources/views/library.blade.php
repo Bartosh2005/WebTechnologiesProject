@@ -44,7 +44,7 @@
             <div class="grid-container" id="girdlibrary">
                 
                 <div class="featured-article gamepop" 
-                    style="background-image: url('/imgs/{{ $featuredgame->img }}')" 
+                    style="background-image: url('{{ $featuredgame->img }}')" 
                     onclick="openPopup('popup-{{ $featuredgame->id }}')">
 
                     @auth
@@ -62,7 +62,7 @@
                     </a>
 
                     <div class="popup" id="popup-{{ $featuredgame->id }}">
-                        <img src="/imgs/{{ $featuredgame->img }}">
+                        <img src="{{ $featuredgame->img }}">
                         <button type="button" onclick="event.stopPropagation(); closePopup('popup-{{ $featuredgame->id }}')">X</button>
                         <div class="overlay">
                             <h2>Download {{ $featuredgame->title }} today!</h2>
@@ -76,7 +76,7 @@
                     @endphp
 
                     <div class="sub-article"
-                        style="background-image: url('{{ asset('imgs/' . $game->img) }}')"
+                        style="background-image: url('{{ $game->img }}')"
                         onclick="openPopup('{{ $safeId }}')">
 
                         @auth
@@ -92,7 +92,7 @@
                     </div>
 
                     <div class="popup" id="{{ $safeId }}">
-                        <img src="{{ asset('imgs/' . $game->img) }}" alt="{{ $game->title }}">
+                        <img src="{{ $game->img }}" alt="{{ $game->title }}">
                         <button type="button" onclick="event.stopPropagation(); closePopup('{{ $safeId }}')">X</button>
                         <div class="overlay">
                             <h2>{{ $game->title }}</h2>
