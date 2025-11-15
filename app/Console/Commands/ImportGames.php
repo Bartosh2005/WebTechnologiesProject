@@ -42,8 +42,15 @@ class ImportGames extends Command
              'page' => $page,
              'page_size' => $perPage,
             ]);
-
+            $this->info('HTTP status: ' . $response->status());
+            
             $games = $response->json('results');
+
+            if ($games === null) 
+            {
+                $this->error("RAWG returned no results:");
+                dd($response->json());
+            }
 
             foreach ($games as $game)
             {   
@@ -68,7 +75,7 @@ class ImportGames extends Command
                     $company = implode(', ', array_column($game['developers'], 'name'));
                 }
 
-                $details = Http::withoutVerifying()->get("https://api.rawg.io/api/games/{$game['id']}", [
+                $details = Http::get("https://api.rawg.io/api/games/{$game['id']}", [
                 'key' => env('RAWG_API_KEY'),
                 ])->json();
 
