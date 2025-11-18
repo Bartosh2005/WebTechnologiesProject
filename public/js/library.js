@@ -64,3 +64,23 @@ function closePopup(id) {
         popup.classList.remove("open-popup");
     }
 }
+
+function toggleMyCollection(title, btn) {
+    // Decide action based on current button text
+    const action = btn.textContent.includes('Add') ? 'add' : 'remove';
+
+    fetch(`/api/mycollection/${action}`, {
+        method: action === 'add' ? 'POST' : 'DELETE',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content
+        },
+        body: JSON.stringify({ title })
+    })
+    .then(res => res.json())
+    .then(() => {
+        // Update button text dynamically
+        btn.textContent = action === 'add' ? 'Added' : 'Add to MyCollection';
+    })
+    .catch(err => console.error(err));
+}

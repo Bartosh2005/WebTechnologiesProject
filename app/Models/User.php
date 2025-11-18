@@ -46,4 +46,14 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function gameLibrary()
+    {
+        return $this->belongsToMany(
+            \App\Models\GameLibrary::class, // related model
+            'user_game_library',            // pivot table name
+            'user_id',                      // this model's FK on pivot
+            'game_library_id'               // related model's FK on pivot
+        )->withTimestamps();
+    }
 }
