@@ -6,111 +6,114 @@
     <link rel="stylesheet" href="{{ asset('css/library.css') }}">
     <link rel="stylesheet" href="{{ asset('css/libraryl.css') }}">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('LogoJustIcon.ico') }}?v={{ time() }}">
-    <script>
-        var isAuthenticated = {{ Auth::check() ? 'true' : 'false' }};
-        var userId = {{ Auth::check() ? Auth::user()->id : 'null' }};
-    </script>
-    <script src="{{ asset('js/library.js') }}"></script>
-    <script src="{{ asset('js/cookies.js') }}"></script>
-    <script src="{{ asset('js/gameslist.js') }}"></script>
-    <script src="{{ asset('js/gamebrowser.js') }}"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.5/dist/js.cookie.min.js"></script>
+    <script src="{{ asset('js/addbutton.js') }}"></script>
 
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('LogoJustIcon.ico') }}?v={{ time() }}">
 </head>
+
+<meta name="csrf-token" content="{{ csrf_token() }}">
 
 <body>
     @include('layouts.header')
 
     <main>
         <section>    
-        <div class="game-library">
-            
+            <div class="game-library">
+
                 @if (session('role') === 'admin')
                     <center>
-                        <button class="add-button-admin" >Add game to library</button>
+                        <button class="add-button-admin">Add game to library</button>
                         <p><br><br></p>
                     </center>
                 @endif
-            
 
-            <center>
-                <p><br><br></p>
-                <h2 class="title-size">Browse the full library of GameVault and add games to MyCollection!</h2><br>
-                <input id="search-bar" type="text" placeholder="Search any game in MyGameBrowser to add to MyCollection.."><br>
-            </center>
+                <center>
+                    <p><br><br></p>
+                    <h2 class="title-size">Browse the full library of GameVault and add games to MyCollection!</h2><br>
+                    <input id="search-bar" type="text" placeholder="Search any game in MyGameBrowser to add to MyCollection.."><br>
+                </center>
 
-            <div class="grid-container" id="girdlibrary">
-                
-                <div class="featured-article gamepop" 
-                    style="background-image: url('{{ $featuredgame->img }}')" 
-                    onclick="openPopup('popup-{{ $featuredgame->id }}')">
-
-                    @auth
-                    <button class="add-button" 
-                            onclick="event.stopPropagation(); saveToMyCollection('{{ $featuredgame->title }}')">
-                        Add to MyCollection
-                    </button>
-                    @endauth
-
-                    <a href="{{ url('/library/' . Str::slug($featuredgame->title)) }}">
-                        <div class="overlay">
-                            <h2>{{ $featuredgame->title }}</h2>
-                            <p>{{ $featuredgame->description }}</p>
-                        </div>
-                    </a>
-
-                    <div class="popup" id="popup-{{ $featuredgame->id }}">
-                        <img src="{{ $featuredgame->img }}">
-                        <button type="button" onclick="event.stopPropagation(); closePopup('popup-{{ $featuredgame->id }}')">X</button>
-                        <div class="overlay">
-                            <h2>Download {{ $featuredgame->title }} today!</h2>
-                        </div>
-                    </div>
-                </div>
-                
-                @foreach ($games->skip(1) as $game)
-                    @php
-                        $safeId = 'popup-' . $game->id;
-                    @endphp
-
-                    <div class="sub-article"
-                        style="background-image: url('{{ $game->img }}')"
-                        onclick="openPopup('{{ $safeId }}')">
+                <div class="grid-container" id="girdlibrary">
+                    
+                    {{-- Featured Game --}}
+                    <div class="featured-article gamepop" style="background-image: url('{{ $featuredgame->img }}')">
 
                         @auth
-                            <button class="add-button"
-                                    onclick="event.stopPropagation(); saveToMyCollection('{{ addslashes($game->title) }}')">
-                                Add to MyCollection
+                            @php
+                                $owned = auth()->user()->gameLibrary->pluck('id')->contains($featuredgame->id);
+                            @endphp
+
+                            <button 
+                                class="add-button {{ $owned ? 'remove-from-library-btn' : 'add-to-library-btn' }}" 
+                                data-game-id="{{ $featuredgame->id }}" 
+                                style="{{ $owned ? 'background-color: #515151; color: #fff;' : '' }}">
+                                {{ $owned ? 'Remove from MyCollection' : 'Add to MyCollection' }}
                             </button>
                         @endauth
 
-                        <div class="overlay">
-                            <p class="game">{{ $game->title }}</p>
+                        <div href="{{ url('/library/' . Str::slug($featuredgame->title)) }}">
+                            <div class="overlay">
+                                <h2>{{ $featuredgame->title }}</h2>
+                                @php
+                                    $text = $featuredgame->description;
+                                    $sentences = preg_split('/(?<=[.?!])\s+/', $text);
+                                    $limited = implode(' ', array_slice($sentences, 0, 3));
+                                @endphp
+                                <p>{{ $limited }}</p>
+                            </div>
                         </div>
+
                     </div>
 
-                    <div class="popup" id="{{ $safeId }}">
-                        <img src="{{ $game->img }}" alt="{{ $game->title }}">
-                        <button type="button" onclick="event.stopPropagation(); closePopup('{{ $safeId }}')">X</button>
-                        <div class="overlay">
-                            <h2>{{ $game->title }}</h2>
-                            <p>{{ $game->description }}</p>
+                    {{-- Other Games --}}
+                    @foreach ($games->skip(1) as $game)
+                        <div class="sub-article" style="background-image: url('{{ $game->img }}')">
+
+                           
+
+                            <div class="overlay">
+                                <p class="game">{{ $game->title }}</p>
+                                @php
+                                    $text = $game->description;
+                                    $sentences = preg_split('/(?<=[.?!])\s+/', $text);
+                                    $limited = implode(' ', array_slice($sentences, 0, 3));
+                                @endphp
+                                <p>{{ $limited }}
+
+                                    <div>
+                                        @auth
+                                            @php
+                                                $owned = auth()->user()->gameLibrary->pluck('id')->contains($game->id);
+                                            @endphp
+
+                                            <button 
+                                                class="add-button {{ $owned ? 'remove-from-library-btn' : 'add-to-library-btn' }}" 
+                                                data-game-id="{{ $game->id }}" 
+                                                style="{{ $owned ? 'background-color: #515151; color: #fff;' : '' }}">
+                                                {{ $owned ? 'Remove from MyCollection' : 'Add to MyCollection' }}
+                                            </button>
+                                        @endauth
+                                    </div>
+
+                                </p>
+                                    
+                            </div>
+
+                                    
+                            
+                                    
                         </div>
-                    </div>
-                @endforeach
+                    @endforeach
+
+                </div>
             </div>
-        </div>
         </section>
 
         <footer>
-        <p>&copy; 2025 Game Library</p>
+            <p>&copy; 2025 Game Library</p>
         </footer>
         
     </main>
-
-    
-
 </body>
 </html>

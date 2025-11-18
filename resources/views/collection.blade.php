@@ -57,6 +57,26 @@
             <div class="searchicon"><i class="fa-solid fa-filter" style=""></i></div>
         </div>
         <div class="games" id="gamesCollection">
+            @forelse($games as $game)
+                <div class="game">
+                    <div style="background-image: url('{{ $game->img }}'); height: 200px; background-size: cover; border-radius: 1.5rem;"></div>
+                    <div class="game-text">
+                        <h3>{{ $game->title }}</h3>
+                        <p>{{ \Illuminate\Support\Str::limit($game->description, 100) }}</p>
+
+                        {{-- Remove from collection form --}}
+                        <form action="{{ route('collection.remove', ['gameLibrary' => $game->id]) }}" method="POST">
+                            @csrf
+                            <button type="submit">Remove from MyCollection</button>
+                        </form>
+                    </div>
+                </div>
+            @empty
+                <p>You have no games in your collection yet.</p>
+            @endforelse
+
+            {{-- Pagination --}}
+            {{ $games->links() }}
         </div>
     </main>
 

@@ -2,6 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GameController;
+use App\Http\Controllers\CollectionController;
+use App\Models\GameLibrary;
+
 
 Route::get('/', function () {
     return view('welcome');
@@ -85,3 +88,11 @@ Route::post('/login', [App\Http\Controllers\LoginController::class, 'login'])->n
 Route::post('/logout', [App\Http\Controllers\LoginController::class, 'logout'])->name('logout');
 
 Route::get('/library', [GameController::class, 'index']);
+
+Route::post('/library/add', [LibraryController::class, 'add'])->middleware('auth');
+
+Route::middleware('auth')->group(function () {
+    Route::get('/collection', [CollectionController::class, 'index'])->name('collection.index');
+    Route::post('/collection/add/{gameLibrary}', [CollectionController::class, 'add'])->name('collection.add');
+    Route::post('/collection/remove/{gameLibrary}', [CollectionController::class, 'remove'])->name('collection.remove');
+});
