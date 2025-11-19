@@ -11,31 +11,49 @@ return new class extends Migration
      */
     public function up(): void
     {
-         // Rename old table
-        Schema::rename('user_game_library', 'user_game_library_old');
+        // Only perform the rename and data copy if the old table exists
+        if (Schema::hasTable('user_game_library')) {
+            Schema::rename('user_game_library', 'user_game_library_old');
 
-        // Recreate it with correct structure
-        Schema::create('user_game_library', function (Blueprint $table) {
-            $table->id();
-            $table->unsignedBigInteger('user_id');
-            $table->unsignedBigInteger('game_library_id'); // correct name
-            $table->timestamps();
+            // Recreate it with correct structure
+            Schema::create('user_game_library', function (Blueprint $table) {
+                $table->id();
+                $table->unsignedBigInteger('user_id');
+                $table->unsignedBigInteger('game_library_id'); // correct name
+                $table->timestamps();
 
-            $table->unique(['user_id', 'game_library_id']);
+                $table->unique(['user_id', 'game_library_id']);
 
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->foreign('game_library_id')->references('id')->on('games_library')->onDelete('cascade');
-        });
+                $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+                $table->foreign('game_library_id')->references('id')->on('games_library')->onDelete('cascade');
+            });
 
-        // Copy data from old table into new one
-        DB::statement("
-            INSERT INTO user_game_library (id, user_id, game_library_id, created_at, updated_at)
-            SELECT id, user_id, game_id AS game_library_id, created_at, updated_at
-            FROM user_game_library_old
-        ");
+            // Only copy data if the old table has the 'game_id' column
+            $columns = Schema::getColumnListing('user_game_library_old');
+            if (in_array('game_id', $columns)) {
+                DB::statement("
+                    INSERT INTO user_game_library (id, user_id, game_library_id, created_at, updated_at)
+                    SELECT id, user_id, game_id AS game_library_id, created_at, updated_at
+                    FROM user_game_library_old
+                ");
+            }
 
-        // Drop old table
-        Schema::drop('user_game_library_old');
+            // Drop old table
+            Schema::drop('user_game_library_old');
+        } else {
+            // Fresh migration: just create the table
+            Schema::create('user_game_library', function (Blueprint $table) {
+                $table->id();
+                $table->unsignedBigInteger('user_id');
+                $table->unsignedBigInteger('game_library_id');
+                $table->timestamps();
+
+                $table->unique(['user_id', 'game_library_id']);
+
+                $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+                $table->foreign('game_library_id')->references('id')->on('games_library')->onDelete('cascade');
+            });
+        }
     }
     
 
