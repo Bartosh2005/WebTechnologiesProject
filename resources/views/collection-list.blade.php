@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="{{ asset('css/library.css') }}">
+
 @forelse($games as $game)
     <div class="game">
         <div style="background-image: url('{{ $game->img }}'); height: 200px; background-size: cover; border-radius: 1.5rem;"></div>

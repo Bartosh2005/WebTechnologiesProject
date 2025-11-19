@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\GameLibrary;
+use Illuminate\Http\Request;
 
 class CollectionController extends Controller
 {
@@ -14,9 +14,9 @@ class CollectionController extends Controller
 
         $games = $user->gameLibrary()
             ->when($query, function ($q) use ($query) {
-                $q->where('title', 'like', "{$query}%");
+                $q->where('title', 'like', "%{$query}%");
             })
-        ->get();
+            ->get();
 
         if ($request->ajax()) {
             return view('collection-list', compact('games'))->render();
@@ -33,7 +33,7 @@ class CollectionController extends Controller
         $featuredgame = empty($query) ? GameLibrary::first() : null;
 
         // Get games (filtered if searching)
-        $games = GameLibrary::when($query, function($q) use ($query) {
+        $games = GameLibrary::when($query, function ($q) use ($query) {
             $q->where('title', 'like', "%{$query}%");
         })->get();
 

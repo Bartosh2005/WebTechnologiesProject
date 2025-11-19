@@ -2,9 +2,9 @@
 
 namespace App\Console\Commands;
 
+use App\Models\GameLibrary;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Http;
-use App\Models\GameLibrary;
 
 class ImportGames extends Command
 {
@@ -25,8 +25,6 @@ class ImportGames extends Command
     /**
      * Execute the console command.
      */
-    
-
     public function handle()
     {
         $count = $this->argument('count');
@@ -35,55 +33,48 @@ class ImportGames extends Command
 
         $this->info("Fetching $count games from RAWG API...");
 
-        for ($page = 1; $page <= $pages; $page++)
-        {
+        for ($page = 1; $page <= $pages; $page++) {
             $response = Http::get('https://api.rawg.io/api/games', [
-             'key' => env('RAWG_API_KEY'),
-             'page' => $page,
-             'page_size' => $perPage,
+                'key' => env('RAWG_API_KEY'),
+                'page' => $page,
+                'page_size' => $perPage,
             ]);
-            $this->info('HTTP status: ' . $response->status());
-            
+            $this->info('HTTP status: '.$response->status());
+
             $games = $response->json('results');
 
-            if ($games === null) 
-            {
-                $this->error("RAWG returned no results:");
+            if ($games === null) {
+                $this->error('RAWG returned no results:');
                 dd($response->json());
             }
 
-            foreach ($games as $game)
-            {   
-                $this->info("Importing game: " . $game['name']);
+            foreach ($games as $game) {
+                $this->info('Importing game: '.$game['name']);
 
-                if(GameLibrary::where('title', $game['name'])->exists())
-                {
+                if (GameLibrary::where('title', $game['name'])->exists()) {
                     continue;
                 }
 
                 $genre = null;
 
-                if(!empty($game['genres'])) 
-                {
+                if (! empty($game['genres'])) {
                     $genre = implode(', ', array_column($game['genres'], 'name'));
                 }
 
                 $company = null;
 
-                if (!empty($game['developers'])) 
-                {
+                if (! empty($game['developers'])) {
                     $company = implode(', ', array_column($game['developers'], 'name'));
                 }
 
                 $details = Http::get("https://api.rawg.io/api/games/{$game['id']}", [
-                'key' => env('RAWG_API_KEY'),
+                    'key' => env('RAWG_API_KEY'),
                 ])->json();
 
                 $description = $details['description_raw'] ?? null;
-                
+
                 $company = null;
-                if (!empty($details['developers'])) 
-                {
+                if (! empty($details['developers'])) {
                     $company = implode(', ', array_column($details['developers'], 'name'));
                 }
 
@@ -98,10 +89,10 @@ class ImportGames extends Command
                     'rating' => $game['rating'] ?? null,
                 ]);
             }
-            sleep (1);
+            sleep(1);
             $this->info("Page $page imported.");
         }
 
-        $this->info("Import completed!");
+        $this->info('Import completed!');
     }
 }
