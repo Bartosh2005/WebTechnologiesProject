@@ -96,3 +96,5 @@ Route::middleware('auth')->group(function () {
     Route::post('/collection/add/{gameLibrary}', [CollectionController::class, 'add'])->name('collection.add');
     Route::post('/collection/remove/{gameLibrary}', [CollectionController::class, 'remove'])->name('collection.remove');
 });
+
+Route::get('/library', [CollectionController::class, 'library_index'])->name('library.index');
