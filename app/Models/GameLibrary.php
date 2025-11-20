@@ -7,16 +7,18 @@ use Illuminate\Database\Eloquent\Model;
 class GameLibrary extends Model
 {
     protected $table = 'games_library';
-
+    public $timestamps = false;
     protected $fillable = [
         'id',
         'title',        // Game name
         'description',  // description
+        'year',
         'img',          // Background image URL
         'genre',        // Comma-separated genres
         'company',      // Developers / publishers
         'released_at',  // Release date
         'rating',       // Rating (decimal)
+        'tags'
     ];
 
     public function users()

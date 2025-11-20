@@ -25,7 +25,7 @@
 
                 @if (session('role') === 'admin')
                     <center>
-                        <button class="add-button-admin">Add game to library</button>
+                        <a href="{{ url('/admin') }}"><button class="add-button-admin">Admin Panel</button></a>
                         <p><br><br></p>
                     </center>
                 @endif

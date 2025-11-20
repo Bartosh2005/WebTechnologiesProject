@@ -39,6 +39,11 @@ Route::get('/account', function () {
     return view('account', compact('games'));
 });
 
+Route::get('/admin', function () {
+    return view('admin');
+});
+Route::post('/admin', [GameController::class, 'add'])->name('admin.add');
+
 Route::get('/articles/silksong', function () {
     return view('articles.silksong');
 });
