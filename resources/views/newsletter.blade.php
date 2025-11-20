@@ -10,7 +10,10 @@
 <body>
     @include('layouts.header')
 
-            
+    <div class="button-container">
+      <button class="add-article">add article</button>
+    </div>
+      
     <div class="grid-container">
 
       <a href="{{ url('/articles/silksong') }}" class="featured-article" style="background-image: url('/images/silksong.jpg')">
