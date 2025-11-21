@@ -10,9 +10,13 @@
 <body>
     @include('layouts.header')
 
-    <div class="button-container">
-      <button class="add-article">add article</button>
-    </div>
+
+    @if (session('role') === 'admin')
+      <div class="button-container">
+        <button class="add-article">Ήξερα ότι θα το μετέφραζες χεχε</button>
+      </div>
+    @endif
+    
       
     <div class="grid-container">
 
