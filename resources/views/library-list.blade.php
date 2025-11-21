@@ -1,6 +1,6 @@
 @if ($featuredgame)
     {{-- Featured Game --}}
-    <div class="featured-article gamepop" style="background-image: url('imgs/{{ $featuredgame->img }}')">
+    <div class="featured-article gamepop" style="background-image: url('{{ $featuredgame->img }}')">
 
         @auth
             @php
@@ -33,7 +33,7 @@
 
 {{-- Other Games --}}
 @foreach ($games->skip(1) as $game)
-    <div class="sub-article" style="background-image: url('imgs/{{ $game->img }}')">
+    <div class="sub-article" style="background-image: url('{{ $game->img }}')">
 
         <div class="overlay">
 
