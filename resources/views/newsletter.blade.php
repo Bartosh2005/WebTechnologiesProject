@@ -13,7 +13,7 @@
 
     @if (session('role') === 'admin')
       <div class="button-container">
-        <button class="add-article">Ήξερα ότι θα το μετέφραζες χεχε</button>
+        <a href="{{ url('/add-article') }}"><button class="add-article">Ήξερα ότι θα το μετέφραζες χεχε</button></a>
       </div>
     @endif
     
