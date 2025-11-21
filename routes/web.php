@@ -1,10 +1,8 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\GameController;
 use App\Http\Controllers\CollectionController;
-use App\Models\GameLibrary;
-
+use App\Http\Controllers\GameController;
+use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
@@ -43,6 +41,11 @@ Route::get('/admin', function () {
     return view('admin');
 });
 Route::post('/admin', [GameController::class, 'add'])->name('admin.add');
+
+Route::get('/add-article', function () {
+    return view('add-article');
+});
+Route::post('/add-article', [GameController::class, 'addArticle'])->name('add-article.add');
 
 Route::get('/articles/silksong', function () {
     return view('articles.silksong');
@@ -95,7 +98,6 @@ Route::post('/logout', [App\Http\Controllers\LoginController::class, 'logout'])-
 Route::get('/library', [GameController::class, 'index']);
 
 Route::post('/library/add', [LibraryController::class, 'add'])->middleware('auth');
-
 
 Route::middleware('auth')->group(function () {
     Route::get('/collection', [CollectionController::class, 'index'])->name('collection.index');
