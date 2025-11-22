@@ -20,7 +20,7 @@ class GameController extends Controller
 
     public function add(Request $request)
     {
-        // Validation
+        
         $validated = $request->validate([
             'title' => 'required|string|max:255',
             'genre' => 'required|string|max:255',
@@ -37,16 +37,16 @@ class GameController extends Controller
         if ($request->hasFile('image')) {
             $file = $request->file('image');
 
-            // Create unique filename
+           
             $filename = time() . '_' . $file->getClientOriginalName();
 
-            // Save into /public/imgs/
+            
             $file->move(public_path('imgs'), $filename);
         }
 
         $tagsJSON = json_encode(preg_replace('/\s+/', '', explode(",", $request->tags)));
 
-        // Insert into DB
+        
         GameLibrary::create([
             'title'       => $request->title,
             'genre'       => $request->genre,

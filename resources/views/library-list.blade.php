@@ -1,5 +1,4 @@
 @if ($featuredgame)
-    {{-- Featured Game --}}
     <div class="featured-article gamepop" style="background-image: url('{{ $featuredgame->img }}')">
 
         @auth
@@ -31,7 +30,7 @@
 
 
 
-{{-- Other Games --}}
+
 @foreach ($games->skip(1) as $game)
     <div class="sub-article" style="background-image: url('{{ $game->img }}')">
 
@@ -47,7 +46,7 @@
 
             <p>{{ $limited }}</p>
 
-            {{-- Button OUTSIDE the <p>, valid HTML --}}
+            
             @auth
                 @php
                     $owned = auth()->user()->gameLibrary->pluck('id')->contains($game->id);

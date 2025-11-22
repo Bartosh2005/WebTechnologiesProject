@@ -29,7 +29,7 @@ class CollectionController extends Controller
     {
         $query = $request->input('q');
 
-        // If NOT searching → show featured game
+        // If NOT searching then show featured game
         $featuredgame = empty($query) ? GameLibrary::first() : null;
 
         // Get games (filtered if searching)
@@ -42,7 +42,7 @@ class CollectionController extends Controller
             return view('library-list', compact('featuredgame', 'games'))->render();
         }
 
-        // Full page
+       
         return view('library', compact('featuredgame', 'games'));
     }
 

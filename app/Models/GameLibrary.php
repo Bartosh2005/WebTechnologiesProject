@@ -10,14 +10,14 @@ class GameLibrary extends Model
     public $timestamps = false;
     protected $fillable = [
         'id',
-        'title',        // Game name
-        'description',  // description
+        'title',        
+        'description',  
         'year',
-        'img',          // Background image URL
-        'genre',        // Comma-separated genres
-        'company',      // Developers / publishers
-        'released_at',  // Release date
-        'rating',       // Rating (decimal)
+        'img',          
+        'genre',      
+        'company',     
+        'released_at',
+        'rating',       
         'tags'
     ];
 
