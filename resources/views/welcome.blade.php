@@ -41,6 +41,18 @@
 
     </main>
 
+        <section style="display:flex;justify-content:center;margin:40px 0;">
+            <div class="about-dev">
+                <h3>Greetings from the Developers</h3>
+                <p>
+                    We are a small group of passionate game lovers and web develop students building GameVault to help players discover and collect their favorite titles. Our goal is to provide a clean, attractive library experience and bring game information directly to you.<br>
+                    <br>Visit <strong>MyGamebrowser</strong> to search through all of our available cross-platform games.<br>
+                    <br>Read through <strong>MyNewsletter</strong> to stay updated with the latest gaming news and starter stories to help you to get started!<br>
+                    <br>Organize your personal game collection with <strong>MyCollection</strong> and keep track of the games you own and love. Be sure to create an account first!<br>
+                </p>
+            </div>
+        </section>
+
     <footer>
         <p>&copy; 2025 Game Library</p>
     </footer>
