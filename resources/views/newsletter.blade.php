@@ -27,7 +27,7 @@
         </div>
       </a>
 
-      <a href="{{ url('/articles/doomTDA') }}" class="sub-article" style="background-image: url('/imgs/doom.jpg')">
+      <a href="{{ url('/articles/doomTDA') }}" class="sub-article" style="background-image: url('/images/doomTDA.jpg')">
         <div class="overlay">
           <p>The gates of Hell open once more, this time on a medieval battlefield</p>
         </div>

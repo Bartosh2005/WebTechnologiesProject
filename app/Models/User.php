@@ -51,8 +51,8 @@ class User extends Authenticatable
         return $this->belongsToMany(
             \App\Models\GameLibrary::class, // related model
             'user_game_library',            // pivot table name
-            'user_id',                      // this model's FK on pivot
-            'game_library_id'               // related model's FK on pivot
+            'user_id',                      // this models foreign key on pivot
+            'game_library_id'               // related models foreign key on pivot
         )->withTimestamps();
     }
 }
