@@ -29,20 +29,19 @@ class CollectionController extends Controller
     {
         $query = $request->input('q');
 
-        // If NOT searching then show featured game
+        // Show the featured game only if there's no search query
         $featuredgame = empty($query) ? GameLibrary::first() : null;
 
-        // Get games (filtered if searching)
+        // Fetch all games, or filter them if a search is done
         $games = GameLibrary::when($query, function ($q) use ($query) {
             $q->where('title', 'like', "%{$query}%");
         })->get();
 
-        // AJAX search response
+        // if an AJAX search, return only the partial view
         if ($request->ajax()) {
             return view('library-list', compact('featuredgame', 'games'))->render();
         }
 
-       
         return view('library', compact('featuredgame', 'games'));
     }
 
@@ -51,7 +50,7 @@ class CollectionController extends Controller
         $user = $request->user();
         $user->gameLibrary()->syncWithoutDetaching([$gameLibrary->id]);
 
-        // Return JSON when AJAX
+        // If request is AJAX, respond with JSON
         if ($request->ajax()) {
             return response()->json(['success' => true, 'added' => true]);
         }
@@ -64,7 +63,7 @@ class CollectionController extends Controller
         $user = $request->user();
         $user->gameLibrary()->detach($gameLibrary->id);
 
-        // If request is AJAX, just return success
+        // For AJAX requests, just returning a success
         if ($request->ajax()) {
             return response()->json(['success' => true]);
         }
