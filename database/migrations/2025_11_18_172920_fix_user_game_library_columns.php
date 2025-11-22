@@ -6,20 +6,18 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
+   
     public function up(): void
     {
-        // Only perform the rename and data copy if the old table exists
+       
         if (Schema::hasTable('user_game_library')) {
             Schema::rename('user_game_library', 'user_game_library_old');
 
-            // Recreate it with correct structure
+            
             Schema::create('user_game_library', function (Blueprint $table) {
                 $table->id();
                 $table->unsignedBigInteger('user_id');
-                $table->unsignedBigInteger('game_library_id'); // correct name
+                $table->unsignedBigInteger('game_library_id');
                 $table->timestamps();
 
                 $table->unique(['user_id', 'game_library_id']);
@@ -28,7 +26,7 @@ return new class extends Migration
                 $table->foreign('game_library_id')->references('id')->on('games_library')->onDelete('cascade');
             });
 
-            // Only copy data if the old table has the 'game_id' column
+            
             $columns = Schema::getColumnListing('user_game_library_old');
             if (in_array('game_id', $columns)) {
                 DB::statement("
@@ -38,10 +36,10 @@ return new class extends Migration
                 ");
             }
 
-            // Drop old table
+            
             Schema::drop('user_game_library_old');
         } else {
-            // Fresh migration: just create the table
+            
             Schema::create('user_game_library', function (Blueprint $table) {
                 $table->id();
                 $table->unsignedBigInteger('user_id');
@@ -57,18 +55,16 @@ return new class extends Migration
     }
     
 
-    /**
-     * Reverse the migrations.
-     */
+   
     public function down(): void
     {
           Schema::dropIfExists('user_game_library');
 
-        // Restore original table
+        
         Schema::create('user_game_library', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
-            $table->unsignedBigInteger('game_id'); // original column
+            $table->unsignedBigInteger('game_id'); 
             $table->timestamps();
 
             $table->unique(['user_id', 'game_id']);

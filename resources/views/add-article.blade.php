@@ -17,39 +17,39 @@
                 <form action="{{ route('add-article.add') }}" method="POST" enctype="multipart/form-data">
                     @csrf
 
-                    <!-- Title -->
+                    
                     <div class="form-field">
                         <label for="title" class="form-label">Title</label>
                         <input type="text" name="title" id="title" class="form-control" placeholder="Title" required>
                     </div>
                     
-                    <!-- Image -->
+                    
                     <div class="form-field">
                         <label for="image" class="form-label">Image</label>
                         <input type="file" name="image" id="image" class="form-control">
                     </div>
 
-                    <!-- Short description -->
+                    
                     <div class="form-field">
                         <label for="genre" class="form-label">Short description</label>
                         <input type="text" name="genre" id="genre" class="form-control">
                     </div>
 
-                    <!-- Header -->
+                    
                     <div class="form-field">
                         <label for="year" class="form-label">Header</label>
                         <input type="number" name="year" id="year" class="form-control">
                     </div>
 
 
-                    <!-- Article -->
+                    
                     <div class="form-field">
                         <label for="description" class="form-label">Article</label>
                         <textarea name="description" id="description" rows="4" class="form-control"></textarea>
                     </div>
 
 
-                    <!-- Submit -->
+                    
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </form>
 

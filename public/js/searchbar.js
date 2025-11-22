@@ -3,11 +3,10 @@ $(document).ready(function() {
         let query = $(this).val();
 
         $.ajax({
-            url: '/collection',       // your route
+            url: '/collection',       
             type: 'GET',
             data: { q: query },
             success: function(res) {
-                // Replace the game container with filtered games
                 $('#gamesCollection').html(res);
             },
             error: function() {
