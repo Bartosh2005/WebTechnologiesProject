@@ -1,12 +1,11 @@
 $(document).ready(function () {
-    // Set CSRF token for all AJAX requests
+    // Include the CSRF token with every AJAX request
     $.ajaxSetup({
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         }
     });
 
-    // Delegated handler for remove buttons
     $(document).on('click', '.remove-from-library-btn', function (e) {
         e.preventDefault();
 
@@ -15,9 +14,9 @@ $(document).ready(function () {
 
         if (!gameId) return;
 
-        // AJAX POST request to remove the game
+        // POST request to remove the selected game from the collection
         $.post('/collection/remove/' + gameId, {}, function (response) {
-            // Fade out and remove the card
+            // Smooth fade out and remove the game card from the page
             button.closest('.game').fadeOut(300, function () {
                 $(this).remove();
             });
