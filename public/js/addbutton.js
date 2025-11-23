@@ -6,11 +6,11 @@ $(document).ready(function() {
         }
     });
 
-    // Handle both add and remove with one handler
+    // Handle both add and remove
     $(document).on('click', '.add-to-library-btn, .remove-from-library-btn', function() {
         let button = $(this);
         let gameId = button.data('game-id');
-        let isOwned = button.hasClass('remove-from-library-btn'); // true if currently owned
+        let isOwned = button.hasClass('remove-from-library-btn'); // true if owned
         let url = isOwned ? '/collection/remove/' + gameId : '/collection/add/' + gameId;
 
         $.post(url, {}, function(response) {
@@ -18,12 +18,12 @@ $(document).ready(function() {
                 // Game removed
                 button.removeClass('remove-from-library-btn').addClass('add-to-library-btn');
                 button.text('Add to MyCollection');
-                button.css({'background-color':'','color':''}); // reset color
+                button.css({'background-color':'','color':''}); 
             } else {
                 // Game added
                 button.removeClass('add-to-library-btn').addClass('remove-from-library-btn');
                 button.text('Remove from MyCollection');
-                button.css({'background-color':'#515151','color':'#fff'}); // new color
+                button.css({'background-color':'#515151','color':'#fff'}); 
             }
         });
     });
