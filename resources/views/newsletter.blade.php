@@ -13,7 +13,7 @@
 
     @if (session('role') === 'admin')
       <div class="button-container">
-        <a href="{{ url('/add-article') }}"><button class="add-article">Ήξερα ότι θα το μετέφραζες χεχε</button></a>
+        <a href="{{ url('/add-article') }}"><button class="add-article">Add a new captivating article</button></a>
       </div>
     @endif
     
@@ -68,6 +68,17 @@
           <p>SilkSong: learn how to 'GIT GUD' with this new guide</p>
         </div>
       </a>
+    </div>
+
+    <div class="grid-container">
+
+      @foreach($articles as $article)
+        <a href="{{ url('/articles/' . $article->slug) }}" class="sub-article" style="background-image: url('{{ asset('storage/' . $article->image) }}')">
+          <div class="overlay">
+            <p>{{ $article->short_description }}</p>
+          </div>
+        </a>
+      @endforeach
     </div>
           
     <footer>

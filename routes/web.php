@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\CollectionController;
 use App\Http\Controllers\GameController;
 use Illuminate\Support\Facades\Route;
@@ -39,10 +40,8 @@ Route::get('/admin', function () {
 });
 Route::post('/admin', [GameController::class, 'add'])->name('admin.add');
 
-Route::get('/add-article', function () {
-    return view('add-article');
-});
-Route::post('/add-article', [GameController::class, 'addArticle'])->name('add-article.add');
+// I, Serafeim put the routing for the hardcoded articles here, because if put after the /articles/{slug},
+// it get overriden by it and it doesnt show the articles, only database ones
 
 Route::get('/articles/silksong', function () {
     return view('articles.silksong');
@@ -75,6 +74,14 @@ Route::get('/articles/ananta', function () {
 Route::get('/articles/doomTDA', function () {
     return view('articles.doomTDA');
 });
+
+Route::get('/newsletter', [ArticleController::class, 'index'])->name('newsletter.index');
+Route::get('/add-article', [ArticleController::class, 'create'])->name('add-article.create');
+Route::post('/add-article', [ArticleController::class, 'store'])->name('add-article.add');
+Route::get('/articles/{slug}', [ArticleController::class, 'show'])->name('articles.show');
+Route::get('/articles/{id}/edit', [ArticleController::class, 'edit'])->name('articles.edit');
+Route::post('/articles/{id}/edit', [ArticleController::class, 'saveEdit'])->name('articles.saveEdit');
+Route::post('/articles/{id}/delete', [ArticleController::class, 'destroy'])->name('articles.delete');
 
 use App\Http\Controllers\RegisterController;
 
