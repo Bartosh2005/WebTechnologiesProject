@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <title>Game Vault - Add Article</title>
-    
+
     <link rel="stylesheet" href="{{ asset('css/newsletter.css') }}">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <link rel="stylesheet" href="{{ asset('css/add-article.css') }}">
@@ -85,7 +85,7 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script>
-      // NOTE: This script follows the same pattern as your add-game "add button" logic:
+      
       (function ($) {
         $(function () {
           const container = $('#sections-container');
@@ -95,29 +95,27 @@
               $(this).attr('data-index', i);
               $(this).find('input.section-header').attr('name', `content[${i}][header]`);
               $(this).find('textarea.section-paragraph').attr('name', `content[${i}][paragraph]`);
-              // show remove button except for the first section
+              
               $(this).find('.remove-section').toggle(i !== 0);
             });
           }
 
-          // Add new section
-          container.on('click', '.add-section', function () {
+            container.on('click', '.add-section', function () {
             const current = $(this).closest('.section');
-            const newSection = current.clone(true); // clone with handlers
-            // clear inputs
+            const newSection = current.clone(true); 
             newSection.find('input.section-header').val('');
             newSection.find('textarea.section-paragraph').val('');
             container.append(newSection);
             reindexSections();
           });
 
-          // Remove section
+          
           container.on('click', '.remove-section', function () {
             $(this).closest('.section').remove();
             reindexSections();
           });
 
-          // ensure first remove button is hidden
+          
           reindexSections();
         });
       })(jQuery);
