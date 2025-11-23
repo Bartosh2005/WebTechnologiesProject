@@ -14,7 +14,7 @@
     @include('layouts.header')
 
    <main>
-    <center><div class="register" class="register-container" class="lessmargin">
+    <center><div class="auth-form lessmargin">
         <h2>Register for GameVault</h2>
         @if ($errors->any())
             <div style="color: red;">

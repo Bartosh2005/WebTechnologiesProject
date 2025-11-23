@@ -36,7 +36,7 @@ main a:hover {
   background-image: url('/images/silksong.jpg');
   background-size: contain;
   background-repeat: no-repeat;
-  background-color:#922d2d;
+  background-color:#1e1919;
   background-position: center;
   height: 40vh;
   position: relative;
@@ -48,7 +48,7 @@ main a:hover {
   background-size: contain;
   object-fit: contain;
   background-repeat: no-repeat;
-  background-color:#922d2d;
+  background-color:#171414;
   background-position: center;
   position: relative;
   color: white;
