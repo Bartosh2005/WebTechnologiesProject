@@ -16,9 +16,9 @@ class ImportGames extends Command
     protected $signature = 'games:import {count=200}';
 
     /**
-     * The console command description.
+     *The console command description.
      *
-     * @var string
+      @var string
      */
     protected $description = 'Import games from RAWG API';
 

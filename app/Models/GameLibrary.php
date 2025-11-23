@@ -26,7 +26,7 @@ class GameLibrary extends Model
         return $this->belongsToMany(
             \App\Models\User::class,        // related model
             'user_game_library',            // pivot table name
-            'game_library_id',              // this model's FK on pivot
+            'game_library_id',              // this model's FK (foreign key) on pivot
             'user_id'                       // related model's FK on pivot
         )->withTimestamps();
     }
