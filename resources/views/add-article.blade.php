@@ -9,6 +9,9 @@
     <link rel="stylesheet" href="{{ asset('css/add-article.css') }}">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="shortcut icon" type="image/x-icon" href="{{ asset('LogoJustIcon.ico') }}?v={{ time() }}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="{{ asset('js/add-article.js') }}"></script>
+
 </head>
 <body>
     @include('layouts.header')
@@ -82,43 +85,5 @@
     <footer>
         <p>&copy; 2025 Game Library</p>
     </footer>
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script>
-      
-      (function ($) {
-        $(function () {
-          const container = $('#sections-container');
-
-          function reindexSections() {
-            container.find('.section').each(function (i) {
-              $(this).attr('data-index', i);
-              $(this).find('input.section-header').attr('name', `content[${i}][header]`);
-              $(this).find('textarea.section-paragraph').attr('name', `content[${i}][paragraph]`);
-              
-              $(this).find('.remove-section').toggle(i !== 0);
-            });
-          }
-
-            container.on('click', '.add-section', function () {
-            const current = $(this).closest('.section');
-            const newSection = current.clone(true); 
-            newSection.find('input.section-header').val('');
-            newSection.find('textarea.section-paragraph').val('');
-            container.append(newSection);
-            reindexSections();
-          });
-
-          
-          container.on('click', '.remove-section', function () {
-            $(this).closest('.section').remove();
-            reindexSections();
-          });
-
-          
-          reindexSections();
-        });
-      })(jQuery);
-    </script>
   </body>
 </html>
