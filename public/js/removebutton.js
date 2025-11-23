@@ -1,5 +1,6 @@
 $(document).ready(function () {
     // Include the CSRF token with every AJAX request
+    //Also, this button is specific to the personal library
     $.ajaxSetup({
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -14,9 +15,9 @@ $(document).ready(function () {
 
         if (!gameId) return;
 
-        // POST request to remove the selected game from the collection
+        // POST request to remove the selected game from the collection - specific to the collection
         $.post('/collection/remove/' + gameId, {}, function (response) {
-            // Smooth fade out and remove the game card from the page
+            // Smooth fade out and remove the game card from the page - again, for the collection
             button.closest('.game').fadeOut(300, function () {
                 $(this).remove();
             });

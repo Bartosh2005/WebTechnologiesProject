@@ -5,9 +5,10 @@ use App\Http\Controllers\CollectionController;
 use App\Http\Controllers\GameController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\WelcomeController;
+
+Route::get('/', [WelcomeController::class, 'index']);
 
 Route::get('/library', function () {
     $games = [];
@@ -21,11 +22,13 @@ Route::get('/collection', function () {
     return view('collection', compact('games'));
 });
 
-Route::get('/welcome', function () {
+Route::get('/newsletter', function () {
     $games = [];
 
-    return view('welcome', compact('games'));
+    return view('newsletter', compact('games'));
 });
+
+Route::get('/welcome', [WelcomeController::class, 'index']);
 Route::get('/account', function () {
     $games = [];
 

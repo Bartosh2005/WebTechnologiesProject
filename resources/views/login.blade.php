@@ -14,7 +14,7 @@
     @include('layouts.header')
     
    <main>
-    <center><div class="login" class="login-container" class="lessmargin">
+    <center><div class="auth-form lessmargin">
         <h2>Login to GameVault</h2>
         @if(session('success'))
             <div style="color: green;">{{ session('success') }}</div>

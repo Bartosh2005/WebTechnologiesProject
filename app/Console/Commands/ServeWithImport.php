@@ -21,16 +21,14 @@ class ServeWithImport extends Command
      */
     protected $description = 'Imports games if DB is empty before starting the webpage right after';
 
-    /**
-     * Execute the console command.
-     */
+    
     public function handle()
     {
         $count = \DB::table('games_library')->count();
 
         if ($count == 0) {
             $this->info("games_library is empty — importing...");
-            $this->call('games:import', ['count' => 200]); // put your default number
+            $this->call('games:import', ['count' => 200]); // default number for the command if no user input arrives
         } else {
             $this->info("games_library already populated — skipping import.");
         }
