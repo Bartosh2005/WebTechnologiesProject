@@ -1,4 +1,4 @@
-//gallary js for welcome page
+// Gallery JavaScript for the welcome page
 function getDateBasedSeed() {
     const today = new Date();
     return today.getFullYear() * 10000 + (today.getMonth() + 1) * 100 + today.getDate();
@@ -14,7 +14,7 @@ function getDailyFeaturedGames() {
     const gameIndices = new Set();
     let seedIncrement = 0;
 
-    // Create a shuffled array of indices
+    // Pick 4 unique random game for todays featured games
     while (gameIndices.size < 4) {
         const randomIndex = Math.floor(seededRandom(seed + seedIncrement) * gamesLibrary.length);
         gameIndices.add(randomIndex);
@@ -27,11 +27,11 @@ function getDailyFeaturedGames() {
 function initializeFeaturedGames() {
     const galleryContainer = document.getElementById('games-gallery');
     const featuredGames = getDailyFeaturedGames();
-    
+
     featuredGames.forEach(game => {
         const gameCard = document.createElement('div');
         gameCard.className = 'game-card';
-        
+
         gameCard.innerHTML = `
             <img src="/imgs/${game.img}" alt="${game.title}" onerror="this.src='/image/Logo.png'">
             <div class="game-info">
@@ -41,7 +41,7 @@ function initializeFeaturedGames() {
                 <div class="game-company">${game.company} (${game.year})</div>
             </div>
         `;
-        
+
         galleryContainer.appendChild(gameCard);
     });
 }
@@ -88,25 +88,25 @@ class SlidingGallery {
     }
 
     initializeGallery() {
-        // first game (blurred)
+        // Add the first (preview/blurred) game card
         const previewGame = gamesLibrary[this.getGameIndex(1)];
         const previewCard = this.createSlidingCard(previewGame);
         this.slidingContainer.appendChild(previewCard);
         previewCard.classList.add('preview');
 
-        // second game (main, focus)
+        // Add the main (active/focused) game card
         const activeGame = gamesLibrary[this.currentIndex];
         const activeCard = this.createSlidingCard(activeGame);
         this.slidingContainer.appendChild(activeCard);
         activeCard.classList.add('active');
 
-        // third game (blurred)
+        // Add the third (exit/blurred) game card
         const exitGame = gamesLibrary[this.getGameIndex(-1)];
         const exitCard = this.createSlidingCard(exitGame);
         this.slidingContainer.appendChild(exitCard);
         exitCard.classList.add('exit');
 
-        // Set up initial card references
+        // Store references to the current cards for easy updates
         this.cards = {
             preview: previewCard,
             active: activeCard,
@@ -115,13 +115,13 @@ class SlidingGallery {
     }
 
     updateSlidingGallery() {
-        // Remove vanishing card
+        // Remove the card thats sliding out of view
         const vanishCard = this.slidingContainer.querySelector('.vanish');
         if (vanishCard) {
             vanishCard.remove();
         }
 
-        // update all three of the existing games (gamecards)
+        // Shift the classes for the three visible cards to animate the transition
         if (this.cards.exit) {
             this.cards.exit.classList.remove('exit');
             this.cards.exit.classList.add('vanish');
@@ -135,41 +135,39 @@ class SlidingGallery {
             this.cards.preview.classList.add('active');
         }
 
-        // creating a new "first" gamecard
+        // Create a new preview card for the next game
         const previewGame = gamesLibrary[this.getGameIndex(1)];
         const previewCard = this.createSlidingCard(previewGame);
         this.slidingContainer.appendChild(previewCard);
-        
-        // update cards
+
+        // Update the card references for the next animation cycle
         this.cards = {
             preview: previewCard,
             active: this.cards.preview,
             exit: this.cards.active
         };
 
-        // animation of preview
+        // Trigger the preview animation after a short delay
         setTimeout(() => {
             previewCard.classList.add('preview');
         }, 50);
 
-        // update index
+        // Move to the next game index
         this.currentIndex = this.getGameIndex(1);
     }
 
     start() {
-        // Set a random starting game and initialise that gallery switch every 2.5s
+        // Start the gallery at a random game and switch every 2.5 seconds
         this.currentIndex = Math.floor(Math.random() * gamesLibrary.length);
         this.initializeGallery();
         setInterval(() => this.updateSlidingGallery(), 2500);
     }
 }
 
-// Initialize everything on welcome page when the Document Object Model(DOM) is loaded
-document.addEventListener('DOMContentLoaded', function() {
+// Set up the welcome page galleries when DOM is loaded
+document.addEventListener('DOMContentLoaded', function () {
     initializeFeaturedGames();
-    
+
     const slidingGallery = new SlidingGallery();
     slidingGallery.start();
-}); /*  that above waits for the "DOMContentLoaded" event, which fires when 
-        the initial HTML document has been completely loaded and parsed. 
-        This ensures that all HTML elements are available before the JavaScript tries to interact with them. */
+}); 

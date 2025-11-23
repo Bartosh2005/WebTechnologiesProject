@@ -10,7 +10,14 @@
 <body>
     @include('layouts.header')
 
-            
+
+    @if (session('role') === 'admin')
+      <div class="button-container">
+        <a href="{{ url('/add-article') }}"><button class="add-article">Ήξερα ότι θα το μετέφραζες χεχε</button></a>
+      </div>
+    @endif
+    
+      
     <div class="grid-container">
 
       <a href="{{ url('/articles/silksong') }}" class="featured-article" style="background-image: url('/images/silksong.jpg')">
@@ -20,7 +27,7 @@
         </div>
       </a>
 
-      <a href="{{ url('/articles/doomTDA') }}" class="sub-article" style="background-image: url('/imgs/doom.jpg')">
+      <a href="{{ url('/articles/doomTDA') }}" class="sub-article" style="background-image: url('/images/doomTDA.jpg')">
         <div class="overlay">
           <p>The gates of Hell open once more, this time on a medieval battlefield</p>
         </div>

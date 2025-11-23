@@ -6,13 +6,15 @@
     </script>
     <meta charset="UTF-8">
     <title>Game Vault</title>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <link rel="shortcut icon" type="image/x-icon" href="{{ asset('LogoJustIcon.ico') }}?v={{ time() }}">
-    <script src="{{ asset('js/collection.js') }}"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="{{ asset('js/searchbar.js') }}"></script>
+    <script src="{{ asset('js/removebutton.js') }}"></script>
     <script src="{{ asset('js/gameslist.js') }}"></script>
     <script src="{{ asset('js/cookies.js') }}"></script>
     <script src="https://kit.fontawesome.com/56dbcf3753.js" crossorigin="anonymous"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.5/dist/js.cookie.min.js"></script>
     <style>
         .games {
@@ -50,13 +52,19 @@
     @include('layouts.header')
 
     <main>
+        <h2 style="text-align:center; color:#c83f3f; font-size:2.2rem; margin-top: 24px; margin-bottom: 10px; letter-spacing: 1px;">
+            {{ Auth::user()->name }}'s Collection
+        </h2>
         <div class="search" style="display:grid;grid-template-columns: 2% auto 2% 2%;padding:1%;">
             <div class="searchicon"><i class="fa-solid fa-magnifying-glass"></i></div>
-            <input id="search-bar" type="text" style="border-radius:1rem;margin:0.5rem;height:30px;font-size:2rem;" autocapitalize="sentences" autofocus/>
+            <input class="search-bar" id="search-bar" type="text" style="border-radius:1rem;margin:0.5rem;height:30px;font-size:2rem;" autocapitalize="sentences" autofocus/>
             <div class="searchicon"><i class="fa-solid fa-sort" style=""></i></div>
             <div class="searchicon"><i class="fa-solid fa-filter" style=""></i></div>
         </div>
         <div class="games" id="gamesCollection">
+            @include('collection-list', ['games' => $games])
+        </div>
+
         </div>
     </main>
 
@@ -65,37 +73,5 @@
         <p>&copy; 2025 Game Library</p>
     </footer>
 </body>
-
-<script>
-	 
-
-    $("#search-bar").keyup(function() {
-        var val = $.trim(this.value);
-        console.log(val);
-        if (val == ""){
-            clearGames();
-            addGames();
-        }else {
-            clearGames();
-            var gamessearched = games.filter(x => x.title.includes(val) || x.description.includes(val) || x.company.includes(val) || x.genre.includes(val) || x.tags.find(a =>a.includes(val)));
-            addGames(gamessearched);
-        }
-    });
-
-    $("#search-bar").keyup(function() {
-        var myElement = document.getElementById("search-bar");
-        var query = myElement.value;
-        
-        let arr = query.split(" ");
-
-        for (let i = 0; i < arr.length; i++) {
-            arr[i] = arr[i].charAt(0).toUpperCase() + arr[i].slice(1);
-        }
-        query = arr.join(" ");
-        
-        myElement.value = query;
-
-    });
-</script>
 
 </html>
