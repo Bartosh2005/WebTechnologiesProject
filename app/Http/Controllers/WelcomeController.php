@@ -8,14 +8,14 @@ use Illuminate\Support\Facades\DB;
 class WelcomeController extends Controller
 {
     /**
-     * Display the welcome page with deterministic daily picks.
+     * Display the welcome page with daily picks
      */
     public function index()
     {
         $games = DB::table('games_library')->get();
         $featuredgame = DB::table('games_library')->first();
 
-        // Select 4 deterministic "random" games that change once per day
+        // Select 4 "random" games that change once per day
         $randomGames = collect();
         $allIds = DB::table('games_library')->pluck('id')->toArray();
         if (!empty($allIds)) {
@@ -32,7 +32,7 @@ class WelcomeController extends Controller
                 })->values();
         }
 
-        // Optional slider games (not required by welcome view but kept for flexibility)
+        // Slider with games
         $sliderGames = DB::table('games_library')->inRandomOrder()->limit(8)->get();
 
         return view('welcome', compact('games', 'featuredgame', 'randomGames', 'sliderGames'));

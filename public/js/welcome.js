@@ -115,7 +115,7 @@ class SlidingGallery {
     }
 
     updateSlidingGallery() {
-        // Remove the card thats sliding out of view
+        // Remove the card that s sliding out of view
         const vanishCard = this.slidingContainer.querySelector('.vanish');
         if (vanishCard) {
             vanishCard.remove();
@@ -152,12 +152,12 @@ class SlidingGallery {
             previewCard.classList.add('preview');
         }, 50);
 
-        // Move to the next game index
+        // Move to the next game
         this.currentIndex = this.getGameIndex(1);
     }
 
     start() {
-        // Start the gallery at a random game and switch every 2.5 seconds
+        // Start the gallery at a random game and switch every 2.5 seconds (current given time, can be changed)
         this.currentIndex = Math.floor(Math.random() * gamesLibrary.length);
         this.initializeGallery();
         setInterval(() => this.updateSlidingGallery(), 2500);
