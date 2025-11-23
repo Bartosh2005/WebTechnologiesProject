@@ -5,7 +5,9 @@
     <a href="{{ url('/library') }}"><h1>MyGamebrowser</h1></a>
     <a href="{{ url('/newsletter') }}"><h1>MyNewsletter</h1></a>
     <a href="{{ url('/collection') }}"><h1>MyCollection</h1></a>
-    <a href="{{ route('myaccount') }}"><button class="MyAccount-button">MyAccount</button></a>
+    @if(auth()->check())
+        <a href="{{ route('myaccount') }}"><button class="MyAccount-button">MyAccount</button></a>
+    @endif
     @if(auth()->check() || session('role') === 'admin')
         @if(session('role') === 'admin')
             <span class="adminMessage">
