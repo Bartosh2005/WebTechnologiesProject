@@ -14,11 +14,11 @@ class LoginController extends Controller
             'password' => 'required',
         ]);
 
-        // new: here we hardcode admin credentials
+        //admin credentials
         $adminEmail = 'admin@example.com';
         $adminPassword = 'admin123';
 
-        // new: here it checks if the credentials are actually admin, then gives admin role
+        
         if ($request->email === $adminEmail && $request->password === $adminPassword) {
             session(['role' => 'admin']);
             $redirect = $request->input('redirect', '/');
@@ -30,7 +30,7 @@ class LoginController extends Controller
             'email' => $request->email,
             'password' => $request->password,
         ])) {
-            // new: below added user role for the regular login
+            
             session(['role' => 'user']);
             $redirect = $request->input('redirect', '/');
 

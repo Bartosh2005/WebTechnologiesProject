@@ -25,25 +25,30 @@ main a:hover {
 .grid-container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-gap: 5%;
-  padding: 5%;
-  margin-bottom: 300px;
+  grid-gap: 3vh;
+  padding: 1vh;
+  margin-bottom: 2vh;
+  margin-top: 2vh;
 }
 
 .featured-article {
   grid-column: span 3;
   background-image: url('/images/silksong.jpg');
-  background-size: cover;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-color:#922d2d;
   background-position: center;
-  height: 400px;
+  height: 40vh;
   position: relative;
   color: white;
 }
 
 .sub-article {
-  height: 180px;
-  background-size: cover;
-  object-fit: cover;
+  height: 30vh;
+  background-size: contain;
+  object-fit: contain;
+  background-repeat: no-repeat;
+  background-color:#922d2d;
   background-position: center;
   position: relative;
   color: white;
@@ -54,6 +59,7 @@ main a:hover {
   position: absolute;
   bottom: 0;
   left: 0;
+  top:60%;
   padding: 15px;
   width: 100%;
   background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
@@ -67,9 +73,15 @@ main a:hover {
 .overlay p {
   margin: 0;
   font-size: 16px;
+  padding-top: 1vh;
   color: white;
   font-weight: bold;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;   
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
+
 
 .hover {
   opacity: 0.8;
@@ -79,13 +91,15 @@ main a:hover {
   background-color: #B23535;
   color: white;
   border: none;
-  padding: 1% 2%;
-  margin: 0.5% 0.5%;
-  border-radius: 5px;
+  padding: 1% 5%;
+  margin: 0.1% 10%;
+  border-radius: 1px;
   cursor: pointer;
   transition: background-color 0.3s;
   text-align: right;
   float: right;
+  z-index: 10;
+  position: top;
 }
 
 .add-button-admin {
@@ -99,6 +113,7 @@ main a:hover {
   transition: background-color 0.3s;
   text-align: right;
   float: right;
+  z-index: 12;
 }
 
 .popup {

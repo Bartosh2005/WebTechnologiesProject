@@ -2,7 +2,7 @@
     grid-template-columns: auto auto auto;
 }
 
-#search-bar {
+#search-bar-library {
     border: 2px solid #0d0d0d;
     border-radius: 1.5rem;
     width: 45%;
@@ -44,4 +44,16 @@ form button:hover {
 
 .title-size {
     font-size: xx-large;
+}
+
+.remove-from-library-btn {
+    background-color: #B23535;
+    color: white;
+    border: none;
+    padding: 18px 18px;
+    margin: 0.5% 0.5%;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    text-align: right;
 }

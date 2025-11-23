@@ -2,14 +2,13 @@
 
 namespace App\Models;
 
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
-    /** @use HasFactory<\Database\Factories\UserFactory> */
+    
     use HasFactory, Notifiable;
 
     /**
@@ -45,5 +44,15 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+    public function gameLibrary()
+    {
+        return $this->belongsToMany(
+            \App\Models\GameLibrary::class, // related model
+            'user_game_library',            // pivot table name
+            'user_id',                      // this models foreign key on pivot
+            'game_library_id'               // related models foreign key on pivot
+        )->withTimestamps();
     }
 }

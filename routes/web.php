@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\CollectionController;
+use App\Http\Controllers\GameController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -34,6 +36,16 @@ Route::get('/account', function () {
 
     return view('account', compact('games'));
 });
+
+Route::get('/admin', function () {
+    return view('admin');
+});
+Route::post('/admin', [GameController::class, 'add'])->name('admin.add');
+
+Route::get('/add-article', function () {
+    return view('add-article');
+});
+Route::post('/add-article', [GameController::class, 'addArticle'])->name('add-article.add');
 
 Route::get('/articles/silksong', function () {
     return view('articles.silksong');
@@ -82,3 +94,18 @@ Route::post('/register', [RegisterController::class, 'register']);
 Route::post('/login', [App\Http\Controllers\LoginController::class, 'login'])->name('login');
 
 Route::post('/logout', [App\Http\Controllers\LoginController::class, 'logout'])->name('logout');
+
+Route::get('/library', [GameController::class, 'index']);
+
+Route::post('/library/add', [LibraryController::class, 'add'])->middleware('auth');
+
+Route::middleware('auth')->group(function () {
+    Route::get('/collection', [CollectionController::class, 'index'])->name('collection.index');
+    Route::post('/collection/add/{gameLibrary}', [CollectionController::class, 'add'])->name('collection.add');
+    Route::post('/collection/remove/{gameLibrary}', [CollectionController::class, 'remove'])->name('collection.remove');
+    Route::get('/myaccount', function () {
+        return view('myaccount');
+    })->name('myaccount');
+});
+
+Route::get('/library', [CollectionController::class, 'library_index'])->name('library.index');
