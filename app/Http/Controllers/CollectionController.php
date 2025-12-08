@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\AwardCategory;
 use App\Models\GameLibrary;
 use Illuminate\Http\Request;
 
@@ -12,17 +13,23 @@ class CollectionController extends Controller
         $user = $request->user();
         $query = $request->input('q');
 
+        // Load all games in the user's collection
         $games = $user->gameLibrary()
             ->when($query, function ($q) use ($query) {
                 $q->where('title', 'like', "%{$query}%");
             })
             ->get();
 
+        // LOAD AWARD CATEGORIES FOR NOMINATIONS
+        $categories = AwardCategory::all();
+
+        // If the request is AJAX (search bar), return only the partial view
         if ($request->ajax()) {
-            return view('collection-list', compact('games'))->render();
+            return view('collection-list', compact('games', 'categories'))->render();
         }
 
-        return view('collection', compact('games'));
+        // If not AJAX, return full page
+        return view('collection', compact('games', 'categories'));
     }
 
     public function library_index(Request $request)

@@ -3,10 +3,8 @@
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\CollectionController;
 use App\Http\Controllers\GameController;
-use Illuminate\Support\Facades\Route;
-
-use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\WelcomeController;
+use Illuminate\Support\Facades\Route;
 
 Route::get('/', [WelcomeController::class, 'index']);
 
@@ -26,6 +24,12 @@ Route::get('/newsletter', function () {
     $games = [];
 
     return view('newsletter', compact('games'));
+});
+
+Route::get('/gameawards', function () {
+    $games = [];
+
+    return view('gameawards', compact('games'));
 });
 
 Route::get('/welcome', [WelcomeController::class, 'index']);
@@ -113,3 +117,7 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::get('/library', [CollectionController::class, 'library_index'])->name('library.index');
+
+Route::post('/awards/nominate', [AwardNominationController::class, 'nominate'])
+    ->middleware('auth')
+    ->name('awards.nominate');

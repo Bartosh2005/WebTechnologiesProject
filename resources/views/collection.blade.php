@@ -14,6 +14,7 @@
     <script src="{{ asset('js/removebutton.js') }}"></script>
     <script src="{{ asset('js/gameslist.js') }}"></script>
     <script src="{{ asset('js/cookies.js') }}"></script>
+    <script src="{{ asset('js/nominations.js') }}" defer></script>
     <script src="https://kit.fontawesome.com/56dbcf3753.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.5/dist/js.cookie.min.js"></script>
     <style>
@@ -62,7 +63,7 @@
             <div class="searchicon"><i class="fa-solid fa-filter" style=""></i></div>
         </div>
         <div class="games" id="gamesCollection">
-            @include('collection-list', ['games' => $games])
+            @include('collection-list', ['games' => $games, 'categories' => $categories])
         </div>
 
         </div>
