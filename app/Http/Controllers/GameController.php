@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
 use App\Models\GameLibrary;
 
 class GameController extends Controller
@@ -12,10 +13,27 @@ class GameController extends Controller
         $games = DB::table('games_library')->get();
         $featuredgame = DB::table('games_library')->first();
 
+        //exrernal search
+        // $url = "https://api.igdb.com/v4/games";
+        // $client_id = "b8ekm56793nybq49it7gxdenjanfkl";
+        // $auth = "Bearer 32ismcwqybbvryrt81wrzi9i8kpqxc";
+        // $body = 'search "Halo"; fields *;';
+
+        // $exgames = Http::withHeaders([
+        //     'Client-ID' => $client_id,
+        //     'Authorization' => $auth,
+        // ])->withBody($body, 'text/plain')->post($url);
+        // $exgames = $exgames->json();
+
+        // foreach($exgames as &$exgame){
+        //     $exgame['id']="IGDB_".$exgame['id'];
+        // }
+
         return view('library', [
             'games' => $games,
             'featuredgame' => $featuredgame,
-    ]);
+            // 'exgames' => $exgames,
+        ]);
     }
 
     public function add(Request $request)

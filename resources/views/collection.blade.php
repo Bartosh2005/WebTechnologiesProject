@@ -12,10 +12,10 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="{{ asset('js/searchbar.js') }}"></script>
     <script src="{{ asset('js/removebutton.js') }}"></script>
-    <script src="{{ asset('js/gameslist.js') }}"></script>
-    <script src="{{ asset('js/cookies.js') }}"></script>
+    <!-- <script src="{{ asset('js/gameslist.js') }}"></script> -->
+    <!-- <script src="{{ asset('js/cookies.js') }}"></script> -->
     <script src="https://kit.fontawesome.com/56dbcf3753.js" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.5/dist/js.cookie.min.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.5/dist/js.cookie.min.js"></script> -->
     <style>
         .games {
         display: grid;
@@ -48,7 +48,7 @@
     */</style>
     
 </head>
-<body onload="loadSavedGames()">
+<body>
     @include('layouts.header')
 
     <main>
@@ -61,10 +61,12 @@
             <div class="searchicon"><i class="fa-solid fa-sort" style=""></i></div>
             <div class="searchicon"><i class="fa-solid fa-filter" style=""></i></div>
         </div>
+        {{--var_dump($exgames)--}}
+        {{--var_dump($querylist)--}}
         <div class="games" id="gamesCollection">
-            @include('collection-list', ['games' => $games])
+            @include('collection-list', ['games' => $games, 'exgames' => $exgames])
         </div>
-
+        <center><div id="loaderhere"></div></center>
         </div>
     </main>
 

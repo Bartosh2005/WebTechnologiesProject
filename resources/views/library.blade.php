@@ -15,6 +15,9 @@
     <link rel="shortcut icon" type="image/x-icon" href="{{ asset('LogoJustIcon.ico') }}?v={{ time() }}">
 </head>
 
+@php
+    $exgames = [];
+@endphp
 
 <body>
     @include('layouts.header')
@@ -34,11 +37,14 @@
                     <p><br><br></p>
                     <h2 class="title-size">Browse the full library of GameVault and add games to MyCollection!</h2><br>
                     <input id="search-bar-library" type="text" placeholder="Search any game in MyGameBrowser to add to MyCollection.."><br>
+                    <div style="width:45%;text-align:right;"><input type="checkbox" id="search_external_libraries" name="search_external_libraries"><label for="search_external_libraries" style="color:white;">Search external libraries</label></div>
                 </center>
 
                 <div class="grid-container" id="girdlibrary">
-                    @include('library-list', ['featuredgame' => $featuredgame, 'games' => $games])
+                    {{--var_dump($exgames)--}}
+                    @include('library-list', ['featuredgame' => $featuredgame, 'games' => $games, 'exgames'=> $exgames])
                 </div>
+                <center><div id="loaderhere"></div></center>
             </div>
         </section>
 

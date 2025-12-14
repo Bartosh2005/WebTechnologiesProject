@@ -12,8 +12,9 @@ Route::get('/', [WelcomeController::class, 'index']);
 
 Route::get('/library', function () {
     $games = [];
+    $exgames = [];
 
-    return view('library', compact('games'));
+    return view('library', compact('games'), compact('exgames'));
 });
 
 Route::get('/collection', function () {
@@ -101,10 +102,17 @@ Route::post('/logout', [App\Http\Controllers\LoginController::class, 'logout'])-
 
 Route::get('/library', [GameController::class, 'index']);
 
+// Route::get('/getDataFromIGDB/{query}/{userId}', [CollectionController::class, 'getDataFromIGDB']);
+
+Route::post('/collection/addEx/{gameLibrary}', [CollectionController::class, 'addEx']);
+Route::post('/collection/removeEx/{gameLibrary}', [CollectionController::class, 'removeEx']);
+
 Route::post('/library/add', [LibraryController::class, 'add'])->middleware('auth');
 
 Route::middleware('auth')->group(function () {
     Route::get('/collection', [CollectionController::class, 'index'])->name('collection.index');
+    Route::get('/getDataFromIGDB/{query}/', [CollectionController::class, 'getDataFromIGDB'])->name('collection.getDataFromIGDB');
+    Route::get('/getDataFromIGDBcustomquery/{query}/', [CollectionController::class, 'getDataFromIGDBcustomquery'])->name('collection.getDataFromIGDBcustomquery');
     Route::post('/collection/add/{gameLibrary}', [CollectionController::class, 'add'])->name('collection.add');
     Route::post('/collection/remove/{gameLibrary}', [CollectionController::class, 'remove'])->name('collection.remove');
     Route::get('/myaccount', function () {

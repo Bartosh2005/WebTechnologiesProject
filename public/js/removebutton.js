@@ -21,9 +21,20 @@ $(document).ready(function () {
             button.closest('.game').fadeOut(300, function () {
                 $(this).remove();
             });
-        }).fail(function (xhr, status, error) {
+        })/*.fail(function (xhr, status, error) {
             console.error('Error removing game:', status, error);
             alert('Could not remove the game. Please try again.');
-        });
+        });*/
+
+        $.post('/collection/removeEx/' + gameId, {}, function (response) {
+            // Smooth fade out and remove the game card from the page - again, for the collection
+            button.closest('.game').fadeOut(300, function () {
+                $(this).remove();
+            });
+        })/*.fail(function (xhr, status, error) {
+            console.error('Error removing game:', status, error);
+            alert('Could not remove the game. Please try again.');
+        });*/
     });
+
 });
