@@ -91,7 +91,7 @@ $(document).ready(function() {
 
         $.ajax({
             url: '/collection',
-            type: 'POST',
+            type: 'GET',
             data: { q: query },
             success: function(res) {
                 $('#gamesCollection').html(res);
