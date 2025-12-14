@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Str;
 
+
 class CollectionController extends Controller
 {
 
@@ -16,9 +17,9 @@ class CollectionController extends Controller
         //exrernal search
         $userId = auth()->id();
         $url = "https://api.igdb.com/v4/games";
-        $client_id = "b8ekm56793nybq49it7gxdenjanfkl";
-        $auth = "Bearer 6udapc8eftv7cr1l5z3ja1pax44l35";
-        $body = 'search "'.$query.'"; fields *;';
+        $igdb = require 'igdb.php';
+        $client_id = $igdb['client_id'];
+        $auth = $igdb['auth'];
 
         $exgames = Http::withHeaders([
             'Client-ID' => $client_id,
@@ -50,9 +51,9 @@ class CollectionController extends Controller
         //exrernal search
         $userId = auth()->id();
         $url = "https://api.igdb.com/v4/games";
-        $client_id = "b8ekm56793nybq49it7gxdenjanfkl";
-        $auth = "Bearer 6udapc8eftv7cr1l5z3ja1pax44l35";
-
+        $igdb = require 'igdb.php';
+        $client_id = $igdb['client_id'];
+        $auth = $igdb['auth'];
         $exgames = Http::withHeaders([
             'Client-ID' => $client_id,
             'Authorization' => $auth,
