@@ -7,8 +7,14 @@ use Illuminate\Support\Facades\Route;
 
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\WelcomeController;
+use App\Http\Controllers\RegisterController;
 
-Route::get('/', [WelcomeController::class, 'index']);
+$localePattern = implode('|', array_keys(config('app.available_locales', [])));
+
+// All routes are prefixed optionally with {locale} (e.g. /en/library)
+Route::group(['prefix' => '{locale?}', 'where' => ['locale' => $localePattern]], function () {
+
+    Route::get('/', [WelcomeController::class, 'index']);
 
 Route::get('/library', function () {
     $games = [];
@@ -83,7 +89,6 @@ Route::get('/articles/{id}/edit', [ArticleController::class, 'edit'])->name('art
 Route::post('/articles/{id}/edit', [ArticleController::class, 'saveEdit'])->name('articles.saveEdit');
 Route::post('/articles/{id}/delete', [ArticleController::class, 'destroy'])->name('articles.delete');
 
-use App\Http\Controllers\RegisterController;
 
 Route::get('/register', function () {
     return view('account');
@@ -112,4 +117,6 @@ Route::middleware('auth')->group(function () {
     })->name('myaccount');
 });
 
-Route::get('/library', [CollectionController::class, 'library_index'])->name('library.index');
+    Route::get('/library', [CollectionController::class, 'library_index'])->name('library.index');
+
+});

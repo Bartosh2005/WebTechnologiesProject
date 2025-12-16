@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\Route;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -19,6 +20,13 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        // Set application locale from optional {locale} route parameter
+        Route::matched(function ($event) {
+            $locale = $event->route->parameter('locale');
+
+            if ($locale && array_key_exists($locale, config('app.available_locales', []))) {
+                app()->setLocale($locale);
+            }
+        });
     }
 }
