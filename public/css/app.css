@@ -135,3 +135,25 @@ h2 {
     text-align: center;
   }
 }
+.back-container {
+    display: flex;
+    justify-content: flex-start; 
+    padding: 10px 20px;
+}
+
+.back-button {
+    background-color: #B23535;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: 16px;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+.back-button:hover {
+    background-color: #ddd;
+}
