@@ -60,4 +60,10 @@ class GameController extends Controller
 
         return redirect()->back()->with('success', 'Game added successfully!');
     }
+
+    public function show(GameLibrary $gameLibrary)
+    {
+        
+        return view('games.show', compact('gameLibrary'));
+    }
 }

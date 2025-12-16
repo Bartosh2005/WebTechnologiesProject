@@ -42,7 +42,16 @@ main a:hover {
   position: relative;
   color: white;
 }
-
+.featured-article1 {
+  grid-column: span 3;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-color:#1e1919;
+  background-position: center;
+  height: 40vh;
+  position: relative;
+  color: white;
+}
 .sub-article {
   height: 30vh;
   background-size: contain;
@@ -101,6 +110,7 @@ main a:hover {
   z-index: 10;
   position: top;
 }
+
 
 .add-button-admin {
   background-color: #B23535;

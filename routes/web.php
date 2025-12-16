@@ -3,7 +3,7 @@
 use App\Http\Controllers\CollectionController;
 use App\Http\Controllers\GameController;
 use Illuminate\Support\Facades\Route;
-
+use App\Models\GameLibrary;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\WelcomeController;
 
@@ -106,3 +106,6 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::get('/library', [CollectionController::class, 'library_index'])->name('library.index');
+Route::get('/games/{gameLibrary}', [GameController::class, 'show'])
+    ->name('games.show');
+Route::get('/collection/status', [CollectionController::class, 'status'])->middleware('auth');

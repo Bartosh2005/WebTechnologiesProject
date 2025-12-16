@@ -58,3 +58,80 @@ h2 {
   transition: background-color 0.3s;
   text-align: right;
 }
+
+.game-page {
+  max-width: 900px;
+  margin: 40px auto;
+  background-color: #1a1a1a;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+  color: #fff;
+  font-family: Arial, sans-serif;
+}
+
+.game-page h1 {
+  font-size: 36px;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #ff5555;
+}
+
+.game-page img {
+  width: 100%;
+  max-height: 450px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 20px;
+}
+
+.game-page p {
+  font-size: 18px;
+  line-height: 1.6;
+  margin-bottom: 12px;
+}
+
+.game-page strong {
+  color: #ff5555;
+}
+
+.add-button {
+  background-color: #B23535;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-size: 16px;
+  margin-top: 20px;
+}
+
+.add-button:hover {
+  background-color: #ff5555;
+}
+
+.remove-from-library-btn {
+  background-color: #515151 !important;
+  color: #fff !important;
+}
+
+@media (max-width: 768px) {
+  .game-page {
+    padding: 20px;
+    margin: 20px;
+  }
+
+  .game-page h1 {
+    font-size: 28px;
+  }
+
+  .game-page p {
+    font-size: 16px;
+  }
+
+  .add-button {
+    width: 100%;
+    text-align: center;
+  }
+}
