@@ -22,7 +22,58 @@
                     <p><strong>Role:</strong> {{ auth()->user()->role ?? 'User' }}</p>
                     <p><strong>Registered:</strong> {{ auth()->user()->created_at ? auth()->user()->created_at->format('Y-m-d') : 'N/A' }}</p>
                 </div>
-                <button class="edit-account-btn">Edit Account</button>
+                
+                <hr class="account-hr">
+                <div class="user-stats">
+                    <h3 class="user-stats-title">Two Factor Authentication</h3>
+                </div>
+
+
+                <!-- 
+                @if (! session()->has('auth.password_confirmed_at'))
+                <a href="{{ route('password.confirm', ['redirect' => url()->current()]) }}">
+                    <button class="edit-account-btn" >
+                        Confirm password to enable/disable 2FA
+                    </button>
+                </a>
+                @else            
+
+                @endif -->
+
+
+
+                <form  method="POST" action="/user/two-factor-authentication">
+                    @csrf
+
+                    @if (optional(auth()->user())->two_factor_secret)
+                        <h2>2FA enabled.</h2>
+
+                        @method ('DELETE')
+
+                        <div class='pb-5' style="background: #ffffff; display: inline-block; padding: 8px; border-radius: 4px;">
+                            {!! auth()->user()->twoFactorQrCodeSvg() !!}
+                        </div>
+
+                        <button style="color: red;" class="btn btn-danger">Disable 2FA</button>
+                    @else
+                        <h2>2FA not enabled.</h2>
+
+                        <button style="color: green;" class="btn btn-primary">Enable 2FA</button>
+                    @endif
+
+                    
+                </form>
+
+                @if(session('status') == 'two-factor-authentication-disabled')
+                    <div style="color: yellow;">2FA has been successfully disabled.</div>
+                @endif
+                @if(session('status') == 'two-factor-authentication-enabled')
+                    <div style="color: yellow;">2FA has been successfully enabled.</div>
+                @endif
+
+
+
+
                 <hr class="account-hr">
                 <div class="user-stats">
                     <h3 class="user-stats-title">Your Stats</h3>

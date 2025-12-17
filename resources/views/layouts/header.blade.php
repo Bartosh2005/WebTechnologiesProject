@@ -14,7 +14,7 @@
                 Logged in as Admin
             </span>
         @endif
-        
+
         <form method="POST" action="{{ route('logout') }}" style="display:inline;">
             @csrf
             <button type="submit" class="MyAccount-button">Logout</button>
