@@ -101,7 +101,7 @@ Route::post('/logout', [App\Http\Controllers\LoginController::class, 'logout'])-
 
 Route::get('/library', [GameController::class, 'index']);
 
-Route::post('/library/add', [LibraryController::class, 'add'])->middleware('auth');
+Route::post('/library/add', [GameController::class, 'add'])->middleware('auth');
 
 Route::middleware('auth')->group(function () {
     Route::get('/collection', [CollectionController::class, 'index'])->name('collection.index');
