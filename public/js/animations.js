@@ -1,8 +1,6 @@
-// Simple, beginner-style animations for the library page
-// Uses jQuery (already loaded in template)
+
 
 $(function () {
-  // Typewriter effect for the main title
   var $title = $(".title-size");
   var fullText = $title.text();
   $title.text("");
@@ -15,7 +13,6 @@ $(function () {
     }
   }, 60);
 
-  // Glow effect on search bar to draw attention
   var glowOn = false;
   setInterval(function () {
     glowOn = !glowOn;
@@ -26,7 +23,7 @@ $(function () {
   }, 700);
 
   // Fade-in the library grid items one by one
-  var $grid = $("#girdlibrary"); // id from template
+  var $grid = $("#girdlibrary"); 
   var $items = $grid.children();
   $items.css({ opacity: 0, transform: "translateY(20px)", transition: "all 0.5s" });
   $items.each(function (index) {
@@ -36,7 +33,7 @@ $(function () {
     }, 150 * index);
   });
 
-  // Gentle pulse on the Admin button so it's obvious in demos
+  // Pulse on admin button
   var $adminBtn = $(".add-button-admin");
   setInterval(function () {
     $adminBtn.css("transform", "scale(1.05)");
@@ -45,14 +42,7 @@ $(function () {
     }, 200);
   }, 1800);
 
-  // Tiny tilt on game images when scrolling (eye-catching yet simple)
-  $(window).on("scroll", function () {
-    var s = $(this).scrollTop();
-    var deg = ((s % 80) / 80) * 4 - 2; // -2deg..2deg
-    $("#girdlibrary img").css("transform", "rotate(" + deg + "deg)");
-  });
-
-  // Simple click animations for Add/Remove buttons
+  // Simple click animations for add and remove buttons
   function bounce($el) {
     $el.css({ transition: "transform 150ms", transform: "scale(1.08)" });
     setTimeout(function () { $el.css({ transform: "scale(1)" }); }, 150);
@@ -81,21 +71,21 @@ $(function () {
     setTimeout(function () { $dot.css({ opacity: 0, transform: "scale(6)" }); }, 10);
     setTimeout(function () { $dot.remove(); }, 420);
   }
-
+  //Adding some feedback when adding/removing from library
   $(document).on("click", ".add-to-library-btn", function () {
     var $btn = $(this);
     bounce($btn);
-    burst($btn, "#22c55e"); // green
+    burst($btn, "#22c55e");
   });
 
   $(document).on("click", ".remove-from-library-btn", function () {
     var $btn = $(this);
     bounce($btn);
-    burst($btn, "#ef4444"); // red
+    burst($btn, "#ef4444"); 
   });
   
-  // --- Collection View Effects ---
-  // Glow for collection search bar
+
+  // Glowing search bar
   var glowOn2 = false;
   setInterval(function () {
     glowOn2 = !glowOn2;
@@ -105,7 +95,7 @@ $(function () {
     );
   }, 900);
 
-  // Fade-in the collection cards one by one
+  // Game cards fade in
   var $collection = $("#gamesCollection .game");
   $collection.css({ opacity: 0, transform: "translateY(16px)", transition: "all 0.4s" });
   $collection.each(function (index) {
@@ -115,7 +105,6 @@ $(function () {
     }, 120 * index);
   });
 
-  // Simple hover pop for cards
   $(document).on("mouseenter", "#gamesCollection .game", function () {
     $(this).css({ transform: "scale(1.02)", transition: "transform 120ms" });
   });

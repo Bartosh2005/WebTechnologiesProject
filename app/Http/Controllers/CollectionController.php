@@ -34,7 +34,7 @@ class CollectionController extends Controller
 
         $featuredgame = empty($query) ? GameLibrary::first() : null;
 
-        // get paginated games (keep total ~9 per page; if there's a featured game, show 1 featured + 8 results)
+        //getting paginated games, 9 games per page, featured game is excluded
         if ($featuredgame) {
             $perPage = 9;
             $games = GameLibrary::when($query, function ($q) use ($query, $featuredgame) {
