@@ -1,49 +1,40 @@
-@extends('layouts.header')
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Game Vault</title>
+    <link rel="stylesheet" href="{{ asset('css/library.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/account.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/libraryl.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('LogoJustIcon.ico') }}?v={{ time() }}">
+</head>
+<body>
+    @include('layouts.header')
+    <main>
+    <center><div class="auth-form lessmargin">
+        
+        @error('password')
+            <span class="invalid-feedback" role="alert">
+                <strong style="color: red;">{{ $message }}</strong>
+            </span><br>
+        @enderror
 
-@section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Confirm Password') }}</div>
+        <form method="POST" action="{{ route('password.confirm') }}">
+            @csrf
+            <div style="color: white;">Please confirm password:</div>
+            <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" placeholder="Password" required autocomplete="current-password">
+            <button type="submit" class="btn btn-primary">Submit</button>
 
-                <div class="card-body">
-                    {{ __('Please confirm your password before continuing.') }}
+            <!--@if (Route::has('password.request'))
+                <a class="btn btn-link" href="{{ route('password.request') }}">{{ __('Forgot Your Password?') }}</a>
+            @endif-->
+        </form>
 
-                    <form method="POST" action="{{ route('password.confirm') }}">
-                        @csrf
-
-                        <div class="row mb-3">
-                            <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
-
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="row mb-0">
-                            <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Confirm Password') }}
-                                </button>
-
-                                @if (Route::has('password.request'))
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
-                                        {{ __('Forgot Your Password?') }}
-                                    </a>
-                                @endif
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-@endsection
+    </div></center>
+    <footer>
+        <p>&copy; 2025 Game Library</p>
+    </footer>
+    </main>
+</body>
+</html>

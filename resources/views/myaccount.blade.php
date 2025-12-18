@@ -11,6 +11,19 @@
 </head>
 <body>
     @include('layouts.header')
+
+    <center><div style="color: yellow;">
+        @if(session('status') == 'two-factor-authentication-disabled')
+            <br>
+            2FA has been successfully disabled.
+        @endif
+        @if(session('status') == 'two-factor-authentication-enabled')
+            <br>
+            2FA has been successfully enabled.<br>
+            Please scan the QR code below using your authenticator app.
+        @endif
+    </div></center>
+
     <main>
         <div class="account-center">
             <div class="account-card">
@@ -46,7 +59,7 @@
                     @csrf
 
                     @if (optional(auth()->user())->two_factor_secret)
-                        <h2>2FA enabled.</h2>
+                        <h2 style="color: green;">2FA enabled.</h2>
 
                         @method ('DELETE')
 
@@ -54,22 +67,15 @@
                             {!! auth()->user()->twoFactorQrCodeSvg() !!}
                         </div>
 
-                        <button style="color: red;" class="btn btn-danger">Disable 2FA</button>
+                        <button style="color: black; background: #ffffff;" class="btn btn-danger"><strong>Disable 2FA</strong></button>
                     @else
-                        <h2>2FA not enabled.</h2>
+                        <h2 style="color: red;">2FA not enabled.</h2>
 
-                        <button style="color: green;" class="btn btn-primary">Enable 2FA</button>
+                        <button style="color: black; background: #ffffff;" class="btn btn-primary"><strong>Enable 2FA</strong></button>
                     @endif
 
                     
                 </form>
-
-                @if(session('status') == 'two-factor-authentication-disabled')
-                    <div style="color: yellow;">2FA has been successfully disabled.</div>
-                @endif
-                @if(session('status') == 'two-factor-authentication-enabled')
-                    <div style="color: yellow;">2FA has been successfully enabled.</div>
-                @endif
 
 
 

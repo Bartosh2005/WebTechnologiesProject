@@ -9,13 +9,13 @@
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <link rel="shortcut icon" type="image/x-icon" href="{{ asset('LogoJustIcon.ico') }}?v={{ time() }}">
 </head>
-
 <body>
     @include('layouts.header')
-    
    <main>
     <center><div class="auth-form lessmargin">
+
         <h2>Login to GameVault</h2>
+
         @if(session('success'))
             <div style="color: green;">{{ session('success') }}</div>
         @endif
@@ -28,6 +28,7 @@
                 </ul>
             </div>
         @endif
+
         <form method="POST" action="{{ route('login') }}">
             @csrf
             <input type="hidden" name="redirect" value="{{ request('redirect') }}">
@@ -35,8 +36,8 @@
             <input type="password" name="password" placeholder="Password" required><br>
             <button type="submit">Login</button>
         </form>
-    </div></center>
 
+    </div></center>
     <footer>
         <p>&copy; 2025 Game Library</p>
     </footer>

@@ -1,45 +1,39 @@
-@extends('layouts.header')
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Game Vault</title>
+    <link rel="stylesheet" href="{{ asset('css/library.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/account.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/libraryl.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('LogoJustIcon.ico') }}?v={{ time() }}">
+</head>
+<body>
+    @include('layouts.header')
+    <main>
+    <center><div class="auth-form lessmargin">
 
-@section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Two Factor Challenge') }}</div>
+        <h2>Confirm Identity</h2>
 
-                <div class="card-body">
-                    {{ __('Please enter your one time code.') }}
+        @error('code')
+            <span class="invalid-feedback" role="alert">
+                <strong style="color: red;">{{ $message }}</strong>
+            </span><br>
+        @enderror
 
-                    <form method="POST" action="{{ route('two-factor.login') }}">
-                        @csrf
-
-                        <div class="row mb-3">
-                            <label for="code" class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="code" type="code" class="form-control @error('code') is-invalid @enderror" name="code" required autocomplete="current-code">
-
-                                @error('code')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="row mb-0">
-                            <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Submit') }}
-                                </button>
-
-                               
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-@endsection
+        <form method="POST" action="{{ route('two-factor.login') }}">
+            @csrf
+            <div style="color: white;">You have enabled <br>Two Factor Authentication <br>for your account.</div>
+            <div style="color: white;">Please open your <br>Authenticator app <br>and enter your <br>6-digit one time code:</div>
+            <input id="code" type="code" class="form-control @error('code') is-invalid @enderror" name="code" placeholder="6-digit code" required autocomplete="current-code">
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+                
+    </div></center>
+    <footer>
+        <p>&copy; 2025 Game Library</p>
+    </footer>
+    </main>
+</body>
+</html>

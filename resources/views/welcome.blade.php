@@ -11,6 +11,14 @@
     @include('layouts.header')
 
     <main>
+
+
+        @if(session('success'))
+            <br><br>
+            <center><h2 style="color: green;">{{ session('success') }}</h2></center>
+        @endif
+
+
         <section style="text-align: center; margin-top: 50px;">
             <h2>Featured Games TODAY!</h2>
 
