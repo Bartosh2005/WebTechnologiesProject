@@ -113,3 +113,8 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::get('/library', [CollectionController::class, 'library_index'])->name('library.index');
+
+// Two-factor recovery view (used by the "Use Recovery Code" link)
+Route::get('/two_factor_recover', function () {
+    return view('auth.two-factor-recover');
+})->name('two-factor.recover');

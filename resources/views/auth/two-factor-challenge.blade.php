@@ -24,10 +24,11 @@
 
         <form method="POST" action="{{ route('two-factor.login') }}">
             @csrf
-            <div style="color: white;">You have enabled <br>Two Factor Authentication <br>for your account.</div>
-            <div style="color: white;">Please open your <br>Authenticator app <br>and enter your <br>6-digit one time code:</div>
+            <strong style="color: white;">You have enabled Two Factor Authentication for your account.</strong>
+            <div style="color: white;">Open your Authenticator app and enter your 6-digit one time code:</div>
             <input id="code" type="code" class="form-control @error('code') is-invalid @enderror" name="code" placeholder="6-digit code" required autocomplete="current-code">
             <button type="submit" class="btn btn-primary">Submit</button>
+            <a class="btn btn-link" style="color: cyan;" href="{{ route('two-factor.recover') }}">Use Recovery Code</a>
         </form>
                 
     </div></center>

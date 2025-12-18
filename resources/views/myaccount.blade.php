@@ -59,12 +59,22 @@
                     @csrf
 
                     @if (optional(auth()->user())->two_factor_secret)
-                        <h2 style="color: green;">2FA enabled.</h2>
-
                         @method ('DELETE')
+
+                        <h2 style="color: green;">2FA enabled.</h2>
 
                         <div class='pb-5' style="background: #ffffff; display: inline-block; padding: 8px; border-radius: 4px;">
                             {!! auth()->user()->twoFactorQrCodeSvg() !!}
+                        </div>
+
+                        <div>
+                            <h3>Recovery Codes:</h3>
+
+                            <ul style="text-align:left;">
+                                @foreach (json_decode(decrypt(auth()->user()->two_factor_recovery_codes)) as $code)
+                                    <li>{{ $code }}</li>
+                                @endforeach
+                            </ul>
                         </div>
 
                         <button style="color: black; background: #ffffff;" class="btn btn-danger"><strong>Disable 2FA</strong></button>
