@@ -12,11 +12,12 @@ class CollectionController extends Controller
         $user = $request->user();
         $query = $request->input('q');
 
-        $games = $user->gameLibrary()
+        $gamesQuery = $user->gameLibrary()
             ->when($query, function ($q) use ($query) {
                 $q->where('title', 'like', "%{$query}%");
-            })
-            ->get();
+            });
+
+        $games = $gamesQuery->paginate(9)->withQueryString();
 
         if ($request->ajax()) {
             return view('collection-list', compact('games'))->render();
@@ -30,12 +31,20 @@ class CollectionController extends Controller
         $query = $request->input('q');
 
         // show featured game if there's nothing in the search bar
+
         $featuredgame = empty($query) ? GameLibrary::first() : null;
 
-        // get all games/ filter if search done
-        $games = GameLibrary::when($query, function ($q) use ($query) {
-            $q->where('title', 'like', "%{$query}%");
-        })->get();
+        // get paginated games (keep total ~9 per page; if there's a featured game, show 1 featured + 8 results)
+        if ($featuredgame) {
+            $perPage = 9;
+            $games = GameLibrary::when($query, function ($q) use ($query, $featuredgame) {
+                $q->where('title', 'like', "%{$query}%")->where('id', '!=', $featuredgame->id);
+            })->paginate($perPage)->withQueryString();
+        } else {
+            $games = GameLibrary::when($query, function ($q) use ($query) {
+                $q->where('title', 'like', "%{$query}%");
+            })->paginate(9)->withQueryString();
+        }
 
         // if AJAX search, just a partial view is returned
         if ($request->ajax()) {
