@@ -11,6 +11,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="{{ asset('js/addbutton.js') }}"></script>
     <script src="{{ asset('js/library-search.js') }}"></script>
+    <script src="{{ asset('js/animations.js') }}"></script>
 
     <link rel="shortcut icon" type="image/x-icon" href="{{ asset('LogoJustIcon.ico') }}?v={{ time() }}">
 </head>

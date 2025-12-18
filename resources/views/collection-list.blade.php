@@ -14,3 +14,30 @@
 @empty
     <p>No games match your search.</p>
 @endforelse
+
+<div class="pagination-controls">
+    @php
+        $current = $games->currentPage();
+        $first = max(1, $current - 1);
+        $last = min($games->lastPage(), $current + 1);
+    @endphp
+
+    <a class="page-btn {{ $games->onFirstPage() ? 'disabled' : '' }}" href="{{ $games->previousPageUrl() ?? '#' }}">&lsaquo;</a>
+
+    @for($p = $first; $p <= $last; $p++)
+        @if($p == $current)
+            <span class="page-btn current">{{ $p }}</span>
+        @else
+            <a href="{{ $games->url($p) }}" class="page-btn">{{ $p }}</a>
+        @endif
+    @endfor
+
+    <a class="page-btn {{ $games->hasMorePages() ? '' : 'disabled' }}" href="{{ $games->nextPageUrl() ?? '#' }}">&rsaquo;</a>
+</div>
+
+<style>
+.pagination-controls{display:flex;gap:8px;justify-content:center;align-items:center;margin:18px 0 6vh 0}
+.pagination-controls .page-btn{background:#B23535;color:#fff;padding:10px 14px;border-radius:8px;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;border:none}
+.pagination-controls .page-btn.disabled{opacity:.4;cursor:default}
+.pagination-controls .page-btn.current{background:#7a7676}
+</style>
