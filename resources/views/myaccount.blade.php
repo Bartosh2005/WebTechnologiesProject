@@ -20,7 +20,8 @@
         @if(session('status') == 'two-factor-authentication-enabled')
             <br>
             2FA has been successfully enabled.<br>
-            Please scan the QR code below using your authenticator app.
+            Please scan the QR code below using your authenticator app<br>
+            and take note of your recovery codes.
         @endif
     </div></center>
 
@@ -28,9 +29,8 @@
         <div class="account-center">
             <div class="account-card">
                 <img src='https://ui-avatars.com/api/?name={{ urlencode(auth()->user()->name) }}&background=c83f3f&color=fff&size=128' alt="Avatar" class="account-avatar">
-                <h2 class="account-title">My Account</h2>
+                <h2 class="account-title">{{ auth()->user()->name }}</h2>
                 <div class="account-info">
-                    <p><strong>Name:</strong> {{ auth()->user()->name }}</p>
                     <p><strong>Email:</strong> {{ auth()->user()->email }}</p>
                     <p><strong>Role:</strong> {{ auth()->user()->role ?? 'User' }}</p>
                     <p><strong>Registered:</strong> {{ auth()->user()->created_at ? auth()->user()->created_at->format('Y-m-d') : 'N/A' }}</p>

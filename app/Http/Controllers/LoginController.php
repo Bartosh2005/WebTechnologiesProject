@@ -21,7 +21,6 @@ class LoginController extends Controller
         $adminEmail = 'admin@example.com';
         $adminPassword = 'admin123';
 
-        
         if ($request->email === $adminEmail && $request->password === $adminPassword) {
             session(['role' => 'admin']);
             $redirect = $request->input('redirect', '/');
@@ -51,7 +50,7 @@ class LoginController extends Controller
             session(['role' => 'user']);
             $redirect = $request->input('redirect', '/');
 
-            return redirect()->to($redirect)->with('success', 'You are now logged in!');
+            return redirect('/')->with('success', 'You are now logged in!');
         }
 
         return back()->with('error', 'Invalid credentials.');
@@ -63,6 +62,6 @@ class LoginController extends Controller
         auth()->logout();
         session()->forget('role');
 
-        return redirect('/login')->with('success', 'You have been logged out.');
+        return redirect('/')->with('success', 'You have been logged out.');
     }
 }

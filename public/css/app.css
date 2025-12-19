@@ -50,11 +50,25 @@ h2 {
 .MyAccount-button {
   background-color: #B23535;
   color: white;
+  font-weight: bold;
+  border: none;
+  padding: 10px 10px;
+  margin: 0.5% 0.5%;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  text-align: center;
+}
+
+.Login-button {
+  background-color: #B23535;
+  color: white;
+  font-weight: bold;
   border: none;
   padding: 18px 18px;
   margin: 0.5% 0.5%;
   border-radius: 10px;
   cursor: pointer;
   transition: background-color 0.3s;
-  text-align: right;
+  text-align: center;
 }
