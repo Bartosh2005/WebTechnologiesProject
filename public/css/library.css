@@ -1,3 +1,18 @@
+
+.pagination-controls{display:flex;gap:8px;justify-content:center;align-items:center;margin:18px 0 6vh 0}
+.pagination-controls .page-btn{background:#B23535;color:#fff;padding:10px 14px;border-radius:8px;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;border:none}
+.pagination-controls .page-btn.disabled{opacity:.4;cursor:default}
+.pagination-controls .page-btn.current{background:#7a7676}
+
+.pagination-jump{display:flex;justify-content:center;align-items:center;gap:8px;margin:8px 0 24px}
+.pagination-jump label{color:#333}
+.pagination-jump .total-pages{color:#666}
+
+.page-select{appearance:none;-webkit-appearance:none;-moz-appearance:none;background:#B23535;color:#fff;padding:10px 14px;border-radius:8px;border:none;cursor:pointer}
+.page-select:focus{outline:2px solid #7a7676;outline-offset:2px}
+
+
+
 .container {
     grid-template-columns: auto auto auto;
 }

@@ -35,9 +35,21 @@
     <a class="page-btn {{ $games->hasMorePages() ? '' : 'disabled' }}" href="{{ $games->nextPageUrl() ?? '#' }}">&rsaquo;</a>
 </div>
 
-<style>
-.pagination-controls{display:flex;gap:8px;justify-content:center;align-items:center;margin:18px 0 6vh 0}
-.pagination-controls .page-btn{background:#B23535;color:#fff;padding:10px 14px;border-radius:8px;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;border:none}
-.pagination-controls .page-btn.disabled{opacity:.4;cursor:default}
-.pagination-controls .page-btn.current{background:#7a7676}
-</style>
+@php
+    $totalLast = $games->lastPage();
+    $q = request('q');
+    $qs = $q ? '&q='.urlencode($q) : '';
+@endphp
+
+<div class="pagination-jump">
+    <label for="page-select">Go to page:</label>
+    <select id="page-select" class="page-select page-btn" onchange="location.href='?page='+this.value+'{{ $qs }}'">
+        @for($p = 1; $p <= $totalLast; $p++)
+            <option value="{{ $p }}" {{ $p == $current ? 'selected' : '' }}>{{ $p }}</option>
+        @endfor
+    </select>
+    <span class="total-pages">/ {{ $totalLast }}</span>
+    
+</div>
+
+ 
