@@ -14,7 +14,7 @@ return new class extends Migration
             $table->string('slug')->unique();
             $table->string('short_description')->nullable();
             $table->string('image')->nullable(); // path to uploaded oimage
-            $table->json('content')->nullable();      // structured content (headers + paragraphs)
+            $table->json('content')->nullable(); // structured content (headers + paragraphs)
             $table->timestamps();
         });
     }

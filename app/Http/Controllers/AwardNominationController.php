@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\AwardNomination;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
 class AwardNominationController extends Controller
 {
@@ -16,16 +15,6 @@ class AwardNominationController extends Controller
         ]);
 
         $userId = auth()->id();
-
-        // Check ownership
-        $owns = DB::table('user_game_library')
-            ->where('user_id', $userId)
-            ->where('game_library_id', $request->game_id)
-            ->exists();
-
-        if (! $owns) {
-            return response()->json(['message' => 'You can only nominate games you own.'], 400);
-        }
 
         AwardNomination::updateOrCreate(
             [

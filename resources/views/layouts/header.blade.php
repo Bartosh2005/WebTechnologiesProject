@@ -6,7 +6,7 @@
     <a href="{{ url('/newsletter') }}"><h1>MyNewsletter</h1></a>
     <a href="{{ url('/gameawards') }}"><h1>MyGameAwards</h1></a>
     <a href="{{ url('/collection') }}"><h1>MyCollection</h1></a>
-    @if(auth()->check())
+    @if(auth()->check() || session('role') === 'admin')
     <div class="account-box">
         <a href="{{ route('myaccount') }}">
             <button class="MyAccount-button">MyAccount</button>
@@ -18,7 +18,7 @@
         </form>
 
         @if(session('role') === 'admin')
-            <div>
+            <div class="adminMessage">
                 Logged in as Admin
             </div>
         @endif
