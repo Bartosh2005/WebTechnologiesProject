@@ -60,6 +60,7 @@ function externalSearch(query){
             });
 
             $('#girdlibrary').append(external);
+            $('#girdlibrary').parent().append("<center><h3 style='color:white;'>Some of the games are provided via <a href='https://www.igdb.com/'>IGDB</a>, a public game info library</h3></center>");
             console.log(res);
             $('#loaderhere').empty();
 

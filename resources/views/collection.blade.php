@@ -66,6 +66,7 @@
         <div class="games" id="gamesCollection">
             @include('collection-list', ['games' => $games, 'exgames' => $exgames])
         </div>
+        <center><h3 style='color:white;'>Some of the games are provided via <a href="https://www.igdb.com/">IGDB</a>, a public game info library</h3></center>
         <center><div id="loaderhere"></div></center>
         </div>
     </main>
