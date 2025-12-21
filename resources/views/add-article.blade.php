@@ -6,7 +6,6 @@
 
     <link rel="stylesheet" href="{{ asset('css/newsletter.css') }}">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/add-article.css') }}">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="shortcut icon" type="image/x-icon" href="{{ asset('LogoJustIcon.ico') }}?v={{ time() }}">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
@@ -39,16 +38,16 @@
                 </div>
 
                 <div class="form-field">
-                    <label for="image" class="form-label">Image</label>
+                    <label for="image" class="form-label">Image max 2048 kb</label>
                     <input type="file" name="image" id="image" class="form-control">
                 </div>
 
                 <div class="form-field">
                     <label for="short_description" class="form-label">Short description</label>
-                    <input type="text" name="short_description" id="short_description" class="form-control">
+                    <input type="text" name="short_description" id="short_description" class="form-control" placeholder="Description">
                 </div>
 
-                <hr style="width:80%; border-color:#444">
+                <hr style="width:30%; border-color:#444">
 
                 <h3 style="color:white;">Article sections</h3>
                 <p style="color:#aaa">Add as many headers and paragraphs as you need.</p>
@@ -58,12 +57,12 @@
                   <div class="section" data-index="0">
                     <div class="form-field">
                       <label class="form-label">Header</label>
-                      <input type="text" name="content[0][header]" class="form-control section-header" placeholder="Section header">
+                      <input type="text" name="content[0][header]" class="form-control section-header" placeholder="Section header" required>
                     </div>
 
                     <div class="form-field">
                       <label class="form-label">Paragraph</label>
-                      <textarea name="content[0][paragraph]" class="form-control section-paragraph" rows="4" placeholder="Section text"></textarea>
+                      <textarea name="content[0][paragraph]" class="form-control section-paragraph" rows="4" placeholder="Section text" required></textarea>
                     </div>
 
                     <div class="section-controls">
@@ -71,7 +70,7 @@
                       <button type="button" class="btn remove-section" style="display:none;">- Remove</button>
                     </div>
 
-                    <hr style="width:70%; border-color:#333">
+                    <hr style="width:20%; border-color:#444">
                   </div>
                 </div>
 

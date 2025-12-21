@@ -11,7 +11,7 @@ return new class extends Migration
         Schema::create('award_nominations', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
-            $table->foreignId('game_id')->constrained('games')->onDelete('cascade');
+            $table->foreignId('game_id')->constrained('games_library')->onDelete('cascade');
             $table->foreignId('category_id')->constrained('award_categories')->onDelete('cascade');
             $table->timestamps();
 

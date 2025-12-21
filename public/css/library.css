@@ -38,9 +38,7 @@ form button {
     transition: background-color 0.3s;
 }
 
-form button:hover {
-    background-color: #c83f3f;
-}
+
 
 .title-size {
     font-size: xx-large;
@@ -80,4 +78,14 @@ form button:hover {
     cursor: pointer;
     transition: background-color 0.3s;
     text-align: right;
+}
+
+.nominate-btn:hover {
+    opacity: 0.8;
+    color: #ff5555;
+}
+
+.remove-from-library-btn:hover {
+    opacity: 0.8;
+    color: #ff5555;
 }

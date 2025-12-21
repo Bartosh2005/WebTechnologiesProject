@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\AwardController;
+use App\Http\Controllers\AwardNominationController;
 use App\Http\Controllers\CollectionController;
 use App\Http\Controllers\GameController;
 use App\Http\Controllers\WelcomeController;
@@ -26,11 +28,8 @@ Route::get('/newsletter', function () {
     return view('newsletter', compact('games'));
 });
 
-Route::get('/gameawards', function () {
-    $games = [];
-
-    return view('gameawards', compact('games'));
-});
+Route::get('/gameawards', [AwardController::class, 'index'])
+    ->name('awards.index');
 
 Route::get('/welcome', [WelcomeController::class, 'index']);
 Route::get('/account', function () {

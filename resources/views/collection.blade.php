@@ -12,7 +12,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="{{ asset('js/searchbar.js') }}"></script>
     <script src="{{ asset('js/removebutton.js') }}"></script>
-    <script src="{{ asset('js/gameslist.js') }}"></script>
     <script src="{{ asset('js/cookies.js') }}"></script>
     <script src="{{ asset('js/nominations.js') }}" defer></script>
     <script src="https://kit.fontawesome.com/56dbcf3753.js" crossorigin="anonymous"></script>

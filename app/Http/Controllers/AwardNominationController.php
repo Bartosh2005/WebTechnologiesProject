@@ -2,12 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\AwardNomination;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+
 class AwardNominationController extends Controller
 {
     public function nominate(Request $request)
     {
         $validated = $request->validate([
-            'game_id' => 'required|exists:games,id',
+            'game_id' => 'required|exists:games_library,id',
             'category_id' => 'required|exists:award_categories,id',
         ]);
 
@@ -16,7 +20,7 @@ class AwardNominationController extends Controller
         // Check ownership
         $owns = DB::table('user_game_library')
             ->where('user_id', $userId)
-            ->where('game_id', $request->game_id)
+            ->where('game_library_id', $request->game_id)
             ->exists();
 
         if (! $owns) {

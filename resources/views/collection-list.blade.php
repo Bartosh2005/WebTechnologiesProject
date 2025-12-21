@@ -9,19 +9,21 @@
             <button class="remove-from-library-btn" data-game-id="{{ $game->id }}">
                 Remove from MyCollection
             </button>
-        </div>
-         <div class="nomination-area">
-    <select class="nomination-category" data-game-id="{{ $game->id }}">
-        <option value="">Nominate for...</option>
-        @foreach($categories as $category)
-            <option value="{{ $category->id }}">{{ $category->name }}</option>
-        @endforeach
-    </select>
+            <div class="nomination-area">
+                <select class="nomination-category" data-game-id="{{ $game->id }}">
+                    <option value="">Nominate for...</option>
 
-    <button class="nominate-btn" data-game-id="{{ $game->id }}">
-        Nominate
-    </button>
-</div>
+                    @foreach($categories as $category)
+                        <option value="{{ $category->id }}">{{ $category->name }}</option>
+                    @endforeach
+                </select>
+
+                <button class="nominate-btn" data-game-id="{{ $game->id }}">
+                Nominate
+                </button>
+            </div>
+        </div>
+        
     </div>
    
 @empty
