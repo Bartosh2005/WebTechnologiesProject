@@ -18,19 +18,27 @@ $(function () {
     glowOn = !glowOn;
     $("#search-bar-library").css(
       "box-shadow",
-      glowOn ? "0 0 16px #f65c4eff, inset 0 0 6px #ee6255ff" : "none"
+      glowOn ? "0 0 16px #ec968eff, inset 0 0 6px #f5a39bff" : "none"
     );
   }, 700);
 
   // Fade-in the library grid items one by one
   var $grid = $("#girdlibrary"); 
   var $items = $grid.children();
-  $items.css({ opacity: 0, transform: "translateY(20px)", transition: "all 0.5s" });
+  $items.css({ opacity: 0, transform: "translateY(16px)", transition: "all 0.4s" });
   $items.each(function (index) {
     var $el = $(this);
     setTimeout(function () {
       $el.css({ opacity: 1, transform: "translateY(0)" });
-    }, 150 * index);
+    }, 120 * index);
+  });
+
+  // Hover scale for grid items 
+  $(document).on("mouseenter", "#girdlibrary > *", function () {
+    $(this).css({ transform: "scale(1.02)", transition: "transform 120ms" });
+  });
+  $(document).on("mouseleave", "#girdlibrary > *", function () {
+    $(this).css({ transform: "scale(1)" });
   });
 
   // Pulse on admin button
@@ -71,7 +79,6 @@ $(function () {
     setTimeout(function () { $dot.css({ opacity: 0, transform: "scale(6)" }); }, 10);
     setTimeout(function () { $dot.remove(); }, 420);
   }
-  //Adding some feedback when adding/removing from library
   $(document).on("click", ".add-to-library-btn", function () {
     var $btn = $(this);
     bounce($btn);
@@ -84,16 +91,6 @@ $(function () {
     burst($btn, "#ef4444"); 
   });
   
-
-  // Glowing search bar
-  var glowOn2 = false;
-  setInterval(function () {
-    glowOn2 = !glowOn2;
-    $("#search-bar").css(
-      "box-shadow",
-      glowOn2 ? "0 0 14px #f75f4eff, inset 0 0 5px #f46c51ff" : "none"
-    );
-  }, 900);
 
   // Game cards fade in
   var $collection = $("#gamesCollection .game");
