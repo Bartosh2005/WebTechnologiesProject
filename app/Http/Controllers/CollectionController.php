@@ -20,6 +20,7 @@ class CollectionController extends Controller
         $igdb = require 'igdb.php';
         $client_id = $igdb['client_id'];
         $auth = $igdb['auth'];
+        $body = 'search "'.$query.'"; fields *;';
 
         $exgames = Http::withHeaders([
             'Client-ID' => $client_id,
