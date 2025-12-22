@@ -24,15 +24,18 @@ $(function () {
   }, 700);
 
   // Library games fade in
-  var $grid = $("#girdlibrary"); 
-  var $items = $grid.children();
-  $items.css({ opacity: 0, transform: "translateY(16px)", transition: "all 0.4s" });
-  $items.each(function (index) {
-    var $el = $(this);
-    setTimeout(function () {
-      $el.css({ opacity: 1, transform: "translateY(0)" });
-    }, 120 * index);
-  });
+  function fadeInLibraryCards() {
+    var $grid = $("#girdlibrary"); 
+    var $items = $grid.children();
+    $items.css({ opacity: 0, transform: "translateY(16px)", transition: "all 0.4s" });
+    $items.each(function (index) {
+      var $el = $(this);
+      setTimeout(function () {
+        $el.css({ opacity: 1, transform: "translateY(0)" });
+      }, 120 * index);
+    });
+  }
+  fadeInLibraryCards();
 
   // Hover scale for grid items 
   $(document).on("mouseenter", "#girdlibrary > *", function () {
