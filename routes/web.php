@@ -113,6 +113,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/collection', [CollectionController::class, 'index'])->name('collection.index');
     Route::get('/getDataFromIGDB/{query}/', [CollectionController::class, 'getDataFromIGDB'])->name('collection.getDataFromIGDB');
     Route::get('/getDataFromIGDBcustomquery/{query}/', [CollectionController::class, 'getDataFromIGDBcustomquery'])->name('collection.getDataFromIGDBcustomquery');
+    Route::get('/collection/external', [CollectionController::class, 'externalCollectionGames'])->name('collection.external');
     Route::post('/collection/add/{gameLibrary}', [CollectionController::class, 'add'])->name('collection.add');
     Route::post('/collection/remove/{gameLibrary}', [CollectionController::class, 'remove'])->name('collection.remove');
     Route::get('/myaccount', function () {

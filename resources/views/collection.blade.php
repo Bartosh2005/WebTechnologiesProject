@@ -64,7 +64,7 @@
         {{--var_dump($exgames)--}}
         {{--var_dump($querylist)--}}
         <div class="games" id="gamesCollection">
-            @include('collection-list', ['games' => $games, 'exgames' => $exgames])
+            @include('collection-list', ['games' => $games])
         </div>
         <center><h3 style='color:white;'>Some of the games are provided via <a href="https://www.igdb.com/">IGDB</a>, a public game info library</h3></center>
         <center><div id="loaderhere"></div></center>

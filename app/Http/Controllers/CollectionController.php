@@ -58,7 +58,7 @@ class CollectionController extends Controller
         $exgames = Http::withHeaders([
             'Client-ID' => $client_id,
             'Authorization' => $auth,
-        ])->withBody($query, 'text/plain')->post($url);
+        ])->withBody(filter_var($query, FILTER_SANITIZE_STRING), 'text/plain')->post($url);
 
         $exgames = $exgames->json();
 
@@ -81,6 +81,26 @@ class CollectionController extends Controller
     }
 
 
+    public function externalCollectionGames(Request $request)
+    {
+        $user = $request->user();
+
+        $exids = DB::table('external_library_game_user')
+            ->where('user_id', '=', $user->id)
+            ->pluck('game_id')
+            ->toArray();
+
+        if (empty($exids)) {
+            return response()->json([]);
+        }
+
+        $querylist = implode(',', $exids);
+        $exgames = $this->getDataFromIGDBcustomquery("fields *; where id=($querylist);");
+
+        return response()->json($exgames);
+    }
+
+
     public function index(Request $request)
     {
         $user = $request->user();
@@ -93,18 +113,10 @@ class CollectionController extends Controller
             ->get();
 
         if ($request->ajax()) {
-            return view('collection-list', compact('games', 'exgames'))->render();
+            return view('collection-list', compact('games'))->render();
         }
 
-        $exids = DB::table('external_library_game_user')->where('user_id', '=', $user->id)->pluck('game_id')->toArray();
-        $querylist = "";
-        foreach($exids as $exid){
-            $querylist=$querylist.strval($exid).",";
-        }
-        $querylist = substr($querylist, 0, -1);
-        $exgames = $this->getDataFromIGDBcustomquery("fields *; where id=(".$querylist.");");
-        // $querylist = "fields *; where id=(".$querylist.");";
-        return view('collection', compact('games', 'exgames'));
+        return view('collection', compact('games'));
     }
 
     public function library_index(Request $request)
