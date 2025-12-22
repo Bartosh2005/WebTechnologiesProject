@@ -1,5 +1,5 @@
 
-
+//Typing animation
 $(function () {
   var $title = $(".title-size");
   var fullText = $title.text();
@@ -13,6 +13,7 @@ $(function () {
     }
   }, 60);
 
+//Glowing search bar
   var glowOn = false;
   setInterval(function () {
     glowOn = !glowOn;
@@ -22,7 +23,7 @@ $(function () {
     );
   }, 700);
 
-  // Fade-in the library grid items one by one
+  // Library games fade in
   var $grid = $("#girdlibrary"); 
   var $items = $grid.children();
   $items.css({ opacity: 0, transform: "translateY(16px)", transition: "all 0.4s" });
