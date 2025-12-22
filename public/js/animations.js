@@ -13,7 +13,7 @@ $(function () {
     }
   }, 60);
 
-//Glowing search bar
+//Glowing search bar in library
   var glowOn = false;
   setInterval(function () {
     glowOn = !glowOn;
@@ -36,7 +36,7 @@ $(function () {
 
   // Hover scale for grid items 
   $(document).on("mouseenter", "#girdlibrary > *", function () {
-    $(this).css({ transform: "scale(1.02)", transition: "transform 120ms" });
+    $(this).css({ transform: "scale(1.10)", transition: "transform 120ms" });
   });
   $(document).on("mouseleave", "#girdlibrary > *", function () {
     $(this).css({ transform: "scale(1)" });

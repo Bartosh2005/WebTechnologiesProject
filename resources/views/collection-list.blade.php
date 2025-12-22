@@ -17,38 +17,41 @@
 
 <div class="pagination-controls">
     @php
+        $q = request('q');
+        $qs = $q ? '&q='.urlencode($q) : '';
         $current = $games->currentPage();
-        $first = max(1, $current - 1);
-        $last = min($games->lastPage(), $current + 1);
+        $last = $games->lastPage();
+        $pages = collect([$current - 1, $current, $current + 1])
+            ->filter(fn($p) => $p >= 1 && $p <= $last)
+            ->unique()
+            ->values();
     @endphp
 
-    <a class="page-btn {{ $games->onFirstPage() ? 'disabled' : '' }}" href="{{ $games->previousPageUrl() ?? '#' }}">&lsaquo;</a>
+    <a
+        class="page-btn {{ $games->onFirstPage() ? 'disabled' : '' }}"
+        href="{{ $games->onFirstPage() ? '#' : ('?page='.($current - 1).$qs) }}">&lsaquo;</a>
 
-    @for($p = $first; $p <= $last; $p++)
+    @foreach($pages as $p)
         @if($p == $current)
             <span class="page-btn current">{{ $p }}</span>
         @else
-            <a href="{{ $games->url($p) }}" class="page-btn">{{ $p }}</a>
+            <a href="{{ '?page='.$p.$qs }}" class="page-btn">{{ $p }}</a>
         @endif
-    @endfor
+    @endforeach
 
-    <a class="page-btn {{ $games->hasMorePages() ? '' : 'disabled' }}" href="{{ $games->nextPageUrl() ?? '#' }}">&rsaquo;</a>
+    <a
+        class="page-btn {{ $games->hasMorePages() ? '' : 'disabled' }}"
+        href="{{ $games->hasMorePages() ? ('?page='.($current + 1).$qs) : '#' }}">&rsaquo;</a>
 </div>
-
-@php
-    $totalLast = $games->lastPage();
-    $q = request('q');
-    $qs = $q ? '&q='.urlencode($q) : '';
-@endphp
 
 <div class="pagination-jump">
     <label for="page-select">Go to page:</label>
     <select id="page-select" class="page-select page-btn" onchange="location.href='?page='+this.value+'{{ $qs }}'">
-        @for($p = 1; $p <= $totalLast; $p++)
+        @for($p = 1; $p <= $last; $p++)
             <option value="{{ $p }}" {{ $p == $current ? 'selected' : '' }}>{{ $p }}</option>
         @endfor
     </select>
-    <span class="total-pages">/ {{ $totalLast }}</span>
+    <span class="total-pages">/ {{ $last }}</span>
     
 </div>
 
