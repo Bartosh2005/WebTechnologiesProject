@@ -7,7 +7,7 @@
             <h3>{{ $game->title }}</h3>
             <p>{{ \Illuminate\Support\Str::limit($game->description, 100) }}</p>
             <button class="remove-from-library-btn" data-game-id="{{ $game->id }}">
-                Remove from MyCollection
+                {{ __('Remove from MyCollection') }}
             </button>
         </div>
     </div>

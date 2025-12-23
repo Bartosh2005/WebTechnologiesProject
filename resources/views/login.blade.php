@@ -28,7 +28,7 @@
                 </ul>
             </div>
         @endif
-        <form method="POST" action="{{ route('login') }}">
+        <form method="POST" action="{{ route('login.submit', ['locale' => app()->getLocale()]) }}">
             @csrf
             <input type="hidden" name="redirect" value="{{ request('redirect') }}">
             <input type="email" name="email" placeholder="Email" value="{{ old('email') }}" required><br>

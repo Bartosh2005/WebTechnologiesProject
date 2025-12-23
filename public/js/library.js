@@ -10,7 +10,8 @@ function addGame(item) {
     let safeId = "popup-" + item.title.replace(/\s+/g, '-');
     let addButton = '';
     if (typeof isAuthenticated !== 'undefined' && isAuthenticated) {
-        addButton = `<button class="add-button" onclick="saveToMyCollection('${item.title}')"> Add to MyCollection </button>`;
+        var addLabel = (window.__labels && window.__labels.add_to_collection) ? window.__labels.add_to_collection : 'Add to MyCollection';
+        addButton = `<button class="add-button" onclick="saveToMyCollection('${item.title}')"> ${addLabel} </button>`;
     }
     collection.innerHTML += `
         <div class="sub-article" style="background-image: url('/imgs/${item.img}')" onclick="openPopup('${safeId}')">
@@ -34,7 +35,8 @@ function clearGames() {
     var collection = document.getElementById("girdlibrary");
     let addButton = '';
     if (typeof isAuthenticated !== 'undefined' && isAuthenticated) {
-        addButton = `<button class="add-button" onclick="saveToMyCollection('Clash of Clans')"> Add to MyCollection </button>`;
+        var addLabel = (window.__labels && window.__labels.add_to_collection) ? window.__labels.add_to_collection : 'Add to MyCollection';
+        addButton = `<button class="add-button" onclick="saveToMyCollection('Clash of Clans')"> ${addLabel} </button>`;
     }
     collection.innerHTML = `
     <div class="featured-article" style="background-image: url('/imgs/coc.jpg')">
@@ -80,7 +82,9 @@ function toggleMyCollection(title, btn) {
     .then(res => res.json())
     .then(() => {
         // Update button text dynamically
-        btn.textContent = action === 'add' ? 'Added' : 'Add to MyCollection';
+        var addedLabel = (window.__labels && window.__labels.added) ? window.__labels.added : 'Added';
+        var addLabel = (window.__labels && window.__labels.add_to_collection) ? window.__labels.add_to_collection : 'Add to MyCollection';
+        btn.textContent = action === 'add' ? addedLabel : addLabel;
     })
     .catch(err => console.error(err));
 }

@@ -10,7 +10,7 @@
                 class="add-button {{ $owned ? 'remove-from-library-btn' : 'add-to-library-btn' }}" 
                 data-game-id="{{ $featuredgame->id }}" 
                 style="{{ $owned ? 'background-color: #515151; color: #fff;' : '' }}">
-                {{ $owned ? 'Remove from MyCollection' : 'Add to MyCollection' }}
+                {{ $owned ? __('Remove from MyCollection') : __('Add to MyCollection') }}
             </button>
         @endauth
 
@@ -56,7 +56,7 @@
                     class="add-button {{ $owned ? 'remove-from-library-btn' : 'add-to-library-btn' }}" 
                     data-game-id="{{ $game->id }}" 
                     style="{{ $owned ? 'background-color: #515151; color: #fff;' : '' }}">
-                    {{ $owned ? 'Remove from MyCollection' : 'Add to MyCollection' }}
+                    {{ $owned ? __('Remove from MyCollection') : __('Add to MyCollection') }}
                 </button>
             @endauth
 

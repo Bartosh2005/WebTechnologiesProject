@@ -53,7 +53,7 @@
 
     <main>
         <h2 style="text-align:center; color:#c83f3f; font-size:2.2rem; margin-top: 24px; margin-bottom: 10px; letter-spacing: 1px;">
-            {{ Auth::user()->name }}'s Collection
+            {{ Auth::user()->name }}{{ __('`s Collection') }}
         </h2>
         <div class="search" style="display:grid;grid-template-columns: 2% auto 2% 2%;padding:1%;">
             <div class="searchicon"><i class="fa-solid fa-magnifying-glass"></i></div>

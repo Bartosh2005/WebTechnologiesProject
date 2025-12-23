@@ -22,11 +22,9 @@ Route::get('/library', function () {
     return view('library', compact('games'));
 });
 
-Route::get('/collection', function () {
-    $games = [];
-
-    return view('collection', compact('games'));
-});
+// The `/collection` page is protected by authentication and has a controller-based route
+// defined later with middleware('auth'). Removing the duplicate unprotected route prevents
+// unauthenticated users from hitting a view that expects an authenticated user.
 
 Route::get('/newsletter', function () {
     $games = [];
@@ -100,7 +98,8 @@ Route::get('/login', function () {
 
 Route::post('/register', [RegisterController::class, 'register']);
 
-Route::post('/login', [App\Http\Controllers\LoginController::class, 'login'])->name('login');
+// POST handler for login - named `login.submit` to avoid colliding with the GET route name
+Route::post('/login', [App\Http\Controllers\LoginController::class, 'login'])->name('login.submit');
 
 Route::post('/logout', [App\Http\Controllers\LoginController::class, 'logout'])->name('logout');
 
@@ -119,4 +118,11 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/library', [CollectionController::class, 'library_index'])->name('library.index');
 
+});
+
+// Fallback for bare `/login` (no locale prefix) - redirect to localized login using cookie or default locale
+Route::get('/login', function () {
+    $locale = request()->cookie('locale') ?? config('app.locale');
+    $locale = $locale ?: config('app.locale');
+    return redirect('/' . $locale . '/login');
 });

@@ -45,26 +45,27 @@ class CollectionController extends Controller
         return view('library', compact('featuredgame', 'games'));
     }
 
-    public function add(GameLibrary $gameLibrary, Request $request)
+    public function add($locale = null, GameLibrary $gameLibrary, Request $request)
     {
+        // $locale originates from the optional route prefix, we don't need it here but accept it
         $user = $request->user();
         $user->gameLibrary()->syncWithoutDetaching([$gameLibrary->id]);
 
         // If request is AJAX, respond with JSON
-        if ($request->ajax()) {
+        if ($request->ajax() || $request->expectsJson()) {
             return response()->json(['success' => true, 'added' => true]);
         }
 
         return back()->with('success', 'Game added to your collection.');
     }
 
-    public function remove(GameLibrary $gameLibrary, Request $request)
+    public function remove($locale = null, GameLibrary $gameLibrary, Request $request)
     {
         $user = $request->user();
         $user->gameLibrary()->detach($gameLibrary->id);
 
         // For AJAX requests, return success, since it worked
-        if ($request->ajax()) {
+        if ($request->ajax() || $request->expectsJson()) {
             return response()->json(['success' => true]);
         }
 

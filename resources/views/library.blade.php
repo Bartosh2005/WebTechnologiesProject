@@ -32,8 +32,8 @@
 
                 <center>
                     <p><br><br></p>
-                    <h2 class="title-size">Browse the full library of GameVault and add games to MyCollection!</h2><br>
-                    <input id="search-bar-library" type="text" placeholder="Search any game in MyGameBrowser to add to MyCollection.."><br>
+                    <h2 class="title-size">{{ __('Browse the full library of GameVault and add games to MyCollection!') }}</h2><br>
+                    <input id="search-bar-library" type="text" placeholder="{{ __('Search any game in MyGameBrowser to add to MyCollection..') }}"><br>
                 </center>
 
                 <div class="grid-container" id="girdlibrary">

@@ -12,7 +12,8 @@ class SetLocale
      */
     public function handle(Request $request, Closure $next)
     {
-        $locale = $request->route('locale');
+        // Priority: route param -> cookie -> default config
+        $locale = $request->route('locale') ?? $request->cookie('locale') ?? config('app.locale');
 
         if ($locale && array_key_exists($locale, config('app.available_locales', []))) {
             app()->setLocale($locale);
