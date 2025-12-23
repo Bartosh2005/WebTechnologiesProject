@@ -13,7 +13,6 @@ document.addEventListener('DOMContentLoaded', function() {
     container.style.gap = '8px';
     container.style.marginTop = '8px';
 
-    // Accessible sr-only label (kept for screen readers)
     var label = document.createElement('label');
     label.setAttribute('for', 'footer-locale-select');
     label.className = 'sr-only';
@@ -36,12 +35,12 @@ document.addEventListener('DOMContentLoaded', function() {
     container.appendChild(label);
     container.appendChild(select);
 
-    // Append to footer (centered)
+    // Append to footer
     footer.appendChild(container);
 
     function buildLocalizedPath(locale) {
-        var path = window.location.pathname; // e.g. '/en/welcome' or '/welcome' or '/'
-        var parts = path.split('/').filter(Boolean); // ['en','welcome'] or ['welcome'] or []
+        var path = window.location.pathname; 
+        var parts = path.split('/').filter(Boolean); 
         var codes = Object.keys(locales);
 
         if (parts.length && codes.indexOf(parts[0]) !== -1) {

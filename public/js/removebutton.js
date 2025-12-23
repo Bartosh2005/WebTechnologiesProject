@@ -35,7 +35,7 @@ $(document).ready(function () {
                 return;
             }
 
-            // Smooth fade out and remove the game card from the page - again, for the collection
+            // cleansmooth fade out and remove the game card from the page - again, for the collection
             button.closest('.game').fadeOut(300, function () {
                 $(this).remove();
             });

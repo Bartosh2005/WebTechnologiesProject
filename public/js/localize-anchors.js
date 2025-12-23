@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             }
         } catch (e) {
-            // ignore
+            // just ignore
         }
     });
 });
